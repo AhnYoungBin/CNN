@@ -47,8 +47,9 @@ https://github.com/JeongGyuJun/classification_vgg16net - VGG16구현.
 두 개의 3 x 3 Conv Layer가 5 x 5 Conv Layer보다 효과적인 수용필드를 가지는 것으로(두 개 사이의 공간 pooling 없이) Layer 7 x 7 size 의 효과적인 수용 필드를 가짐.
 
 - 7 x 7 Conv Layer 대신 3개의 3 x 3 Conv Layer 사용하여 얻을 수 있는 효과.
-1.  한 개의 비선형 계층 대신 세 개의 비선형 계층을 통합하여 의사결정 기능을 더욱 차별화함.
-2.  3계층 3 x 3 convolutional  stack의 입력과 출력이 모두 C 채널을 가지고 있다고 가정하면, stack은 27C^2 가중치에 의해 변수화 된다. 동시에 단일 7 x 7 Conv Layer는 49C^2 매개변수를 필요로 함. 이것은 파라미터의 수를 감소할 수 있는 부분으로 연산량을 줄일 수 있는 효과를 가져옴.
+
+1.  한 개의 비선형 계층 대신 세 개의 비선형 계층을 통합하여 의사결정 기능을 더욱 차별화함.	
+2.  계층 3 x 3 convolutional  stack의 입력과 출력이 모두 C 채널을 가지고 있다고 가정하면, stack은 27C^2 가중치에 의해 변수화 된다. 동시에 단일 7 x 7 Conv Layer는 49C^2 매개변수를 필요로 함. 이것은 파라미터의 수를 감소할 수 있는 부분으로 연산량을 줄일 수 있는 효과를 가져옴.
 
 1 x 1 Conv Layer의 통합은 Conv Layer의 수용 필드에 영향을 주지 않고, 의사결정 기능의 비선형성을 높이는 방법으로 여기서는 1 x 1 Conv이 본질적으로 동일한 공간에 대한 선형 투영이지만(입출력 채널의 개수는 동일), 추가적인 비선형성은 정류 함수에 도입된다. LIN(Network In Network)아키텍처에 사용되었다는 점에 유의함.
 

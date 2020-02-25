@@ -13,7 +13,9 @@ https://github.com/JeongGyuJun/classification_vgg16net - VGG16구현.
 
 #### 1. INTRODUCTION
 컨볼루션 네트워크(Convolutional Networks, Convnets)이 컴퓨터 비전 분야에서 큰 비중을 차지함에 따라 여러가지 측면에서 개선사항을 찾았지만 본 논문에서는 또 다른 중요한 측면, 깊이에 대해서 다룸.
+
 이를 위해 아키텍처의 다른 매개변수를 수정하고, 모든 계층에서 (3x3)의 컨볼루션 필터를 사용하여 네트워크의 깊이를 꾸준히 높임.
+
 결과적으로 ILSVRC classification and localization에서 높은 정확도를 달성할 뿐만 아니라, 단순한 파이프라인(정밀 조정없이 선형 SVM으로 분류된 심층 기능)으로 우수한 성능을 얻으며, 두 가지(16layer, 19layer) 최고의 성과를 낸 모델을 출시하고 다른 이미지 인식 데이터 셋에도 적용이 가능함.
 
 #### 2. CONVNET CONFIGURATIONS

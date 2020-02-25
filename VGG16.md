@@ -18,6 +18,9 @@
 일반 레이아웃을 설명한 다음 평가에 사용되는 특정 구성을 자세히 설명. 
 
 ##### 2-1. ARCHITECTURE
+
+![image](https://user-images.githubusercontent.com/45933225/75259817-f7a75c80-582b-11ea-8cdc-4d6f63d417fd.png)
+
 - Conv Layer
 훈련 Convnets에 대한 입력은 고정 크기 224 x 224의 RGB 이미지이며, 사전 처리는 훈련 세트에서 계산된 평균 RGB 값을 각 픽셀에서 빼는 것이다. 이후 이미지는 conv layer 통과하며 3 x. 3필터(좌/우, 위/아래, 중앙의 개념을 포착하기 위한 가장 작은 크기)를 사용한다.  즉, 패딩은 3 x 3 레이어로 1 픽셀을 뜻한다. 구성중에서 1 x 1필터를 사용하는데, 이것은 입력 채널의 선형 변환으로 볼 수 있다. 공간 풀링으로는 5개의 max pooling layer가 수행되며 일부 Conv 레이어를 따른다. Max pooling은 stride 2와 함께 2 x 2 픽셀에서 수행을 함.
 
@@ -27,9 +30,16 @@
 공통적으로는 모든 숨겨진 층에는 activation(ReLU function)인 비선형성이 구비되어 있음. 그리고 네트워크 중 어느것도(하나를 제외하고) LRN(Local Response Normalization)을 정규화를 포함하지 않음. 정규화는 성능면에서는 향상시키지 못하면서 메모리 소비와  계산 시간을 증가시킨다.
 
 ##### 2-2. CONFIGURATIONS
+
+![image](https://user-images.githubusercontent.com/45933225/75259827-faa24d00-582b-11ea-92d9-c6886394f7aa.png)
+![image](https://user-images.githubusercontent.com/45933225/75259833-fd9d3d80-582b-11ea-930a-08ee0a6c7db8.png)
+
 (A, A-LRN, B, C, D, E)각 구성이 지남에 따라 Conv Layer 자세한 구성과 깊이을 확인할 수 있고 그에 따른 가중치 수도 증가함을 볼 수 있지만 동시에 큰 깊이에도 불구하고 가중치 수는 크지 않음도 확인이 가능함.
 
 ##### 2-3. DISCUSSION
+
+![image](https://user-images.githubusercontent.com/45933225/75259839-ff670100-582b-11ea-9b9a-864fa6b9db42.png)
+
 두 개의 3 x 3 Conv Layer가 5 x 5 Conv Layer보다 효과적인 수용필드를 가지는 것으로(두 개 사이의 공간 pooling 없이) Layer 7 x 7 size 의 효과적인 수용 필드를 가짐.
 
 - 7 x 7 Conv Layer 대신 3개의 3 x 3 Conv Layer 사용하여 얻을 수 있는 효과.
@@ -57,6 +67,8 @@ Convnet 훈련 절차는 일반적으로 Krizhevsky 외 연구진으로 구성�
 네트워크의 가중치의 초기화가 심층망에서 경사로의 불안정성으로 인해 학습을 지연시킬 수 있기 때문에 네트워크 가중치의 초기화가 중요함. 이 문제를 피하기 위해 무작위 초기화로 교육할 수 있을 정도로 얕은 구성부터 시작하여 나중에는 글로트&벤기오의 무작위 초기화 절차를 이요하여 사전 훈련 없이 체중을 초기화하는 것이 가능하다는 것을 알았음.
 
 -Training image size
+
+
 고정 크기 224 x 224 Convnet 입력 이미지를 얻기 위해 축소된 교육 이미지에서 무작위로 잘라내었음.
 S(훈련 해상도)를 동위원소 축소된 교육 이미지의 가장 작은 측면으로 설정하여 Convnet 입력이 잘려나감.
 S는 224 x 224로 고정되며 이상의 값을 취할 수 있음.
@@ -87,16 +99,21 @@ Dataset 1000 classes, training(1.3M images), validation(50K images), test(100K i
 ##### 4.1 SINGLE SCALE EVALUATION
 Convnet 모델의 성능을 단일 척도로 평가하는 것으로 시작으로 테스트 이미지 크기는 다음과 같이 설정을 함.
 
+![image](https://user-images.githubusercontent.com/45933225/75259851-03931e80-582c-11ea-8ce1-336759f95449.png)
 
 single-scale test영상을 적용했을 때의 결과는 위에 있는 표와 같다. 망이 깊어질수록 결과가 좋아지고, 학습에 scale jittering을 사용한 경우에 결과가 더 좋아진다는 것을 확인할 수 있음.
 
 ##### 4-2. MULTI-SCALE EVALUATION
 Convnet 모델을 단일 해상도로 평가한 후,  Test에 스케일 지터링(scale jittering)의 영향을 평가함.
 
+![image](https://user-images.githubusercontent.com/45933225/75259863-0988ff80-582c-11ea-80b5-9968c4e5067b.png)
+
 S가 고정된 경우는 (S-32, S, S+32)로 Q 값을 변화 시키면서 Test를 하며, 학습의 scale과 Test의 scale이 많이 차이가 나는 경우는 오히려 결과가 더 좋지 못해 32만큼 차이가 나게 하여 Test를 진행함. 
 
 ##### 4-3. MULTI-CROP EVALUATION
 Dense Convnet Evaluation를 Multi-Crop Evaluation과 비교를 하며 또한 두 평가 기법의 소프트맥스 출력을 평균화하여 상호보완성을 평가한다.
+
+![image](https://user-images.githubusercontent.com/45933225/75259863-0988ff80-582c-11ea-80b5-9968c4e5067b.png)
 
 학습에 스케일 지터링을 적용한 경우는 출력의 크기는 [256, 384, 512]로 Test 영상의 크기를 정했으며, 예상처럼 스케일 지터링을 적용하지 않은 것보다 훨씬 결과가 좋고, single-scale 보다는 multi-scale이 결과가 좋다는 것을 확인할 수 있음을 위에 있는 표를 통해서 확인 가능함.
 
@@ -106,7 +123,7 @@ Dense Convnet Evaluation를 Multi-Crop Evaluation과 비교를 하며 또한 두
 ##### 4-5 COMPARISON WITH THE STATE OF THE ART
 ILSVRC-2014 분류 과제로 7개 모델의 앙상블을 사용하여 7.3%의 테스트 오차로 2위를 차지했다.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75259876-10b00d80-582c-11ea-9a81-acac6707a2e4.png)
 
 #### 5. 결론
 대량의 이미지 분류에 대한 매우 깊은 경직망(최대 19개)을 평가하며 표현 깊이가 분류 정확도에 이롭다는 것이 입증되었으며, 깊은 Convnet 아키텍처를 사용하여 ImageNet 챌린지 데이터 세트의 높은 성능을 달성할 수 있었다.

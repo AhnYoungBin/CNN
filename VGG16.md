@@ -44,6 +44,7 @@ Convnet 교육 및 평가 분류의 세부사항을 설명함.
 ##### 3-1. TRAINING
 Convnet 훈련 절차는 일반적으로 Krizhevsky 외 연구진으로 구성함.
 즉, 다항 로지스틱 회귀 목표를 최적화하여 훈련을 수행(위 구성 기반으로 아래와 같이 추가.)
+
 	- Model Hyperparamiter
 	Batch size - 256
 	

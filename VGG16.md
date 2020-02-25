@@ -1,4 +1,4 @@
-## VGG16
+## VGGNet
 
 https://github.com/JeongGyuJun/classification_vgg16net - VGG16구현.
 

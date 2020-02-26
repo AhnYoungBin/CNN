@@ -58,9 +58,11 @@ Yi = Fi(Xi)는 연산자로 출력 텐서, Xi는 입력 텐서이며, Fi를 나�
 깊이(d)/너비(w)/해상도(r) 서로 의존하고 다른 자원 제약 하에서 값이 변화한다는 것에 대해서 다음과 같은 차원 중 하나로 ConvNets을 확장함.
 
 - Depth(d)
+
 Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방법으로 심층적인 ConvNet이 더 풍부하고 더 복잡한 특징을 포착할 수 있고, 새로운 작업에 대해 잘 일반화할 수 있음. 또 지금까지 매우 깊은 ConvNets에 대한 정확도 하락을 보여줌.
 
 - Width(w)
+
 - 아래 그림으로는 너비(w), 깊이(d), 해상도® 순으로 FLOPS에 대한 top-1 정확도를 보여줌.(FLOPS(Floating Point Operations Persecond) - 컴퓨터의 성능을 수치로 표현하는 단위, 1초동안 수행할 수 있는 부동소수점 연산의 횟수)
 
 ![image](https://user-images.githubusercontent.com/45933225/75366460-1aa44000-5902-11ea-95eb-9e7e0640fb79.png)
@@ -68,6 +70,7 @@ Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방
 넓은 네트워크는 보다 세분화된 특징을 포착할 수 있는 경향이 있으며, 훈련하기가 더 쉬우며 얕은 네트워크는 더 높은 수준의 특징을 포착하는데 어려움을 겪음.
 
 - Resolution(r)
+
 더 높은 해상도의 입력 영상을 통해 ConvNets은 더 세밀한 패턴을 포착할 수 있었으면서 기존 224 x 224 해상도를 시작으로 보다 정확한 정확성을 위해299 x 299, 331 x 33, Gpipe 480 x 480, ImageNet 600 x 600 을 통해 달성할 수 있었음. 또한 매우 높은 해상도의 경우 정확도는 감소하였음.
 
 위의 분석을 통해 첫 번째 관찰로 이어짐.

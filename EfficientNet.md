@@ -14,11 +14,12 @@ ResNet, Gpipe 등 여러 모델에서 ConvNets의 크기를 증가시킴으로�
 그래서 지금부터는 복합 스케일링 방법을 제안으로 고정 스케일링 계수의 집합으로 네트워크 폭, 깊이 및 해상도를 균일하게 스케일링함.
 Ex) 2^N배 더 많은 계산 자원을 사용한다면 네트워크 깊이(a^N), 너비(b^N), 해상도(r^N)으로 증가시킬 수 있음. 
 
-
+![image](https://user-images.githubusercontent.com/45933225/75366426-0eb87e00-5902-11ea-84ee-fb65ccd6b35c.png)
 
 위 그림은 기존 스케일링 방법과 위에서 설명한 복합 스케일링 방법에 대해서 한눈에 확인이 가능함. 
 직관적으로 복합 스케일링 방법은 입력 이미지가 더 큰 경우 수용 필드를 증가시키기 위해 더 많은 레이어가 필요하고 세밀한 패턴을 캡처하기 위해서 더 많은 채널이 필요하기 때문에 이는 합리적임을 보여줌. 그리고 모델 확장의 효율성은 baseline network에 따라 크게 달라짐.
 
+![image](https://user-images.githubusercontent.com/45933225/75366437-11b36e80-5902-11ea-9737-638eb491827b.png)
 
 결과적으로 위 그래프를 확인하면 다른 모델과 비교 하였을때 적은 매개변수로 높은 정확도로 얻을 수 있음을 보여줌.
 
@@ -43,12 +44,12 @@ Deep ConvNets은 지나치게 매개변수를 사용함.
 ##### 3-1. Problem Formulation
 ConvNet Layer i는 다음과 같은 함수로 정의함.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75366446-1546f580-5902-11ea-8339-c1831b3b6257.png)
 
 Yi = Fi(Xi)는 연산자로 출력 텐서, Xi는 입력 텐서이며, Fi를 나타내는 Li를 반복하는 경우 <Hi, Wi, Ci>는 층 i의 입력 텐서 X의 모양을 나타냄.
 따라서 모델 스케일링은 기준선 네트워크에 미리 정의된 Fi를 변경하지 않고 네트워크 길이(Li), 폭(Ci), 해상도(Hi, Wi)를 확장하려고 함.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75366452-17a94f80-5902-11ea-8762-fa09cce83647.png)
 
 위 에서 Fi, Li, Hi, Wi, Ci는 기준석 네트워크에서 사전 정의된 파라미터를 보여줌.
 설계 공간을 더욱 줄이기 위해 모든 레이어를 일정한 비율로 균일하게 스케일링해야 한다고 제한함. 따라서 최적화 문제로 공식화할 수 있는 주어진 자원 제약에 대한 모델 정확도를 극대화하는 것을 목표로 함.
@@ -61,8 +62,8 @@ Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방
 
 - Width(w)
 - 아래 그림으로는 너비(w), 깊이(d), 해상도® 순으로 FLOPS에 대한 top-1 정확도를 보여줌.(FLOPS(Floating Point Operations Persecond) - 컴퓨터의 성능을 수치로 표현하는 단위, 1초동안 수행할 수 있는 부동소수점 연산의 횟수)
-	
-- 
+
+![image](https://user-images.githubusercontent.com/45933225/75366460-1aa44000-5902-11ea-95eb-9e7e0640fb79.png)
 	
 넓은 네트워크는 보다 세분화된 특징을 포착할 수 있는 경향이 있으며, 훈련하기가 더 쉬우며 얕은 네트워크는 더 높은 수준의 특징을 포착하는데 어려움을 겪음.
 
@@ -75,7 +76,7 @@ Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방
 
 ##### 3-3. Compound Scaling
 
-
+![image](https://user-images.githubusercontent.com/45933225/75366467-1ed05d80-5902-11ea-8939-ddb85ca964da.png)
 
 기존의 단일 차원 스케일링보다는 서로 다른 스케일링 치수를 조정하고 균형을 맞출 필요가 있음을 보여줌으로 다음 그래프는 깊이와 해상도에서 1.0보다 2.0에서 높은 정확도를 보여줌.
 
@@ -83,7 +84,7 @@ Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방
 
 Compound scaling method 제안
 
-
+![image](https://user-images.githubusercontent.com/45933225/75366472-2263e480-5902-11ea-8bc9-3d0782aa200f.png)
 
 Reqular convolution op의 FLOPS는 d, w^2, r^2의 비례함. 즉, 네트워크 깊이를 두배로 하면 FLOPS가 두배가 되지만, 네트워크 폭이나 해상도를 2배로 하면 FLOPS가  4배가 증가함.
 따라서 위의 식을 보면 총 FLOPS가 대략 (a * p ^2* r^2)자승 만큼 증가함.
@@ -91,7 +92,7 @@ Reqular convolution op의 FLOPS는 d, w^2, r^2의 비례함. 즉, 네트워크 �
 #### 4. EfficientNet Architecture
 좋은 기준선 네트워크를 갖는 것도 중요하며 정확도와 FLOPS를 모두 최적화하는 다중 객체 신경 구조 검색을 활용하여 기준 네트워크를 개발함. 구체적으로는 ACC(m) * [FLOPS(m)/T]^w을 최적화 목표로 사용함. 이것은 하드웨어 장치를 대상으로 하는게 아니기 때문에 지연 시간이 아닌 FLOPS을 최적화하는 것으로 함.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75366481-25f76b80-5902-11ea-869b-7d49824a1f22.png)
 
 위 표는 mobile inverted bottleneck MBConv이며 여기에는 queeze-and excitation optimization이 추가적으로 구성됨.
 기본 EfficientNet-B0에서 시작하여 복합 스케일링 방법을 적용하여 2단계로 확장함.
@@ -105,6 +106,8 @@ EfficientNets에 대한 스케일링 방법으로 여러 데이터셋과 네트�
 EfficientNets가 실제 하드웨어면에서도 빠름을 Gpipe와 비교하여 보여줌.
 
 아래 그림은 Class Activation Map(CAM)을 보여줌.
+
+![image](https://user-images.githubusercontent.com/45933225/75366492-298af280-5902-11ea-81e8-5ebe7118fdec.png)
 
 보여주고자 하는 것은 복합 스케일링 메소드를 통해 스케일링 모델은 객체 상세도가 더 높은 관련 영역에 집중할 수 있다는 것이다.
 

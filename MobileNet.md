@@ -32,7 +32,7 @@ Convolution은 각 입력 채널에 단일 필터를 적용한 후 pointwise 결
 	- 결합하기 위한 별도의 층
 이와 같은 구성들은 크기를 획기적으로 줄이는 효과가 있음.
 
-	- standard convolution
+- standard convolution
 다음 아래 식은 표준 컨볼루션을 위한 출력 피쳐 맵의 계산.
 
 
@@ -47,7 +47,7 @@ standard convolutional 계층은 DK x DK x M x N 크기의 convolution kernel K�
 M, N, Dk x Dk 및 피쳐 맵 DF x DF에 따라 달라짐.
 따라서 출력 채널의 수와 커널의 크기 사이의 상호작용을 끊기 위해 깊이 분리 가능한 convolution을 사용하며 커널을 기반으로 형상을 필터랑하고 새로운 표현을 만들기 위해 형상을 결합하는 효과를 가져옴.
 
-	- depthwise separable convolution
+- depthwise separable convolution
 깊이 분리할 수 있는 컨볼루션은 두 개의 레이어 depthwise,  pointwise convolution으로 구성함. 그래서 각 입력 채널(입력 깊이)당 하나의 필터를 적용하기 위해depthwise을 사용하며 pointwise convolution 1 x 1 convolution을 사용하여 깊이 계층의 출력의 선형 조합을 만듬.
 배치 표준 및 ReLU 비선형 함수를 사용하며 입력 채널당 하나의 필터(입력 깊이)를 갖는 깊이 변환은 다음 아래 식과 같음.
 

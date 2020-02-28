@@ -16,12 +16,14 @@
 Mobilenets은 주로 지연 시간에 대한 최적화와 작은 네트워크에 초점을 맞추면서 속도에 대한 부분도 고려가 필요함.
 이러한 소규모 네트워크를 구축하기 위해 여러 네트워크와 방법을 시연 하였으며 다른 접근법으로는 미리 훈련된 네트워크를 축소, 요인화(네트워크 속도 측면) 또는 압축(제품 정량화, 해싱, 가지치기, 벡터 정량화 및 허프만 코딩 등.)하는 것이었다.
 
+![image](https://user-images.githubusercontent.com/45933225/75521522-4c74ee00-5a4b-11ea-84e4-73651c6564c0.png)
 
 #### 3. MobileNet Architecture
 무방비 필터인 버블이라는 핵심 계층을 만들며 네트워크 구조에 대한 설명과 하이퍼파라미터(와이드, 해상도 멀티플레이어)를 분쇄하는 두 모델에 대한 설명을 하고자 함.
 
 ##### 3.1. Depthwise Separable Convolution
 
+![image](https://user-images.githubusercontent.com/45933225/75521529-4ed74800-5a4b-11ea-99d1-89356e4fb5a9.png)
 
 (a) standard convolution (b) depthwise convolution (c)1 x 1 pointwise convolution 계수하는 방법
 
@@ -35,14 +37,14 @@ Convolution은 각 입력 채널에 단일 필터를 적용한 후 pointwise 결
 - standard convolution
 다음 아래 식은 표준 컨볼루션을 위한 출력 피쳐 맵의 계산.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521537-51d23880-5a4b-11ea-8f65-bc275f32312a.png)
 
 standard convolutional layer는 DF x DF x M 피쳐 맵 F를 입력하여 DF x N 피쳐 맵 G를 생성함.
 standard convolutional 계층은 DK x DK x M x N 크기의 convolution kernel K에 의해 파라미터화되며 DK는 제곱으로 가정된 커널의 공간적 차원이고 M은 입력 채널의 수, N은 출력 채널의 수를 말함
 
 계산 비용으로는 다음과 같음.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521540-54cd2900-5a4b-11ea-8477-d7ef7ba44073.png)
 
 M, N, Dk x Dk 및 피쳐 맵 DF x DF에 따라 달라짐.
 따라서 출력 채널의 수와 커널의 크기 사이의 상호작용을 끊기 위해 깊이 분리 가능한 convolution을 사용하며 커널을 기반으로 형상을 필터랑하고 새로운 표현을 만들기 위해 형상을 결합하는 효과를 가져옴.
@@ -51,26 +53,26 @@ M, N, Dk x Dk 및 피쳐 맵 DF x DF에 따라 달라짐.
 깊이 분리할 수 있는 컨볼루션은 두 개의 레이어 depthwise,  pointwise convolution으로 구성함. 그래서 각 입력 채널(입력 깊이)당 하나의 필터를 적용하기 위해depthwise을 사용하며 pointwise convolution 1 x 1 convolution을 사용하여 깊이 계층의 출력의 선형 조합을 만듬.
 배치 표준 및 ReLU 비선형 함수를 사용하며 입력 채널당 하나의 필터(입력 깊이)를 갖는 깊이 변환은 다음 아래 식과 같음.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521546-5860b000-5a4b-11ea-9cc2-2f17d21c1382.png)
 
 K^은 크기 DK x DK x M의 깊이 있는 Convolutional kernel로 filter가 channel에 적용되어 여과된 출력 피쳐 맵의  channel에 들어감.
 
 Depthwise convolution 계산 비용은 다음과 같음.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521551-5bf43700-5a4b-11ea-8756-f020061f430a.png)
 
 매우 효율적이지만 입력 채널만 필터링해 새로운 기능을 만들지는 않음.
 그래서 새로운 형상을 만들어내기 위한 1 x 1 convolution을 통한 깊이 변환 출력의 선형 조합을 계산하는 추가 계층이 필요함.
 
 Depthwise separable convolution 계산 비용은 다음과 같음.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521562-61518180-5a4b-11ea-959b-cf08766589ea.png)
 
 이것은 깊이와 1 x 1 convolution의 합을 말함.
 
 필터링과 결합의 두 단계 프로세스로 표현함으로써 계산의 감소를 얻을 수 있음.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521572-644c7200-5a4b-11ea-9941-a7736a442093.png)
 
 3 x 3 depthwise separable convolution을 사용하여 standard convolution보다 8~9배 더 적은 연산을 사용함. 여기서 추가 factorized는 추가 연산을 크게 절약하지 못함.
 
@@ -78,10 +80,11 @@ Depthwise separable convolution 계산 비용은 다음과 같음.
 구조로는 완전한 컨볼루션인 첫 번째 층을 제외하고는 depthwise separable convolution으로 구축함.
 Depthwise separable, pointwise convolution 별도의 레이어로 간주하여 28개의 레이어를 가짐. 이것은 단순히 네트워크를 소수의 멀티 애드 단위로 정의하는 것만으로 충분하지 않고 일을 효율적으로 수행할 수 있도록 함.
 
+![image](https://user-images.githubusercontent.com/45933225/75521582-67476280-5a4b-11ea-9e4a-5161ad0677aa.png)
 
 왼쪽은 standard convolutional layer 오른쪽은 depthwise separable convolutions를 보여줌.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521586-69a9bc80-5a4b-11ea-815c-9f215ea4b81c.png)
 
 모델 구조에서 거의 모든 연산을 밀도 1 x 1 convolution에 있으며 이것은 고도로 최적화된 일반 매트릭스 곱셈(GEMM) 기능으로 구현될 수 있음.
 GEMM은 수치 선형대수 알고리즘 중 하나로 매핑하기 위해 im2col이라고 불리는 메모리의 초기 재주문화가 필요함.
@@ -92,11 +95,13 @@ MobileNet 모델 Optimizers로 RMSprop 사용하며 훈련할 때 측면 헤드�
 모델을 더 작고 덜 계산적으로 비싼 만들기 위해 폭 승수라고 불리는  α를 도입함.
 이 역할은 각 층에서 네트워크를 균일하게 가는  것으로 주어진 레이어 및 폭 곱셈  α의 경우 입력 채널 M의 수는 αM이 되고 출력 채널 N의 수는 αN이 됨.
 
+![image](https://user-images.githubusercontent.com/45933225/75521593-6ca4ad00-5a4b-11ea-8269-566ef9d18a31.png)
 
 MobileNet 전반적인 구성을 보여줌.
 
 다음 아래 식은 폭 승수 α를 갖는 depthwise separable convolution 계산 비용을 확인할 수 있음.
 
+![image](https://user-images.githubusercontent.com/45933225/75521601-6f070700-5a4b-11ea-828f-ea4d36c05901.png)
 
 이러한 폭 승수의 추가적인 구성으로 합리적인 정확도, 대기 시간 및 크기 트레이드 오프로 새로운 더 작은 모델을 정의할 수 있으며 처음부터 교육을 받아야 하는 새로운 축소된 구조를 정의하기 위해 사용함.
 
@@ -104,6 +109,7 @@ MobileNet 전반적인 구성을 보여줌.
 신경망의 연산비를 줄이는 두 번째 하이퍼 파라미터는 분해능 곱셈기 ρ해상도 승수이다.
 이것은 입력 이미지에 적용하고 모든 층의 내부 표현은 이후에 동일한 곱셈기에 의해 감소됨.
 
+![image](https://user-images.githubusercontent.com/45933225/75521605-7201f780-5a4b-11ea-880f-bbfecf8d5949.png)
 
 Convolution, depthwise separable conv, 폭 승수, 해상도 승수를 차례로 확인하면서 계산 비용에 대한 표현을 한 눈에 볼 수 있음.
 
@@ -112,21 +118,26 @@ Convolution, depthwise separable conv, 폭 승수, 해상도 승수를 차례로
 
 ##### 4.1. Model Choices
 
+![image](https://user-images.githubusercontent.com/45933225/75521613-74fce800-5a4b-11ea-8daf-b6711eea4743.png)
 
 Standard convolution을 사용하였을 때와 depthwise separable convolution 사용할 때 정확도 부분에서 1%만 감소킨다는 것을 확인하면서 그의 비용적인 측면을 같이 보여줌.
 
+![image](https://user-images.githubusercontent.com/45933225/75521620-775f4200-5a4b-11ea-93de-4ac7e41d82d2.png)
 
 더 얇은 모형 폭, 해상도 승수를 추가함으로써 정확도와 비용적인 측면으로의 효율을 같이 확인 할 수 있음. 자세한 설명은 생략 하겠음. - 표 참고.
 
 ##### 4.2. Model Shrinking Hyperparameters
 아래 그래프는 위에 표를 시각화하여 보여주는 것으로 조금 더 편리하게 확인할 수 있도록 한번 더 보여줌.
 
+![image](https://user-images.githubusercontent.com/45933225/75521624-7af2c900-5a4b-11ea-93ea-6320ccda2e55.png)
+
 16개 모델에 대한 Imagenet 정확도와 연산 간의 균형을 보여줌. 폭 승수 0.25에서 모델이 매우 작을 때 log linear with a jump 얻을 수 있었음.
 
+![image](https://user-images.githubusercontent.com/45933225/75521636-7e865000-5a4b-11ea-98c8-29178cd51bc7.png)
 
 16개 모델의 변수 수와 Imagenet 정확도 간의 트레이드오프를 보여줌.
 
-
+![image](https://user-images.githubusercontent.com/45933225/75521646-834b0400-5a4b-11ea-89c8-646d6a437358.png)
 
 바로 위에 보이는 여러 표들은 여러 모델과의 비교와 여러 기준을 적용하였을 경우에 대해서 말함.
 

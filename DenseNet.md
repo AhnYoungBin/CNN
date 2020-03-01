@@ -78,3 +78,15 @@ ImageNet은 Batch size를 256으로 하고, 90회의 epoch 동안 학습 진행 
 ### -Conclusion
 
 이 논문에서는 새로운 convolutional network architecture인 Dense Convolutional Network(DenseNet)를 제안한다. 이 네트워크는 동일한 feature-map size를 가진 두 layer 사이에 direct connection을 도입, DenseNet은 자연스럽게 수백 개의 layer로 확장되는 반면, optimization difficulty는 없음을 보여줬다.
+
+
+
+<img width="603" alt="스크린샷 2020-03-01 15 23 11" src="https://user-images.githubusercontent.com/45933225/75620789-92a78a00-5bd0-11ea-8978-e702c6360f82.png">
+
+<img width="628" alt="스크린샷 2020-03-01 15 23 51" src="https://user-images.githubusercontent.com/45933225/75620796-a9e67780-5bd0-11ea-90f6-54126a1ad061.png">
+
+<img width="683" alt="스크린샷 2020-03-01 15 24 16" src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png">
+
+<img width="757" alt="스크린샷 2020-03-01 15 24 50" src="https://user-images.githubusercontent.com/45933225/75620813-cedaea80-5bd0-11ea-9ca6-e2b6e4b3b802.png">
+
+<img width="757" alt="스크린샷 2020-03-01 15 25 32" src="https://user-images.githubusercontent.com/45933225/75620816-e6b26e80-5bd0-11ea-8040-3dd1202dc17a.png">

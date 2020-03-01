@@ -41,9 +41,18 @@ Convolution 이란?
 
 자세한 내용은 생략 하겠음. - 영상 처리 부분, 신호 및 시스템 분야를 공부하자ㅎㅎ
 
-CNN의 특징
+#### CNN의 특징
 
 Locality(Local Connectivity) - 수용 영역과 유사하게 local 정보를 활용. 공간적으로 인접한 신호들에 대한 correlation 관계를 비선형 필터를 적용하여 추출해냄.
 
 Shared Weights - 동일한 계수를 갖는 filter를 전체 영상에 반복적으로 적용함으로 변수의 수를 획기적으로 줄일 수 있으며, 항상성을 얻을 수 있음.
+
+#### CNN의 구조 및 과정
+
+<img width="735" alt="스크린샷 2020-03-01 23 45 45" src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png">
+
+1. 특징을 추출
+2. topology 변화에 영향을 받지 않도록 함.
+3. 분류기 단계
+
 

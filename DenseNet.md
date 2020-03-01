@@ -34,10 +34,16 @@ DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow
 이러한 효과는, 각 layer들이 block 내의 모든 이전 feature-map에 접근함에 따라, 네트워크의 “collective knowledge”에 액세스 된다는 것이다. Feature-map을 네트워크의 global state로 볼 수 있으며, 각 layer는 각자의 k feature-map에 이 state를 추가하는 것. Growth rate는 각 global state에 기여하는 새로운 정보의 양을 조절. 한 번 쓰여진 global state는 네트워크의 어디에서나 액세스 할 수 있으며, 기존의 네트워크 아키텍처와 달리 (Concatenate로 연결되어 있기 때문에) layer-to-layer로 복제할 필요가 없다.
 
 #### Bottleneck layers.
+
+<img width="757" alt="스크린샷 2020-03-01 15 24 50" src="https://user-images.githubusercontent.com/45933225/75620813-cedaea80-5bd0-11ea-9ca6-e2b6e4b3b802.png">
+
 각 3x3 convolution 전에 1x1 convolution을 bottleneck layer로 도입하여, 입력 feature-map의 개수를 줄이고 계산 효율을 향상시킬 수 있음을 알 수 있었다. 이 디자인은 DenseNet에 특히 효과적이며, 이러한 bottleneck layer를 이용한다. 즉, BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)으로 이루어진
 을 이용하며, 이를 DenseNet-B라고 칭한다.
 
 #### Compression
+
+<img width="757" alt="스크린샷 2020-03-01 15 25 32" src="https://user-images.githubusercontent.com/45933225/75620816-e6b26e80-5bd0-11ea-8040-3dd1202dc17a.png">
+
 모델을 보다 소형으로 만들기 위해, transition layer에서 feature-map의 개수를 줄일 수 있으며 dense block이 m 개의 feature-map을 포함하는 경우 다음 transition layer에서 출력 feature-map을 [θmc]개가 생성된다. 여기서 0 <θ≤1은 compression factor라고 한다. (θ 가 1인 경우에는 transition layer의 특징맵 개수가 변경되지 않는다)
 
 θ<1 인 DenseNet을 DenseNet-C라고 칭하며, 실험에서는 θ=0.5로 설정한다. 또한, bottleneck layer와 θ<1 인 transition layer를 모두 사용하는 모델은 DenseNet-BC라고 칭한다.
@@ -59,34 +65,22 @@ L=190, k=40
 
 >ImageNet에 사용된 정확한 네트워크 구성은 아래 표 참조
 
- <img width="333" alt="스크린샷 2020-03-01 14 31 25" src="https://user-images.githubusercontent.com/45933225/75620213-558bc980-5bc9-11ea-8cad-94b724db76e9.png">
+<img width="603" alt="스크린샷 2020-03-01 15 23 11" src="https://user-images.githubusercontent.com/45933225/75620789-92a78a00-5bd0-11ea-8978-e702c6360f82.png">
 
 ### - Experiments
 Datasets : 두 개의 CIFAR dataset과 SVHN, ImageNet
 Training : CIFAR와 SVHN은 Batch size를 64로 하고, 각각 300 / 40회의 epoch 동안 학습을 진행,
 ImageNet은 Batch size를 256으로 하고, 90회의 epoch 동안 학습 진행 다양한 depth L과 growth k에 대해 실험했으며, 주요 결과는 아래 표를 참조하자
 
-<img width="333" alt="스크린샷 2020-03-01 14 31 36" src="https://user-images.githubusercontent.com/45933225/75620215-5c1a4100-5bc9-11ea-8d6a-6be0e3d399cd.png">
+<img width="628" alt="스크린샷 2020-03-01 15 23 51" src="https://user-images.githubusercontent.com/45933225/75620796-a9e67780-5bd0-11ea-90f6-54126a1ad061.png">
 
 ### - Discussion
 표면적으로 DenseNet은 ResNet과 매우 유사하지만 입력을 Concatenation 함으로써, 모든 DenseNet layer에서 학습된 feature-map을 모든 후속 layer에서 액세스 할 수 있게 되는 것이 다르다. 아래 그림에서는 DenseNet의 모든 변형과, 유사 성능의 ResNet의 parameter efficiency를 비교한 실험 결과를 보여준다.
  
- <img width="374" alt="스크린샷 2020-03-01 14 32 17" src="https://user-images.githubusercontent.com/45933225/75620219-748a5b80-5bc9-11ea-9275-8e4d73463887.png">
+<img width="683" alt="스크린샷 2020-03-01 15 24 16" src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png">
 
 결과를 요약하면 다음과 같다. DenseNet의 학습 설정은 이전 섹션과 동일하게 유지했을 때, DenseNet-BC가 DenseNet의 변형 중 parameter efficiency가 가장 좋고, DenseNet-BC이 ResNet과 유사한 성능을 달성하는데 필요한 parameter는 1/3에 불과하다
  
 ### -Conclusion
 
 이 논문에서는 새로운 convolutional network architecture인 Dense Convolutional Network(DenseNet)를 제안한다. 이 네트워크는 동일한 feature-map size를 가진 두 layer 사이에 direct connection을 도입, DenseNet은 자연스럽게 수백 개의 layer로 확장되는 반면, optimization difficulty는 없음을 보여줬다.
-
-
-
-<img width="603" alt="스크린샷 2020-03-01 15 23 11" src="https://user-images.githubusercontent.com/45933225/75620789-92a78a00-5bd0-11ea-8978-e702c6360f82.png">
-
-<img width="628" alt="스크린샷 2020-03-01 15 23 51" src="https://user-images.githubusercontent.com/45933225/75620796-a9e67780-5bd0-11ea-90f6-54126a1ad061.png">
-
-<img width="683" alt="스크린샷 2020-03-01 15 24 16" src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png">
-
-<img width="757" alt="스크린샷 2020-03-01 15 24 50" src="https://user-images.githubusercontent.com/45933225/75620813-cedaea80-5bd0-11ea-9ca6-e2b6e4b3b802.png">
-
-<img width="757" alt="스크린샷 2020-03-01 15 25 32" src="https://user-images.githubusercontent.com/45933225/75620816-e6b26e80-5bd0-11ea-8040-3dd1202dc17a.png">

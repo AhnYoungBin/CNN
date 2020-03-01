@@ -13,7 +13,7 @@ https://github.com/JeongGyuJun/classification_densenet - DenseNet 구현
 
 층이 점점 더 깊어지는 가운데 새롭게 대두 된 문제는, Input이나 gradient에 대한 정보가 여러 layer를 통과하는 경우 네트워크 양 끝에 도달하는 시점에는 이 정보가 vanish 혹은 wash out 될 수 있다는 것이다. 최근 이러한 문제에 대해 최근 많은 연구가 있었는데 모두 선행 레이어에서 후 레이어로 향하는 short path를 만든다는 특징을 가졌고, 이러한 통찰력을 확장하는 아키텍쳐를 제안했습니다. 네트워크의 레이어간 information flow를 극대화하기 위해, feature-map size가 동일한 모든 레이어가 직접 연결되는 것입니다.
 
-<img width="179" alt="스크린샷 2020-03-01 14 31 09" src="https://user-images.githubusercontent.com/45933225/75620210-4c026180-5bc9-11ea-957d-a4eeeb7d9f84.png">
+<img width="708" alt="스크린샷 2020-03-01 14 45 35" src="https://user-images.githubusercontent.com/45933225/75620351-5160ab80-5bcb-11ea-88e6-7a7e00495607.png">
 
 제안하는 구조에서 feature들은 서로 concatenation 하여 결합됩니다. l번째 층은 모든 선행 conv block의 feature-map들로 구성된 l개의 입력을 가지며, 각 feature-map은 모든 L- l개의 후속 레이어로 전달됩니다. 이것은 기존의 아키텍처에서 L개의 connection 대신 L(L+1)/2 개의 connection을 도입하는 것입니다. Dense connectivity pattern에서 중복되는 feature-map은 다시 학습할 필요가 없기 때문에, DenseNet은 기존의 CNN보다 적은 수의 parameter만 필요합니다.
 
@@ -24,15 +24,9 @@ Highway Networks는 100개 이상의 layer로 이루어진 end-to-end 네트워�
 DenseNet은 extrmly deep하거나 wide한 구조로부터 representational power를 끌어내는 대신, feature의 재사용을 통해 네트워크의 잠재력을 활용함으로써, 학습하기 쉬우면서도 효율적인 parameter를 가진 압축 모델을 만들었고, 이는 DenseNet과 ResNet간의 주요 차이점입니다. DenseNets는 다른 layer의 feature-map을 연결하는 Inception network에 비해, 더 간단하고 효율적이라는 것.
 
 ### -DenseNet
+<img width="617" alt="스크린샷 2020-03-01 14 44 05" src="https://user-images.githubusercontent.com/45933225/75620343-1d858600-5bcb-11ea-8b3e-a418212ebc2f.png">
 
-Convolutional network를 통과하는 single image x0를 고려합니다. 네트워크는 L 개의 레이어로 구성되며, 각 layer는 non-linear transformation   를 포함합니다. L은 layer의 index, 는 BN, ReLU, Pooling, Convolution과 같은 연산의 복합 함수가 될 수 있습니다.   
-레이어의 출력은 로
-표시합니다. ResNets의 장점은, identity function을 통해 gradient가 후반 layer에서 전반 layer로 직접
-흐를 수 있다는 것이지만, identity function과   의 출력이 summation으로 결합되어 네트워크의 information flow를 방해할 수도 있다.
-Dense Connectivity는 레이어 간의 information flow를 개선시키기 위한 새로운 connectivity pattern을 제안합니다. 모든 layer가 모든 후속 layer로의 direct connection을 가지며, 결과적으로
-레이어는 모든 선행 레이어의 feature-map인 를 입력으로 받아들이는 것이다.
-      여기서
-나타내고 이러한 dense connectivity로 인해 이 아키텍처를 Dense Convolutional Network라고 부른다.
+<img width="617" alt="스크린샷 2020-03-01 14 43 33" src="https://user-images.githubusercontent.com/45933225/75620341-09da1f80-5bcb-11ea-958d-39ef52ab12b2.png">
 
 #### Growth rate
 DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow layer(예. k=12)를 가질 수 있다는 것이다. 여기서 hyperparameter K를 네트워크의 growth rate라고 하고, 상대적으로 작은 growth rate 로도 state-of-the-art 성능을 얻기에 충분하다는 것을 보여준다.

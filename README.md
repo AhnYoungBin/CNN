@@ -1,7 +1,7 @@
 # CNN(Convolutional Neural Network)
 본 CNN 정리는 라온피플(Laon People)님 블로그 https://blog.naver.com/laonple/220587920012 의 사이트를 참고하여 문제가 될 경우 삭제 하겠습니다.
 
-신경망을 통해 학습을 하게 되면 어려우 많은 문제들을 해결이 가능함.
+신경망을 통해 학습을 하게 되면 어려운 많은 문제들을 해결이 가능함.
 
 영상에 기반한 인식 알고리즘에서 좋은 결과를 얻으려면, 사전에 많은 처리 과정이 필요하기 때문에 multi-layered neural network를 바로 적용하는 것은 어려움이 따름.
 

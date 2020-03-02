@@ -64,5 +64,6 @@ Shared Weights - 동일한 계수를 갖는 filter를 전체 영상에 반복적
  
 간략하게 아래 그림은 대략 전반적인 CNN의 구조를 설명함.
  
+<img width="736" alt="스크린샷 2020-03-02 17 00 18" src="https://user-images.githubusercontent.com/45933225/75656446-4c712a00-5ca7-11ea-8669-43ad0cebe07c.png">
 
 결과적으로 CNN은 여러 개의 layer로 구성이 되며, 주요 구성으로는 convolution layer, sub-sampling(pooling) layer, fully-connected layer로 입력 영상으로부터 주요 구성 layer를 통해, feature map을 만듬.

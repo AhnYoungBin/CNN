@@ -1,5 +1,5 @@
 # CNN(Convolutional Neural Network)
-본 CNN 정리는 라온피플(Laon People)님 블로그 https://blog.naver.com/laonple/220587920012 의 사이트를 참고하여 문제가 될 경우 삭제 하겠습니다.
+###### 본 CNN 정리는 라온피플(Laon People)님 블로그 https://blog.naver.com/laonple/220587920012 의 사이트를 참고하여 문제가 될 경우 삭제 하겠습니다.
 
 신경망을 통해 학습을 하게 되면 어려운 많은 문제들을 해결이 가능함.
 

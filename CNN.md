@@ -93,20 +93,21 @@ Lecun - CNN의 구조
 위/아래 구조가 나눠져 있는 것은 2개의 gpu에 적용을 하기 위함.
 
 총 5단계 convolution을 적용함.
-1단계 - 11 x 11 크기의 mask, stride = 4 
-=> 55 x 55 크기 96개의 feature map을 얻음.
 
-2단계 - BatchNormalization과 max-pooling 거친 후 5 x 5 크기 mask
-=> 27 x 27 크기 256개의 feature map을 얻음.
+    1단계 - 11 x 11 크기의 mask, stride = 4 
+    => 55 x 55 크기 96개의 feature map을 얻음.
 
-3단계 - BatchNormalization과 max-pooling 거친 후 3 x 3 크기의 mask
-=> 13 x 13 크기 384개의 feature map을 얻음.
+    2단계 - BatchNormalization과 max-pooling 거친 후 5 x 5 크기 mask
+    => 27 x 27 크기 256개의 feature map을 얻음.
 
-4단계 - max pooling 없이 3 x 3 크기 mask
-=> 13 x 13 크기 384개의 feature map을 얻음.
+    3단계 - BatchNormalization과 max-pooling 거친 후 3 x 3 크기의 mask
+    => 13 x 13 크기 384개의 feature map을 얻음.
 
-5단계 - 3 x 3 크기 mask
-=> 13 x 13 크기 256개의 feature map을 얻음.
+    4단계 - max pooling 없이 3 x 3 크기 mask
+    => 13 x 13 크기 384개의 feature map을 얻음.
+
+    5단계 - 3 x 3 크기 mask
+    => 13 x 13 크기 256개의 feature map을 얻음.
 
 이렇게 단계별로 feature map을 확인할 수 있으며 간단하게 말하자면 feature map에서는 부드럽게 보이거나 에지 등을 추출할 수 있었다.
 

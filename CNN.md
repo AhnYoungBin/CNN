@@ -1,5 +1,4 @@
 # CNN(Convolutional Neural Network)
-###### 본 CNN 정리는 라온피플(Laon People)님 블로그 https://blog.naver.com/laonple/220587920012 의 사이트를 참고하여 문제가 될 경우 삭제 하겠습니다.
 
 신경망을 통해 학습을 하게 되면 어려운 많은 문제들을 해결이 가능함.
 
@@ -91,3 +90,24 @@ Lecun - CNN의 구조
 
 <img width="759" alt="스크린샷 2020-03-02 17 06 07" src="https://user-images.githubusercontent.com/45933225/75656804-1d0eed00-5ca8-11ea-9f14-1d40f3e8e36f.png">
 
+위/아래 구조가 나눠져 있는 것은 2개의 gpu에 적용을 하기 위함.
+
+총 5단계 convolution을 적용함.
+1단계 - 11 x 11 크기의 mask, stride = 4 
+=> 55 x 55 크기 96개의 feature map을 얻음.
+
+2단계 - BatchNormalization과 max-pooling 거친 후 5 x 5 크기 mask
+=> 27 x 27 크기 256개의 feature map을 얻음.
+
+3단계 - BatchNormalization과 max-pooling 거친 후 3 x 3 크기의 mask
+=> 13 x 13 크기 384개의 feature map을 얻음.
+
+4단계 - max pooling 없이 3 x 3 크기 mask
+=> 13 x 13 크기 384개의 feature map을 얻음.
+
+5단계 - 3 x 3 크기 mask
+=> 13 x 13 크기 256개의 feature map을 얻음.
+
+이렇게 단계별로 feature map을 확인할 수 있으며 간단하게 말하자면 feature map에서는 부드럽게 보이거나 에지 등을 추출할 수 있었다.
+
+결과적으로 CNN 알고리즘을 통해 처리하고자 하는 과제에 따라 최종 convolution kernel의 계수가 달라질 수 있으며, 동일한 과제여도 학습에 사용하는 학습 데이터에 따라서도 달라질 수 있다(이는 설정한 하이퍼파라미터의 값에 따라서도 달라질 수 있다는 것을 의미). 그리고 계수의 값은 기존 신경망과 마찬가지로 gradient에 기반한 back-propagation에 의해 결정이 됨.

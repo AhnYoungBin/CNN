@@ -39,7 +39,7 @@ Convolution 이란?
 '신호 및 시스템'과정에서의 convolution은 특정 시스템에 입력이 가해졌을 때 시스템의 반응이 어떻게 되는지 해석하기 위한 용도로 사용.
 '영상 처리 분야'에서 convolution은 주로 filter 연산에 사용이 되며, 영상으로부터 특정 feature들을 추출하기 위한 필터를 구현할 경우 사용.  - 3 x 3 window or mask or kernel을 영상 전체에 대해 반복적으로 수행을 하게 되며 그 계수(weight)값들의 따라 적정한 결과를 얻을 수 있음.
 
-자세한 내용은 생략 하겠음. - 영상 처리 부분, 신호 및 시스템 분야를 공부하자ㅎㅎ
+자세한 내용은 생략 하겠음. - 영상 처리 부분, 신호 및 시스템 분야을 공부하자ㅎㅎ
 
 #### CNN의 특징
 
@@ -51,8 +51,18 @@ Shared Weights - 동일한 계수를 갖는 filter를 전체 영상에 반복적
 
 <img width="735" alt="스크린샷 2020-03-01 23 45 45" src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png">
 
-1. 특징을 추출
-2. topology 변화에 영향을 받지 않도록 함.
-3. 분류기 단계
+    1. 특징을 추출
+    2. topology 변화에 영향을 받지 않도록 함.
+    3. 분류기 단계
+    
+ 특징을 추출하기 위해 filter 계수를 값에 따라 각각 다른 특징을 얻을 수 있으며,  이 계수들은 특정 목적에 따라 고정이 되지만 CNN에서 사용하는 filter 혹은 convolutional layer는 학습을 통해 최적의 계수를 결정할 수 있게 하는 점이 다름.
+ 
+ 그리고 통상적인 sub-sampling은 보통 고정된 위치에 있는 픽셀을 고르거나, 혹은 sub-sampling 윈도우 안에 있는 픽셀들의 평균을 취함.
+ 이와 비슷하게 CNN에서는 pooling 방식(max, avg etc..)의 sub-sampling과정을 거침. 단, sub-sampling 과정은 feature map의 크기를 줄여주면서 topology invariance를 얻을 수 있음.
+ 
+ convolution + sub-sampling 과정을 여러번 거치게 되면, global한 특징을 추출할 수 있다. 이렇게 얻어진 특징을 fully-connected network을 통해 학습을 시키기 되면, receptive field와 특성을 중점으로 topology변화에 인식 능력을 갖게 됨.
+ 
+간략하게 아래 그림은 대략 전반적인 CNN의 구조를 설명함.
+ 
 
-이하 부분은 천천히 정리하는중...
+결과적으로 CNN은 여러 개의 layer로 구성이 되며, 주요 구성으로는 convolution layer, sub-sampling(pooling) layer, fully-connected layer로 입력 영상으로부터 주요 구성 layer를 통해, feature map을 만듬.

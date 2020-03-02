@@ -70,7 +70,7 @@ Shared Weights - 동일한 계수를 갖는 filter를 전체 영상에 반복적
 
 결과적으로 CNN은 여러 개의 layer로 구성이 되며, 주요 구성으로는 convolution layer, sub-sampling(pooling) layer, fully-connected layer로 입력 영상으로부터 주요 구성 layer를 통해, feature map을 만듬.
 
-그래서 대표적인 CNN paper 두 개를 참고하였음.
+### 대표적인 CNN paper 두 개를 참고.
     
     1. Lecun - "Gradient-based learning applied to document recognition"
     2. Krizhevsky - "ImageNet classification with deep convolution neural network"

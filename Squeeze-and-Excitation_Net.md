@@ -10,7 +10,7 @@
 
 수상 : ILSVRC 2017 classification 1위를 차지 했다.
 
-##### Index Terms - Squeeze-and-Excitation, Image representations, Attention, Convolutional Neural Networks.
+###### Index Terms - Squeeze-and-Excitation, Image representations, Attention, Convolutional Neural Networks.
 
 #### 1 INTRODUCTION
 CNN(Convolutional neural network)이 발전함에 따라 컴퓨터 비전에서 이미지의 특성만을 포착하여 성능을 향상시키는 보다 강력한 표현을 찾는 것으로 이 모델은 널리 사용됨.
@@ -144,7 +144,7 @@ SE-ResNet-50은 101-ResNet과 비슷한 성능 면에서 전체 계산 부담은
 SE Block으로 다른 데이터셋에 일반화되는지 여부를 조사함.
 CIFAR-10, CIFAR-100데이터셋에서 몇 가지 인기 있는 기본 아키텍처와 SE Block을 추가한 실험을 수행함으로써 ImageNet 데이터셋에만 국한되지 않음을 확인할 수 있었음.(중간 실험 조건 부분은 생략하겠음.)
 
-이하 5.2 Scene Classification, 5.3 Object Detection on COCO, 5.4 ILSVRC 2017 Classification Competition 부분은 위와 비슷한 설명을 함으로써 생략함.
+###### 이하 5.2 Scene Classification, 5.3 Object Detection on COCO, 5.4 ILSVRC 2017 Classification Competition 부분은 위와 비슷한 설명을 함으로써 생략함.
 
 #### 6 ABLATION STUDY
 
@@ -153,7 +153,7 @@ SE Block 구성요소에 대해 다른 구성을 사용하는 효과를 보다 �
 
 ##### 6.1 Reduction ratio
 
- r은 네트워크에서 SE Block의 용량과 계산 비용을 변화시킬 수 있는 하이퍼파라미터이다.
+r은 네트워크에서 SE Block의 용량과 계산 비용을 변화시킬 수 있는 하이퍼파라미터이다.
 다음과 아래와 같은 실험을 하였음.
 
 
@@ -186,6 +186,7 @@ SE Block을 ResNet-50에 단계별로 추가하여 도입될 때 성능 이점�
 위 그림은 SE설계에 대한 변형 부분을 시각적으로 보여줌.
 
 SE설계에 3가지 변형을 고려함.
+
 	- SE Block 잔여 유닛보다 먼저 이동되는 SE-PRE 
 	- ID 지점(ReLU 이후)과의 합산 후 SE Unit을 이동시키는 SE-POST
 	- SE Unit이 ID 연결부에 평행하게 배치되는 SE-Identity

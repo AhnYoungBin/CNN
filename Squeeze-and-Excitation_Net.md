@@ -127,6 +127,9 @@ ImageNet 2012 dataset(train images 128만개, validation images 50K), classes_nu
 
 ![image](https://user-images.githubusercontent.com/45933225/75980095-2eb0f880-5f25-11ea-8c6a-f43e9cffbf37.png)
 
+![image](https://user-images.githubusercontent.com/45933225/75980102-32447f80-5f25-11ea-8f60-662ef812ed9e.png)
+
+
 - Network depth.
 SE-ResNet-50은 101-ResNet과 비슷한 성능 면에서 전체 계산 부담은 그 절반으로 SE Block 자체는 깊이를 더하지만 계산적으로는 효율적인 방식으로 기본 구조의 깊이를 확장하여 수익이 감소하는 시점에도 좋은 수익을 낸다. 이것을 통해서 서로 다른 네트워크 깊이의 범위에서 일관성이 있다는 것을 알 수 있으며 이렇게 SE Block에 의해 유도된 개선이 기본 아키텍처의 깊이를 단순히 증가시킴으로써 얻어진 개선 상황과 보완적일 수 있음을 시사함.
 
@@ -136,8 +139,6 @@ SE-ResNet-50은 101-ResNet과 비슷한 성능 면에서 전체 계산 부담은
 - Mobile setting.
 마지막으로 MobileNet와 ShuffleNet을 고려함. 이러한 실험에서는 batch_size 256, 데이터 확대 및 정규화를 사용하였음.
 8개의 GPU에 걸쳐 SGD(momentum=0.9)과 10배씩 감소되는 초기 학습 속도를 사용하였으며 최대 400 epoch를 통해서 관찰할 수 있었음. TABLE 3에서 보고된 결과는 계산 비용의 최소 증가에서 지속적으로 큰 표 차이로 정확도를 향상시킨다는 것을 보여줌.
-
-![image](https://user-images.githubusercontent.com/45933225/75980102-32447f80-5f25-11ea-8f60-662ef812ed9e.png)
 
 - Additional datasets.
 SE Block으로 다른 데이터셋에 일반화되는지 여부를 조사함.

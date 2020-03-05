@@ -6,4 +6,4 @@ CNN classification 위주로 정리.
 3. DenseNet
 4. EfficientNet
 5. MobileNet
-6. SEblock(진행중)
+6. SE(Squeeze-and-Excitation)Net(진행중)

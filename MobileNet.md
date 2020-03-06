@@ -42,6 +42,10 @@ Convolution은 각 입력 채널에 단일 필터를 적용한 후 pointwise 결
 	- 결합하기 위한 별도의 층
 이와 같은 구성들은 크기를 획기적으로 줄이는 효과가 있음.
 
+<img width="841" alt="스크린샷 2020-03-07 02 00 52" src="https://user-images.githubusercontent.com/45933225/76104898-7ca62900-6017-11ea-9132-26ec939bd16b.png">
+
+결과 다음 그림은 depthwise separable convolution을 한눈에 확인할 수 있음.
+
 - standard convolution
 
 다음 아래 식은 표준 컨볼루션을 위한 출력 피쳐 맵의 계산.
@@ -138,7 +142,9 @@ Convolution, depthwise separable conv, 폭 승수, 해상도 승수를 차례로
 
 ![image](https://user-images.githubusercontent.com/45933225/75521613-74fce800-5a4b-11ea-8daf-b6711eea4743.png)
 
-Standard convolution을 사용하였을 때와 depthwise separable convolution 사용할 때 정확도 부분에서 1%만 감소킨다는 것을 확인하면서 그의 비용적인 측면을 같이 보여줌.
+Standard convolution을 사용하였을 때와 depthwise 
+
+ble convolution 사용할 때 정확도 부분에서 1%만 감소킨다는 것을 확인하면서 그의 비용적인 측면을 같이 보여줌.
 
 ![image](https://user-images.githubusercontent.com/45933225/75521620-775f4200-5a4b-11ea-93de-4ac7e41d82d2.png)
 

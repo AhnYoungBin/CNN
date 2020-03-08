@@ -8,7 +8,7 @@
 5. MobileNet
 6. SE(Squeeze-and-Excitation)Net
 
--model code
+- model code
 1. vgg
 2. ResNet
 3. DenseNet

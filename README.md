@@ -1,6 +1,6 @@
 ## CNN(classification Neural Network)
 
-- model paper
+##### - model paper
 1. vgg
 2. ResNet
 3. DenseNet
@@ -8,7 +8,7 @@
 5. MobileNet
 6. SE(Squeeze-and-Excitation)Net
 
-- model code
+##### - model code
 1. vgg
 2. ResNet
 3. DenseNet

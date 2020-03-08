@@ -1,4 +1,4 @@
-CNN classification 위주로 정리.
+## CNN(classification Neural Network)
 
 - model paper
 1. vgg

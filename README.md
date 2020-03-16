@@ -1,7 +1,7 @@
-## CNN(classification Neural Network)
+## CNN(Convolutional Neural Network)
 
 ##### - paper(model, attention)
-1. vgg
+1. Vgg
 2. ResNet
 3. DenseNet
 4. EfficientNet
@@ -11,7 +11,7 @@
 
 
 ##### - model code
-1. vgg
+1. Vgg
 2. ResNet
 3. DenseNet
 4. EfficientNet

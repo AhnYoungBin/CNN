@@ -97,7 +97,7 @@ Depthwise separable convolution 계산 비용은 다음과 같음.
 ##### 3.2. Network Structure and Training
 구조로는 완전한 컨볼루션인 첫 번째 층을 제외하고는 depthwise separable convolution으로 구축함.
 
-Depthwise separable, pointwise convolution 별도의 레이어로 간주하여 28개의 레이어를 가짐. 이것은 단순히 네트워크를 소수의 멀티 애드 단위로 정의하는 것만으로 충분하지 않고 일을 효율적으로 수행할 수 있도록 함.
+Depthwise separable, pointwise convolution 별도의 레이어로 간주하여 28개의 레이어를 가짐. 이것은 단순히 네트워크를 소수의 multi add 단위로 정의하는 것만으로 충분하지 않고 일을 효율적으로 수행할 수 있도록 함.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521582-67476280-5a4b-11ea-9e4a-5161ad0677aa.png" width="50%"></p>
 

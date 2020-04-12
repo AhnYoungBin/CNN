@@ -24,7 +24,7 @@ https://github.com/JeongGyuJun/classification_vgg16net - VGG16구현.
 ##### 2-1. ARCHITECTURE
 
 ![image](https://user-images.githubusercontent.com/45933225/79068861-0c20b500-7d05-11ea-8278-7289b3d76338.png)
-<img src="https://user-images.githubusercontent.com/45933225/79068861-0c20b500-7d05-11ea-8278-7289b3d76338.png" width="48">
+<img src="https://user-images.githubusercontent.com/45933225/79068861-0c20b500-7d05-11ea-8278-7289b3d76338.png" width="100%">
 - Conv Layer
 훈련 Convnets에 대한 입력은 고정 크기 224 x 224의 RGB 이미지이며, 사전 처리는 훈련 세트에서 계산된 평균 RGB 값을 각 픽셀에서 빼는 것이다. 이후 이미지는 conv layer 통과하며 3 x. 3필터(좌/우, 위/아래, 중앙의 개념을 포착하기 위한 가장 작은 크기)를 사용한다.  즉, 패딩은 3 x 3 레이어로 1 픽셀을 뜻한다. 구성중에서 1 x 1필터를 사용하는데, 이것은 입력 채널의 선형 변환으로 볼 수 있다. 공간 풀링으로는 5개의 max pooling layer가 수행되며 일부 Conv 레이어를 따른다. Max pooling은 stride 2와 함께 2 x 2 픽셀에서 수행을 함.
 

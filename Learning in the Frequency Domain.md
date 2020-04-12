@@ -105,11 +105,11 @@ Bernoulli 분포 Bern(p)을 샘플링하여 결정하며, 여기서 p는 위에 
 따라서 위 게이트 문제점을 보완하고자 Gumbel Softmax trick이라고 하는 재변형 방법을 제안함.
 CNN 모델의 주파수 영역(C = 192)의 입력 채널로 설정. 
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687914-8bfb0f80-6fe2-11ea-9af1-22bd5a149695.png" width="70%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687914-8bfb0f80-6fe2-11ea-9af1-22bd5a149695.png" width="50%"></p>
 
 F가 각 주파수 채널 xi에 대해 F(xi) {0, 1}과 같은 제안 게이트 모듈을 나타내도록 한다. 그런 다음 xi는 위와같이 선택됨(◉는 element-wise product).
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687918-8ef60000-6fe2-11ea-8218-0c95da816dc0.png" width="70%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687918-8ef60000-6fe2-11ea-8218-0c95da816dc0.png" width="50%"></p>
 
 교차-엔트로피 손실 또는 기타 정확도 관련 손실과 함께 최소화되는 선택된 주파수 채널의 수와 균형을 이루는 손실 함수에 정규화 용어를 추가하였음(LAcc는 정확성과 관련된 손실). 
 

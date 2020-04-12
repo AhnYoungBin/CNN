@@ -94,7 +94,7 @@ Reqular convolution op의 FLOPS는 d, w^2, r^2의 비례함. 즉, 네트워크 D
 따라서 위의 식을 보면 총 FLOPS가 대략 (a * p ^2* r^2)자승 만큼 증가함.
 
 #### 4. EfficientNet Architecture
-좋은 기준선 네트워크를 갖는 것도 중요하며 정확도와 FLOPS를 모두 최적화하는 다중 객체 신경 구조 검색을 활용하여 기준 네트워크를 개발함. 구체적으로는 ACC(m) * [FLOPS(m)/T]^w을 최적화 목표로 사용함. 이것은 하드웨어 장치를 대상으로 하는게 아니기 때문에 지연 시간이 아닌 FLOPS을 최적화하는 것으로 함.
+좋은 기준선 네트워크를 갖는 것도 중요하며 정확도와 FLOPS를 모두 최적화하는 다중 객체 신경 구조 검색을 활용하여 기준 네트워크를 개발함. 구체적으로는 acc(m) * [FLOPS(m)/T]^w을 최적화 목표로 사용함. 이것은 하드웨어 장치를 대상으로 하는게 아니기 때문에 지연 시간이 아닌 FLOPS을 최적화하는 것으로 함.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366481-25f76b80-5902-11ea-869b-7d49824a1f22.png" width="50%"></p>
 
@@ -113,7 +113,7 @@ EfficientNets가 실제 하드웨어면에서도 빠름을 Gpipe와 비교하여
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366492-298af280-5902-11ea-81e8-5ebe7118fdec.png" width="70%"></p>
 
-보여주고자 하는 것은 복합 스케일링 메소드를 통해 스케일링 모델은 객체 상세도가 더 높은 관련 영역에 집중할 수 있다는 것이다.
+보여주고자 하는 것은 복합 스케일링 함수를 통해 스케일링 모델은 객체 상세도가 더 높은 관련 영역에 집중할 수 있다는 것이다.
 
 결과적으로는 다른 ConvNets보다 훨씬 적은 매개변수와 FLOPS로 더 나은 정확도를 달성할 수 있었음.
 

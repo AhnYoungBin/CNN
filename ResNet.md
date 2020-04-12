@@ -63,7 +63,7 @@ Shortcut Connections. Vanishing/Exploding gradients을 해결하기 위해 몇�
 - Plain Network 
 다음 아래 그림에서는 VGGNet에서 영감을 얻었음을 보여줌.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325731-a5fae280-58bc-11ea-9e93-6b9196081050.png" width="30%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325731-a5fae280-58bc-11ea-9e93-6b9196081050.png" width="40%" height="50%"></p>
 
 그림 왼쪽 VGG-19, 중간 34개의 매개변수 레이어 평이한 네트워크, 오른쪽 34개의 매개변수 레이어 잔차 네트워크를 보여줌. 
 총 가중 계층 수는 34개이며 VGGNet보다 필터가 적고 복잡성이 낮다는 것을 보여줌으로 34 계층 기준에는 36억 개의 FLOP(곱하기)가 있으며 이는 VGG-19(1896억 FLOP)의 18%에 불과함.

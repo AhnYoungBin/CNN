@@ -27,7 +27,7 @@ DenseNet은 extrmly deep하거나 wide한 구조로부터 representational power
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620343-1d858600-5bcb-11ea-8b3e-a418212ebc2f.png" width="100%"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620341-09da1f80-5bcb-11ea-958d-39ef52ab12b2.png" width="70%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620341-09da1f80-5bcb-11ea-958d-39ef52ab12b2.png" width="100%"></p>
 
 #### Growth rate
 DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow layer(예. k=12)를 가질 수 있다는 것이다. 여기서 hyperparameter K를 네트워크의 growth rate라고 하고, 상대적으로 작은 growth rate 로도 state-of-the-art 성능을 얻기에 충분하다는 것을 보여준다.
@@ -36,7 +36,7 @@ DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow
 
 #### Bottleneck layers.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620813-cedaea80-5bd0-11ea-9ca6-e2b6e4b3b802.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620813-cedaea80-5bd0-11ea-9ca6-e2b6e4b3b802.png" width="70%"></p>
 
 각 3x3 convolution 전에 1x1 convolution을 bottleneck layer로 도입하여, 입력 feature-map의 개수를 줄이고 계산 효율을 향상시킬 수 있음을 알 수 있었다. 이 디자인은 DenseNet에 특히 효과적이며, 이러한 bottleneck layer를 이용한다. 즉, BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)으로 이루어진
 을 이용하며, 이를 DenseNet-B라고 칭한다.

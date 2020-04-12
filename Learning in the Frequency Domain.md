@@ -10,7 +10,7 @@
 
 영상 축소는 불가피하게 정보 손실과 정확도 저하를 초래하며 Prior works는 task-aware downsizing networks를 학습함으로써 정보 손실을 줄이는 것을 목표로 함. 
 
-![image](https://user-images.githubusercontent.com/45933225/77687862-75ed4f00-6fe2-11ea-9e37-95c2416eacbe.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687862-75ed4f00-6fe2-11ea-9e37-95c2416eacbe.png" width="70%"></p>
 
 본 논문에서는 주파수 영역, 즉 공간 영역에서 크기를 조정하지 않고 이산 코사인 변환(DCT)도메인의 고해상도 영상을 다시 만든 다음 재구성된 DCT계수를 CNN모델에 전달하여 추론을 할 것을 제안하며 이는 필요한 칩 간 통신 대역폭의 직접적인 감소로 이어지며, 이 대역폭은 Deep Learning Inference System의 병목현상으로 이어짐.
 
@@ -52,7 +52,7 @@ Prior works 에서는 이전 blocks의 활성화를 바탕으로 즉시 convolut
 
 ### 3.1 Data Preprocessing in the Frequency Domain
 
-![image](https://user-images.githubusercontent.com/45933225/77687878-7ab20300-6fe2-11ea-92b6-601533a249e5.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687878-7ab20300-6fe2-11ea-92b6-601533a249e5.png" width="70%"></p>
 
 다음은 그림은 데이터 전처리 흐름을 보여주며 아래 과정에 대한 설명을 보여줌.
 
@@ -67,7 +67,7 @@ DCT 재조정 연산에는 2차원 DCT 계수가 3차원 DCT 큐브에 그룹화
 이것은 RGB 입력 영상이 모양이 H*W*C 가정할 경우, 주파수 영역으로 변환한 후, 입력 feature shape는 동일한 입력 데이터 크기를 유지하는 H/8*W/8*64C가 됨.
 주파수 영역의 입력 feature map은 공간 도메인 상대보다 크기 때문에 일반적인 CNN 모델의 입력 레이어를 건너뛴다. 이것은 보통 stride-2 convolution이라고 함.
 
-![image](https://user-images.githubusercontent.com/45933225/77687883-7dacf380-6fe2-11ea-8dc2-38970d8a603c.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687883-7dacf380-6fe2-11ea-8dc2-38970d8a603c.png" width="70%"></p>
 
 Max-pooling 연산자가 즉시 입력 convolution을 따를 경우, Max-pooling 연산자도 건너뛴다. 그런 다음 주파수 영역의 채널 수와 일치하도록 다음 계층의 채널 크기를 조정함.
 
@@ -81,7 +81,7 @@ Max-pooling 연산자가 즉시 입력 convolution을 따를 경우, Max-pooling
 
 각 주파수 채널에 이진 점수를 할당하는 동적 게이트 모듈을 사용한다. 따라서 중요성을 구별하여 입력 데이터 크기가 줄어들어 도메인 변환의 연산 복잡성과 통신 대역폭 요구사항이 감소됨.
 
-![image](https://user-images.githubusercontent.com/45933225/77687899-856c9800-6fe2-11ea-8184-6bb953dfb66d.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687899-856c9800-6fe2-11ea-8184-6bb953dfb66d.png" width="70%"></p>
 
 위 그림에서 보여주는 게이트 모듈의 설명이다.
 
@@ -105,11 +105,11 @@ Bernoulli 분포 Bern(p)을 샘플링하여 결정하며, 여기서 p는 위에 
 따라서 위 게이트 문제점을 보완하고자 Gumbel Softmax trick이라고 하는 재변형 방법을 제안함.
 CNN 모델의 주파수 영역(C = 192)의 입력 채널로 설정. 
 
-![image](https://user-images.githubusercontent.com/45933225/77687914-8bfb0f80-6fe2-11ea-9af1-22bd5a149695.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687914-8bfb0f80-6fe2-11ea-9af1-22bd5a149695.png" width="70%"></p>
 
 F가 각 주파수 채널 xi에 대해 F(xi) {0, 1}과 같은 제안 게이트 모듈을 나타내도록 한다. 그런 다음 xi는 위와같이 선택됨(◉는 element-wise product).
 
-![image](https://user-images.githubusercontent.com/45933225/77687918-8ef60000-6fe2-11ea-8218-0c95da816dc0.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687918-8ef60000-6fe2-11ea-8218-0c95da816dc0.png" width="70%"></p>
 
 교차-엔트로피 손실 또는 기타 정확도 관련 손실과 함께 최소화되는 선택된 주파수 채널의 수와 균형을 이루는 손실 함수에 정규화 용어를 추가하였음(LAcc는 정확성과 관련된 손실). 
 
@@ -117,7 +117,7 @@ F가 각 주파수 채널 xi에 대해 F(xi) {0, 1}과 같은 제안 게이트 �
 
 학습 기반 채널 선택은 각 주파수 채널의 중요도에 대한 동적 추정을 제공함. 즉, 다른 입력 이미지는 활성화된 주파수 채널의 하위 집합을 가질 수 있음.
 
-![image](https://user-images.githubusercontent.com/45933225/77687933-91f0f080-6fe2-11ea-991c-204a352a28f2.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687933-91f0f080-6fe2-11ea-991c-204a352a28f2.png" width="70%"></p>
 
 주파수 채널 활성화 패턴을 이해하기 위해 분류 작업(a), 분할 작업(b)의 두 heat maps을 보여줌.
 
@@ -147,7 +147,7 @@ Heat map 패턴을 기반으로 몇 가지 관측을 수행함.
 
 ### 4.2 Experiment Results on Image Classification
 
-![image](https://user-images.githubusercontent.com/45933225/77687947-961d0e00-6fe2-11ea-9754-d8bdf9420ecf.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/77687947-961d0e00-6fe2-11ea-9754-d8bdf9420ecf.png" width="70%"></p>
 
 위 표를 통해서 Channels, Normalized Input Size에 따라 다른 결과를 확인할 수 있음.
 

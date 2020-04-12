@@ -20,7 +20,7 @@ CNN(Convolutional neural network)이 발전함에 따라 컴퓨터 비전에서 
 그래서 추상적 특징의 채널 간 상호의존성을 명시적으로 모델링함으로써 네트워크가 표현하고자 하는 것을 향상시키는 것을 목표로 함.
 이를 위해 네트워크가 기능 재교정을 하는 방법으로 선택적으로 강조하고 덜 유용한 기능을 억제하기 위해 글로벌 정보를 사용하는 방법을 배울 수 있었음.
  
- <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980001-04f7d180-5f25-11ea-91f8-bd47a3fa3584.png" width="50%"></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980001-04f7d180-5f25-11ea-91f8-bd47a3fa3584.png" width="80%" height="50%"></p>
  
 위 그림은 Squeeze-and-Excitation Block 구조를 보여줌.
 
@@ -108,7 +108,7 @@ SE Block에 도입된 추가 매개변수를 고려하여 두개의 FC Layer에�
 여기서 S는 단계(공간 차원 피쳐 맵에서 작동하는 블록의 집합), Cs는 출력 채널의 치수, Ns는 장소에 대해 반복되는 블록 수를 기록함.
 다음 SE-ResNet-50은 최대 250만 개의 추가 매개변수를 도입하였음.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980081-29ec4480-5f25-11ea-949b-dbda979248d6.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980081-29ec4480-5f25-11ea-949b-dbda979248d6.png" width="70%"></p>
 
 위 표를 통해서 두 개의 FC Layer를 도입함으로써 top-1, top-5 error의 좋은 결과를 가져올 수 있었음을 보여주며 네트워크 최종 단계에서 가장 많은 수의 채널에 걸쳐 Excitation 연산이 수행되지만 비용이 많이 드는 부분도 성능 면에서 적은 비용만으로 제거될 수 있다는 것을 발견할 수 있음.
 

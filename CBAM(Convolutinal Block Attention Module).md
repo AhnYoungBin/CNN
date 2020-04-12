@@ -22,9 +22,8 @@ Convolution 운영은 채널과 공간 정보를 함께 혼합하여 유용한 �
 	- 광범위하고 적절한 연구를 통해 Attention Module의 효과를 검증함.
 	- 가벼운 Module을 연결하여 여러 데이터셋에서 다양한 네트워크의 성능이 크게 향상되었음을 확인함.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png" width="50%"></p>
-![image](https://user-images.githubusercontent.com/45933225/76643320-29dcec00-6598-11ea-85ca-6fdfcb5f58e3.png)	
-	
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png" width="70%"></p>
+
 위 그림은 채널과 공간 모듈로 CBAM으 전반적인 흐름을 보여줌.
 
 ### 2 Related Work
@@ -48,7 +47,7 @@ Squeeze-Excitation 모듈에서는 채널에 대한 Attention을 계산하기 �
 
 ### Channel, Spatial attention module.
  
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643341-32cdbd80-6598-11ea-925d-c9aa4b282162.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643341-32cdbd80-6598-11ea-925d-c9aa4b282162.png" width="70%"></p>
 
 #### Channel attention module.
 Feature map에서 각 채널이 형상 검출기로 간주되기 때문에 Channel attention은 입력 이미지에 주어진 'what' 집중됨. 일반적으로 지금까지는 공간 차원을 압축하여 정보를 집계하는 Avg pooling을 사용하였으며 여기서는 채널에 대한 더 세밀한 관심을 추론하기 위해 Max pooling을 동시에 사용한다. 이것을 독립적으로 사용하는 것보다 모두 이용하는 것이 네트워크의 표현력을 크게 향상시키는 것을 확인하였음.

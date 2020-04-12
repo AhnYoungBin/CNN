@@ -32,7 +32,7 @@ DenseNet은 extrmly deep하거나 wide한 구조로부터 representational power
 #### Growth rate
 DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow layer(예. k=12)를 가질 수 있다는 것이다. 여기서 hyperparameter K를 네트워크의 growth rate라고 하고, 상대적으로 작은 growth rate 로도 state-of-the-art 성능을 얻기에 충분하다는 것을 보여준다.
 
-이러한 효과는, 각 layer들이 block 내의 모든 이전 feature-map에 접근함에 따라, 네트워크의 “collective knowledge”에 액세스 된다는 것이다. Feature-map을 네트워크의 global state로 볼 수 있으며, 각 layer는 각자의 k feature-map에 이 state를 추가하는 것. Growth rate는 각 global state에 기여하는 새로운 정보의 양을 조절. 한 번 쓰여진 global state는 네트워크의 어디에서나 액세스 할 수 있으며, 기존의 네트워크 아키텍처와 달리 (Concatenate로 연결되어 있기 때문에) layer-to-layer로 복제할 필요가 없다.
+이러한 효과는, 각 layer들이 block 내의 모든 이전 feature-map에 접근함에 따라, 네트워크의 “collective knowledge”에 접근 된다는 것이다. Feature-map을 네트워크의 global state로 볼 수 있으며, 각 layer는 각자의 k feature-map에 이 state를 추가하는 것. Growth rate는 각 global state에 기여하는 새로운 정보의 양을 조절. 한 번 쓰여진 global state는 네트워크의 어디에서나 접근 할 수 있으며, 기존의 네트워크 아키텍처와 달리 (Concatenate로 연결되어 있기 때문에) layer-to-layer로 복제할 필요가 없다.
 
 #### Bottleneck layers.
 
@@ -53,16 +53,16 @@ DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow
 ImageNet을 제외한 모든 dataset에 대한 실험에는, 각각 동일한 수의 layer를 가진 3개의 dense block으로 구성 된 DenseNet을 사용한다. 첫 번째 dense block에 들어가기 전, input image를 입력으로 하며, 16개(DenseNet-BC는 growth rate의 2배)의 feature-map을 출력으로 하는 convolution이 수행되며, Kernel size가 3x3인 conv layer의 경우에는 feature-map의 크기를 고정하기 위해 zero-padding을 사용한다. 연속되는 dense block 사이에는 1x1 convolution과 2x2 average pooling이 뒤따라오는 transition layer를 사용하고, 마지막 dense block의 끝에는 global average pooling 후에 softmax classifier가 뒤따른다. 3개의 dense block에서 feature-map 크기는 각각 32x32, 16x16, 8x8이다.
 
 실험에서 사용한 configuration은 다음과 같다.
- 
-Basic DenseNet 
-L=40, k=12 
-L=100, k=12 
-L=100, k=24
 
-DenseNet-BC
-L=100, k=12 
-L=250, k=24 
-L=190, k=40
+    Basic DenseNet 
+    L=40, k=12 
+    L=100, k=12 
+    L=100, k=24
+
+    DenseNet-BC
+    L=100, k=12 
+    L=250, k=24 
+    L=190, k=40
 
 >ImageNet에 사용된 정확한 네트워크 구성은 아래 표 참조
 
@@ -76,7 +76,7 @@ ImageNet은 Batch size를 256으로 하고, 90회의 epoch 동안 학습 진행 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620796-a9e67780-5bd0-11ea-90f6-54126a1ad061.png" width="50%"></p>
 
 ### - Discussion
-표면적으로 DenseNet은 ResNet과 매우 유사하지만 입력을 Concatenation 함으로써, 모든 DenseNet layer에서 학습된 feature-map을 모든 후속 layer에서 액세스 할 수 있게 되는 것이 다르다. 아래 그림에서는 DenseNet의 모든 변형과, 유사 성능의 ResNet의 parameter efficiency를 비교한 실험 결과를 보여준다.
+표면적으로 DenseNet은 ResNet과 매우 유사하지만 입력을 Concatenation 함으로써, 모든 DenseNet layer에서 학습된 feature-map을 모든 후속 layer에서 접근 할 수 있게 되는 것이 다르다. 아래 그림에서는 DenseNet의 모든 변형과, 유사 성능의 ResNet의 parameter efficiency를 비교한 실험 결과를 보여준다.
  
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png" width="70%"></p>
 

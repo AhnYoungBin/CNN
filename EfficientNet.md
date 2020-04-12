@@ -66,7 +66,7 @@ Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방
 
 - 아래 그림으로는 너비(w), 깊이(d), 해상도® 순으로 FLOPS에 대한 top-1 정확도를 보여줌.(FLOPS(Floating Point Operations Persecond) - 컴퓨터의 성능을 수치로 표현하는 단위, 1초동안 수행할 수 있는 부동소수점 연산의 횟수)
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366460-1aa44000-5902-11ea-95eb-9e7e0640fb79.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366460-1aa44000-5902-11ea-95eb-9e7e0640fb79.png" width="70%"></p>
 
 넓은 네트워크는 보다 세분화된 특징을 포착할 수 있는 경향이 있으며, 훈련하기가 더 쉬우며 얕은 네트워크는 더 높은 수준의 특징을 포착하는데 어려움을 겪음.
 
@@ -111,7 +111,7 @@ EfficientNets가 실제 하드웨어면에서도 빠름을 Gpipe와 비교하여
 
 아래 그림은 Class Activation Map(CAM)을 보여줌.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366492-298af280-5902-11ea-81e8-5ebe7118fdec.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366492-298af280-5902-11ea-81e8-5ebe7118fdec.png" width="70%"></p>
 
 보여주고자 하는 것은 복합 스케일링 메소드를 통해 스케일링 모델은 객체 상세도가 더 높은 관련 영역에 집중할 수 있다는 것이다.
 

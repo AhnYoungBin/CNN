@@ -25,9 +25,9 @@ DenseNet은 extrmly deep하거나 wide한 구조로부터 representational power
 
 ### -DenseNet
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620343-1d858600-5bcb-11ea-8b3e-a418212ebc2f.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620343-1d858600-5bcb-11ea-8b3e-a418212ebc2f.png" width="100%"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620341-09da1f80-5bcb-11ea-958d-39ef52ab12b2.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620341-09da1f80-5bcb-11ea-958d-39ef52ab12b2.png" width="70%"></p>
 
 #### Growth rate
 DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow layer(예. k=12)를 가질 수 있다는 것이다. 여기서 hyperparameter K를 네트워크의 growth rate라고 하고, 상대적으로 작은 growth rate 로도 state-of-the-art 성능을 얻기에 충분하다는 것을 보여준다.
@@ -78,7 +78,7 @@ ImageNet은 Batch size를 256으로 하고, 90회의 epoch 동안 학습 진행 
 ### - Discussion
 표면적으로 DenseNet은 ResNet과 매우 유사하지만 입력을 Concatenation 함으로써, 모든 DenseNet layer에서 학습된 feature-map을 모든 후속 layer에서 액세스 할 수 있게 되는 것이 다르다. 아래 그림에서는 DenseNet의 모든 변형과, 유사 성능의 ResNet의 parameter efficiency를 비교한 실험 결과를 보여준다.
  
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png" width="70%"></p>
 
 결과를 요약하면 다음과 같다. DenseNet의 학습 설정은 이전 섹션과 동일하게 유지했을 때, DenseNet-BC가 DenseNet의 변형 중 parameter efficiency가 가장 좋고, DenseNet-BC이 ResNet과 유사한 성능을 달성하는데 필요한 parameter는 1/3에 불과하다
  

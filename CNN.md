@@ -51,7 +51,7 @@ Shared Weights - 동일한 계수를 갖는 filter를 전체 영상에 반복적
 
 #### CNN의 구조 및 과정
 
-<img width="735" alt="스크린샷 2020-03-01 23 45 45" src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png" width="50%"></p>
 
     1. 특징을 추출
     2. topology 변화에 영향을 받지 않도록 함.
@@ -65,8 +65,8 @@ Shared Weights - 동일한 계수를 갖는 filter를 전체 영상에 반복적
  convolution + sub-sampling 과정을 여러번 거치게 되면, global한 특징을 추출할 수 있다. 이렇게 얻어진 특징을 fully-connected network을 통해 학습을 시키기 되면, receptive field와 특성을 중점으로 topology변화에 인식 능력을 갖게 됨.
  
 간략하게 아래 그림은 대략 전반적인 CNN의 구조를 설명함.
- 
-<img width="736" alt="스크린샷 2020-03-02 17 00 18" src="https://user-images.githubusercontent.com/45933225/75656446-4c712a00-5ca7-11ea-8669-43ad0cebe07c.png">
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75656446-4c712a00-5ca7-11ea-8669-43ad0cebe07c.png" width="50%"></p> 
 
 결과적으로 CNN은 여러 개의 layer로 구성이 되며, 주요 구성으로는 convolution layer, sub-sampling(pooling) layer, fully-connected layer로 입력 영상으로부터 주요 구성 layer를 통해, feature map을 만듬.
 
@@ -83,7 +83,7 @@ LeCun은 CNN의 개념을 처음으로 만든 사람이며, 신경망 연구 정
 
 Lecun - CNN의 구조
 
-<img width="742" alt="스크린샷 2020-03-02 17 05 51" src="https://user-images.githubusercontent.com/45933225/75656789-13858500-5ca8-11ea-98c6-6910e613d8ba.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75656789-13858500-5ca8-11ea-98c6-6910e613d8ba.png" width="50%"></p>
 
 이 과정을 대략적으로 보면, convolution, sub-sampling(pooling)을 반복함으로써 feature map의 크기 줄어들면서 개수는 늘어나는 것을 볼 수 있으며, 그 후 FC(Fully connected) 을 연결하여 최종 class를 분류하는 것을 확인할 수 있음.
 
@@ -91,7 +91,7 @@ Lecun - CNN의 구조
 
 #### Krizhevsky - "ImageNet classification with deep convolution neural network"
 
-<img width="759" alt="스크린샷 2020-03-02 17 06 07" src="https://user-images.githubusercontent.com/45933225/75656804-1d0eed00-5ca8-11ea-9f14-1d40f3e8e36f.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75656804-1d0eed00-5ca8-11ea-9f14-1d40f3e8e36f.png" width="50%"></p>
 
 위/아래 구조가 나눠져 있는 것은 2개의 gpu에 적용을 하기 위함.
 

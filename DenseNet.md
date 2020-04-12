@@ -13,7 +13,7 @@ https://github.com/JeongGyuJun/classification_densenet - DenseNet 구현
 
 층이 점점 더 깊어지는 가운데 새롭게 대두 된 문제는, Input이나 gradient에 대한 정보가 여러 layer를 통과하는 경우 네트워크 양 끝에 도달하는 시점에는 이 정보가 vanish 혹은 wash out 될 수 있다는 것이다. 최근 이러한 문제에 대해 최근 많은 연구가 있었는데 모두 선행 레이어에서 후 레이어로 향하는 short path를 만든다는 특징을 가졌고, 이러한 통찰력을 확장하는 아키텍쳐를 제안했습니다. 네트워크의 레이어간 information flow를 극대화하기 위해, feature-map size가 동일한 모든 레이어가 직접 연결되는 것입니다.
 
-<img width="708" alt="스크린샷 2020-03-01 14 45 35" src="https://user-images.githubusercontent.com/45933225/75620351-5160ab80-5bcb-11ea-88e6-7a7e00495607.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620351-5160ab80-5bcb-11ea-88e6-7a7e00495607.png" width="50%"></p>
 
 제안하는 구조에서 feature들은 서로 concatenation 하여 결합됩니다. l번째 층은 모든 선행 conv block의 feature-map들로 구성된 l개의 입력을 가지며, 각 feature-map은 모든 L- l개의 후속 레이어로 전달됩니다. 이것은 기존의 아키텍처에서 L개의 connection 대신 L(L+1)/2 개의 connection을 도입하는 것입니다. Dense connectivity pattern에서 중복되는 feature-map은 다시 학습할 필요가 없기 때문에, DenseNet은 기존의 CNN보다 적은 수의 parameter만 필요합니다.
 
@@ -24,9 +24,10 @@ Highway Networks는 100개 이상의 layer로 이루어진 end-to-end 네트워�
 DenseNet은 extrmly deep하거나 wide한 구조로부터 representational power를 끌어내는 대신, feature의 재사용을 통해 네트워크의 잠재력을 활용함으로써, 학습하기 쉬우면서도 효율적인 parameter를 가진 압축 모델을 만들었고, 이는 DenseNet과 ResNet간의 주요 차이점입니다. DenseNets는 다른 layer의 feature-map을 연결하는 Inception network에 비해, 더 간단하고 효율적이라는 것.
 
 ### -DenseNet
-<img width="617" alt="스크린샷 2020-03-01 14 44 05" src="https://user-images.githubusercontent.com/45933225/75620343-1d858600-5bcb-11ea-8b3e-a418212ebc2f.png">
 
-<img width="617" alt="스크린샷 2020-03-01 14 43 33" src="https://user-images.githubusercontent.com/45933225/75620341-09da1f80-5bcb-11ea-958d-39ef52ab12b2.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620343-1d858600-5bcb-11ea-8b3e-a418212ebc2f.png" width="50%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620341-09da1f80-5bcb-11ea-958d-39ef52ab12b2.png" width="50%"></p>
 
 #### Growth rate
 DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow layer(예. k=12)를 가질 수 있다는 것이다. 여기서 hyperparameter K를 네트워크의 growth rate라고 하고, 상대적으로 작은 growth rate 로도 state-of-the-art 성능을 얻기에 충분하다는 것을 보여준다.
@@ -35,14 +36,14 @@ DenseNet과 기존의 네트워크 구조의 중요한 차이점은, very narrow
 
 #### Bottleneck layers.
 
-<img width="757" alt="스크린샷 2020-03-01 15 24 50" src="https://user-images.githubusercontent.com/45933225/75620813-cedaea80-5bd0-11ea-9ca6-e2b6e4b3b802.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620813-cedaea80-5bd0-11ea-9ca6-e2b6e4b3b802.png" width="50%"></p>
 
 각 3x3 convolution 전에 1x1 convolution을 bottleneck layer로 도입하여, 입력 feature-map의 개수를 줄이고 계산 효율을 향상시킬 수 있음을 알 수 있었다. 이 디자인은 DenseNet에 특히 효과적이며, 이러한 bottleneck layer를 이용한다. 즉, BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)으로 이루어진
 을 이용하며, 이를 DenseNet-B라고 칭한다.
 
 #### Compression
 
-<img width="757" alt="스크린샷 2020-03-01 15 25 32" src="https://user-images.githubusercontent.com/45933225/75620816-e6b26e80-5bd0-11ea-8040-3dd1202dc17a.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620816-e6b26e80-5bd0-11ea-8040-3dd1202dc17a.png" width="50%"></p>
 
 모델을 보다 소형으로 만들기 위해, transition layer에서 feature-map의 개수를 줄일 수 있으며 dense block이 m 개의 feature-map을 포함하는 경우 다음 transition layer에서 출력 feature-map을 [θmc]개가 생성된다. 여기서 0 <θ≤1은 compression factor라고 한다. (θ 가 1인 경우에는 transition layer의 특징맵 개수가 변경되지 않는다)
 
@@ -65,19 +66,19 @@ L=190, k=40
 
 >ImageNet에 사용된 정확한 네트워크 구성은 아래 표 참조
 
-<img width="603" alt="스크린샷 2020-03-01 15 23 11" src="https://user-images.githubusercontent.com/45933225/75620789-92a78a00-5bd0-11ea-8978-e702c6360f82.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620789-92a78a00-5bd0-11ea-8978-e702c6360f82.png" width="50%"></p>
 
 ### - Experiments
 Datasets : 두 개의 CIFAR dataset과 SVHN, ImageNet
 Training : CIFAR와 SVHN은 Batch size를 64로 하고, 각각 300 / 40회의 epoch 동안 학습을 진행,
 ImageNet은 Batch size를 256으로 하고, 90회의 epoch 동안 학습 진행 다양한 depth L과 growth k에 대해 실험했으며, 주요 결과는 아래 표를 참조하자
 
-<img width="628" alt="스크린샷 2020-03-01 15 23 51" src="https://user-images.githubusercontent.com/45933225/75620796-a9e67780-5bd0-11ea-90f6-54126a1ad061.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620796-a9e67780-5bd0-11ea-90f6-54126a1ad061.png" width="50%"></p>
 
 ### - Discussion
 표면적으로 DenseNet은 ResNet과 매우 유사하지만 입력을 Concatenation 함으로써, 모든 DenseNet layer에서 학습된 feature-map을 모든 후속 layer에서 액세스 할 수 있게 되는 것이 다르다. 아래 그림에서는 DenseNet의 모든 변형과, 유사 성능의 ResNet의 parameter efficiency를 비교한 실험 결과를 보여준다.
  
-<img width="683" alt="스크린샷 2020-03-01 15 24 16" src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75620804-b965c080-5bd0-11ea-9120-6482b3b46bbb.png" width="50%"></p>
 
 결과를 요약하면 다음과 같다. DenseNet의 학습 설정은 이전 섹션과 동일하게 유지했을 때, DenseNet-BC가 DenseNet의 변형 중 parameter efficiency가 가장 좋고, DenseNet-BC이 ResNet과 유사한 성능을 달성하는데 필요한 parameter는 1/3에 불과하다
  

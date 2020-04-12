@@ -227,7 +227,7 @@ SE Block에 있는 Excitation 연산자의 기능에 대해 SE-ResNet-50모델�
 	- 더 깊은 곳에서 각 채널의 값은 다른 등급이 형상의 차별적 가치에 대해 서로 다른 선호도를 보일 때 훨씬 더 세분화됨.
 	- 네트워크의 마지막 단계에서 다소 다른 현상(Global pooling, SE Block의 한계 손실만으로 제거함으로써 추가 파라미터 카운트를 상당히 줄임)을 관찰함.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980234-661fa500-5f25-11ea-961d-bac21f937c00.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980234-661fa500-5f25-11ea-961d-bac21f937c00.png" width="70%"></p>
 
 위 그래프는 SE Block 동적 거동이 클래스 내 클래스와 인스턴스 모두에 따라 다르다는 것을 나타내는 클래스 간 시각화와 일치하는 추세를 관찰함. 특히 단일 등급 내에서 표현의 다양성을 고려할 수 있는 네트워크의 후기 계층에서 네트워크는 차별적 성능을 개선하기 위해 기능 재교정을 이용하는 것을 배움. 즉, SE Block은 인스턴스별 응답을 생성하며, 아키텍처의 서로 다른 계층에서 점점 더 세분화된 모델의 요구를 지원하는 기능을 함.
 

@@ -22,7 +22,7 @@ Mobilenets은 주로 지연 시간에 대한 최적화와 작은 네트워크에
 
 이러한 소규모 네트워크를 구축하기 위해 여러 네트워크와 방법을 시연 하였으며 다른 접근법으로는 미리 훈련된 네트워크를 축소, 요인화(네트워크 속도 측면) 또는 압축(제품 정량화, 해싱, 가지치기, 벡터 정량화 및 허프만 코딩 등.)하는 것이었다.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521522-4c74ee00-5a4b-11ea-84e4-73651c6564c0.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521522-4c74ee00-5a4b-11ea-84e4-73651c6564c0.png" width="70%"></p>
 
 #### 3. MobileNet Architecture
 무방비 필터인 버블이라는 핵심 계층을 만들며 네트워크 구조에 대한 설명과 하이퍼파라미터(와이드, 해상도 멀티플레이어)를 분쇄하는 두 모델에 대한 설명을 하고자 함.
@@ -42,7 +42,7 @@ Convolution은 각 입력 채널에 단일 필터를 적용한 후 pointwise 결
 	- 결합하기 위한 별도의 층
 이와 같은 구성들은 크기를 획기적으로 줄이는 효과가 있음.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76104898-7ca62900-6017-11ea-9132-26ec939bd16b.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76104898-7ca62900-6017-11ea-9132-26ec939bd16b.png" width="70%"></p>
 
 결과 다음 그림은 depthwise separable convolution을 한눈에 확인할 수 있음.
 

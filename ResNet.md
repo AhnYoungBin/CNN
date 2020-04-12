@@ -134,9 +134,9 @@ C) 모든 지름길을 예상.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325770-bca13980-58bc-11ea-9497-d4ba1d4ed206.png" width="50%"></p>
 
-위 왼쪽 그림은 34-layer에서 블록이며 오른쪽 그림은 50, 101, 152-layer "병목" 빌딩 블록을 나타냄.
+위 왼쪽 그림은 34-layer에서 블록이며 오른쪽 그림은 50, 101, 152-layer "bottleneck" buliding block 나타냄.
 
-더 깊은 네트워크에 대해 그리고 Training 시간에 대한 우려 때문에  "bottleneck"buliding block 같은 설계로 수정함.
+더 깊은 네트워크에 대해 그리고 Training 시간에 대한 우려 때문에  "bottleneck" buliding block 같은 설계로 수정함.
 자세히 관찰하면 2에서 3 스택으로 변경하였으며 1 x 1, 3 x 3, 1 x 1컨볼루션으로 치수를 줄인 후 증가하는 역할을 하며 3 x 3 layer 더 작은 입출력 치수를 가진 병목현상이 됨.
 결과적으로 시간 복잡성과 모델 크기면에서 효율적인 모델이 될 수 있음.
 

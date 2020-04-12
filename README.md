@@ -18,5 +18,7 @@
 4. EfficientNet
 5. MobileNet
 
-#### - model training
-1. class_model_tuning
+#### - classification training
+1. binary_model_tuning
+2. multiclass_model_tuning
+3. submit_kaggle

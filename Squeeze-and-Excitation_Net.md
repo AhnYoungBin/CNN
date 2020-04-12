@@ -20,8 +20,8 @@ CNN(Convolutional neural network)이 발전함에 따라 컴퓨터 비전에서 
 그래서 추상적 특징의 채널 간 상호의존성을 명시적으로 모델링함으로써 네트워크가 표현하고자 하는 것을 향상시키는 것을 목표로 함.
 이를 위해 네트워크가 기능 재교정을 하는 방법으로 선택적으로 강조하고 덜 유용한 기능을 억제하기 위해 글로벌 정보를 사용하는 방법을 배울 수 있었음.
  
- ![image](https://user-images.githubusercontent.com/45933225/75980001-04f7d180-5f25-11ea-91f8-bd47a3fa3584.png)
-
+ <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980001-04f7d180-5f25-11ea-91f8-bd47a3fa3584.png" width="50%"></p>
+ 
 위 그림은 Squeeze-and-Excitation Block 구조를 보여줌.
 
 간단하게 말하자면, Squeeze and excitation (SE) 블록은 모든 채널을 동일하게 취급하는 대신 각 채널에 가중치를 부여하는 방법이다.
@@ -50,8 +50,8 @@ Attention는 사용 가능한 계산 자원의 배분을 신호의 가장 유용
 
 Squeeze-Excitation 블록은 변환 Ftr을 기반으로 구축될 수 있는 계산 단위로서, 맵을 특징으로 하기 위해 X∈R ^H'xW'xC' 매핑함.
 
-![image](https://user-images.githubusercontent.com/45933225/75980010-0c1edf80-5f25-11ea-8350-1ea452410912.png)
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980010-0c1edf80-5f25-11ea-8350-1ea452410912.png" width="50%"></p>
+ 
 X의 해당 채널에서 작용하는 Vc의 단일 채널을 나타내는 spatial kernel이다.
 Convolutional에 의해 모델링된 채널 관계는 본질적으로 implicit and local 이다.(최상위 계층 제외.) 그래서 네트워크가 후속 변환에 의해 이용될 수 있는 정보 기능에 대한 민감도를 증가시킬 수 있도록 채널 상호의존성을 명시적으로 모델링함으로써 결합 형상에 대한 학습이 향상될 것으로 기대하며 다음 변환에 투입되기 전에 글로벌 정보에 대한 접근을 제공하고 피터 응답을 두 단계로 다시 보정함.
 
@@ -60,8 +60,8 @@ Convolutional에 의해 모델링된 채널 관계는 본질적으로 implicit a
 각 채널에 대한 신호를 고려하여 각각의 학습된 필터는 로컬 수용 필드를 사용하며 변환 출력 U는 지역 외부의 상황 정보를 이용할 수 없다.
 그래서 채널에 글로벌 공간 정보에 대한 글로벌 평균 풀링을 넣는 것을 제안하며, 채널별 통계를 생성이 가능하다.
 
-![image](https://user-images.githubusercontent.com/45933225/75980023-10e39380-5f25-11ea-8d90-ca574e7cbeed.png)
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980023-10e39380-5f25-11ea-8d90-ca574e7cbeed.png" width="50%"></p>
+ 
 위에 식은 통계 z ∈ Rc는 공간 치수 H x W를 통해 U를 수축시킴으로써 생성됨.  전체 이미지에 대해 표현되는 지역적 이미지의 집합으로 해석할 수 있음.
 
 ##### 3.2 Excitation: Adaptive Recalibration
@@ -70,18 +70,18 @@ Squeeze으로 얻은 정보를 활용하기 위해 채널의 의존성을 완전
 	
   	- 유연해야 함.(채널 간 비선형 상호작용을 학습할 수 있어야 함.)
 	- 복수 채널이 강조될 수 있도록 하기 위해 비수행적 관계를 배워야 함.(단열 작동)
-		
-![image](https://user-images.githubusercontent.com/45933225/75980032-14771a80-5f25-11ea-837b-96a344a0a508.png)
-	
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980032-14771a80-5f25-11ea-837b-96a344a0a508.png" width="50%"></p>
+ 
 위와 같은 기준을 충족하기 위해서 sigmoid 활성화가 있는 메커니즘을 사용한다. 여기서 δ = ReLU function, W ∈ R 가리킴. 
 모델의 복잡성을 제한하고 일반화를 돕기 위해 비선형성 주위에 완전히 연결된 레이어 두 개로 병목 현상을 형성하여 게이트 메커니즘을 매개변수로 함.
- 
-![image](https://user-images.githubusercontent.com/45933225/75980039-18a33800-5f25-11ea-990b-0f4207f01846.png)
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980039-18a33800-5f25-11ea-990b-0f4207f01846.png" width="50%"></p>
 
 블록의 최종 출력은 활성화로 U를 다시 정렬하여 얻음.
 F(u, s)는 스칼라 Sc와 피쳐 맵 Uc ∈R^H*W 채널 - 곱셈을 가리키며 Excitation은 입력 특정 설명자 z를 채널 가중치 집합에 매핑함.
 
-![image](https://user-images.githubusercontent.com/45933225/75980057-1e991900-5f25-11ea-9886-18795dc7aedc.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980057-1e991900-5f25-11ea-9886-18795dc7aedc.png" width="50%"></p>
 
 결과적으로 위 그림에서 SE Block 역할로 지역 수용 영역에 국한되지 않는 채널에서 자기 주의 기능으로 간주될 수 있다.
 
@@ -97,18 +97,18 @@ Inception, residual의 실험을 소개로 ResNext, Inception-ResNet, MobileNet 
 SE Block을 설계함으로 성능 향상과 모델 복잡성 증가 간에 좋은 절충을 제공해야 함.
 다음 아래 그림과 같이 ResNet-50, SE-ResNet-50의 비교로 확인이 가능함.
 
-![image](https://user-images.githubusercontent.com/45933225/75980070-235dcd00-5f25-11ea-870b-85ec63707831.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980070-235dcd00-5f25-11ea-870b-85ec63707831.png" width="50%"></p>
 
 Squeeze(Global average pooling), excitation(two small FC layer)사용하며 가벼운 채널 측면 스케일링 작동을 사용함. SE-ResNet-50은 0.26%의 상대적 증가에 해당하는 ~3.87G FLOP을 요구하며 약간의 추가 계산 부담으로 정확도 향상과 GPU Library에 더욱 최적화되며 시간적인 측면에서도 조금 더 나은 결과를 가져옴.
 
 SE Block에 도입된 추가 매개변수를 고려하여 두개의 FC Layer에서 발생하는 전체 네트워크 용량의 작은 부분으로 구성하며 다음 아래의 식과 같음.
 
-![image](https://user-images.githubusercontent.com/45933225/75980075-26f15400-5f25-11ea-9ae3-85da4ce12f52.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980075-26f15400-5f25-11ea-9ae3-85da4ce12f52.png" width="50%"></p>
 
 여기서 S는 단계(공간 차원 피쳐 맵에서 작동하는 블록의 집합), Cs는 출력 채널의 치수, Ns는 장소에 대해 반복되는 블록 수를 기록함.
 다음 SE-ResNet-50은 최대 250만 개의 추가 매개변수를 도입하였음.
 
-![image](https://user-images.githubusercontent.com/45933225/75980081-29ec4480-5f25-11ea-949b-dbda979248d6.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980081-29ec4480-5f25-11ea-949b-dbda979248d6.png" width="50%"></p>
 
 위 표를 통해서 두 개의 FC Layer를 도입함으로써 top-1, top-5 error의 좋은 결과를 가져올 수 있었음을 보여주며 네트워크 최종 단계에서 가장 많은 수의 채널에 걸쳐 Excitation 연산이 수행되지만 비용이 많이 드는 부분도 성능 면에서 적은 비용만으로 제거될 수 있다는 것을 발견할 수 있음.
 
@@ -127,10 +127,9 @@ ImageNet 2012 dataset(train images 128만개, validation images 50K), classes_nu
 
 초기 학습 속도 0.6 설정과 30세마다 10배씩 감소, 모델 중량 초기화 전략을 사용하여 100세대에 대해 교육함.
 
-![image](https://user-images.githubusercontent.com/45933225/75980095-2eb0f880-5f25-11ea-8c6a-f43e9cffbf37.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980095-2eb0f880-5f25-11ea-8c6a-f43e9cffbf37.png" width="50%"></p>
 
-![image](https://user-images.githubusercontent.com/45933225/75980102-32447f80-5f25-11ea-8f60-662ef812ed9e.png)
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980102-32447f80-5f25-11ea-8f60-662ef812ed9e.png" width="50%"></p>
 
 - Network depth.
 SE-ResNet-50은 101-ResNet과 비슷한 성능 면에서 전체 계산 부담은 그 절반으로 SE Block 자체는 깊이를 더하지만 계산적으로는 효율적인 방식으로 기본 구조의 깊이를 확장하여 수익이 감소하는 시점에도 좋은 수익을 낸다. 이것을 통해서 서로 다른 네트워크 깊이의 범위에서 일관성이 있다는 것을 알 수 있으며 이렇게 SE Block에 의해 유도된 개선이 기본 아키텍처의 깊이를 단순히 증가시킴으로써 얻어진 개선 상황과 보완적일 수 있음을 시사함.
@@ -158,33 +157,33 @@ SE Block 구성요소에 대해 다른 구성을 사용하는 효과를 보다 �
 r은 네트워크에서 SE Block의 용량과 계산 비용을 변화시킬 수 있는 하이퍼파라미터이다.
 다음과 아래와 같은 실험을 하였음.
 
-![image](https://user-images.githubusercontent.com/45933225/75980130-3c667e00-5f25-11ea-856b-c78bc4652dbe.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980130-3c667e00-5f25-11ea-856b-c78bc4652dbe.png" width="50%"></p>
 
 복잡성이 증가해도 성능은 단조롭게 개선되지 않는 반면 비율이 작을수록 모델의 매개변수 크기가 크게 증가함.
 r=16일때 정확도와 복잡도 사이의 균형이 잘 잡힘. 이것은 이 아키텍처에 최적화된 비율이였으며, 주어진 기본 아키텍처의 요구를 충족시키기 위해 비율을 조정하여야 함.
 
 ##### 6.2 Squeeze Operator
 
-![image](https://user-images.githubusercontent.com/45933225/75980141-40929b80-5f25-11ea-810f-85f8a59585b2.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980141-40929b80-5f25-11ea-810f-85f8a59585b2.png" width="50%"></p>
 
 Squeeze operator로 global average pooling사용하는 것의 중요성을 보여줌. Max pooling과 Avg pooling 모두 효과적이었지만 Avg pooling이 조금 더 나은 성능을 달성하며, Squeeze 작동의 기초로서 선택을 정당화함.
 
 ##### 6.3 Excitation Operator
 
-![image](https://user-images.githubusercontent.com/45933225/75980152-438d8c00-5f25-11ea-8add-dae876b0d0d0.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980152-438d8c00-5f25-11ea-8add-dae876b0d0d0.png" width="50%"></p>
 
 Excitation operator로 비선형성(sigmoid)의 선택을 평가함. 그리고 두 가지 추가 옵션에 대한 부분을 고려함.(ReLU, Tanh)
 
 ##### 6.4 Different stages
 
-![image](https://user-images.githubusercontent.com/45933225/75980157-47211300-5f25-11ea-8738-460989ffc723.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980157-47211300-5f25-11ea-8738-460989ffc723.png" width="50%"></p>
 
 SE Block을 ResNet-50에 단계별로 추가하여 도입될 때 성능 이점을 가져오는 것을 관찰함.
 서로 다른 단계에서 성능을 더욱 강화하기 위해 효과적으로 결합될 수 있다는 점에서 보완적.
 
 ##### 6.5 Integration strategy
 
-![image](https://user-images.githubusercontent.com/45933225/75980185-53a56b80-5f25-11ea-888a-cbdf4fd10352.png)	
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980185-53a56b80-5f25-11ea-888a-cbdf4fd10352.png" width="50%"></p>
 
 위 그림은 SE설계에 대한 변형 부분을 시각적으로 보여줌.
 
@@ -196,11 +195,11 @@ SE설계에 3가지 변형을 고려함.
 
 아래 표는 다음 3가지 변형을 고려한 수행 결과를 나타냄.
 
-![image](https://user-images.githubusercontent.com/45933225/75980195-57d18900-5f25-11ea-9f82-682d1914da34.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980195-57d18900-5f25-11ea-9f82-682d1914da34.png" width="50%"></p>
 
 SE Block 블록이 각각 유사한 성능을 보이는 반면 SE-POST Block의 사용은 성능 저하를 초래한다는 것을 관찰할 수 있으며 분기 집계에 앞서 적용한다면 극적으로 좋은 성능 향상을 관찰할 수 있었음.
 
-![image](https://user-images.githubusercontent.com/45933225/75980214-5ef89700-5f25-11ea-9861-b86f5dcd5a4f.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980214-5ef89700-5f25-11ea-9861-b86f5dcd5a4f.png" width="50%"></p>
 
 위의 실험에서 각 SE Block은 잔류 유닛의 구조 의부에 배치되었다. 그리고 위 표는표준 SE Block보다 더 적은 매개변수로 SE 3 x 3변량 분석 정확도를 비교할 수 있음. 비록 작업의 범위를 벗어나지만, 특정 아키텍처에 대한 SE Block 사용을 조정함으로써 축적인 효율성 이득을 달성할 수 있을거라고 예상함.
 
@@ -213,7 +212,7 @@ SE Block의 실제 기능에 대한 최소한의 이해를 달성한다는 목�
 
 Squeeze 연산에 의해 생성된 글로벌 임베딩이 성능에 중요한 역할을 하는지 여부를 평가하기 위해, 동일한 수의 파라미터를 추가로 Global Average Pooling을 수행하지 않는 SE Block의 변형으로 실험을 함.
 
-![image](https://user-images.githubusercontent.com/45933225/75980225-628c1e00-5f25-11ea-964d-7bc5705451b2.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980225-628c1e00-5f25-11ea-964d-7bc5705451b2.png" width="50%"></p>
 
 글로벌 정보의 사용이 모델 성능에 상당한 영향을 미치며 squeeze작업의 중요성을 강조함.
 더욱, NoSqueeze설계와 비교하여, SE Block은 이 글로벌 정보를 계산적으로 인색하게 사용할 수 있도록 함.
@@ -228,7 +227,7 @@ SE Block에 있는 Excitation 연산자의 기능에 대해 SE-ResNet-50모델�
 	- 더 깊은 곳에서 각 채널의 값은 다른 등급이 형상의 차별적 가치에 대해 서로 다른 선호도를 보일 때 훨씬 더 세분화됨.
 	- 네트워크의 마지막 단계에서 다소 다른 현상(Global pooling, SE Block의 한계 손실만으로 제거함으로써 추가 파라미터 카운트를 상당히 줄임)을 관찰함.
 
-![image](https://user-images.githubusercontent.com/45933225/75980234-661fa500-5f25-11ea-961d-bac21f937c00.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980234-661fa500-5f25-11ea-961d-bac21f937c00.png" width="50%"></p>
 
 위 그래프는 SE Block 동적 거동이 클래스 내 클래스와 인스턴스 모두에 따라 다르다는 것을 나타내는 클래스 간 시각화와 일치하는 추세를 관찰함. 특히 단일 등급 내에서 표현의 다양성을 고려할 수 있는 네트워크의 후기 계층에서 네트워크는 차별적 성능을 개선하기 위해 기능 재교정을 이용하는 것을 배움. 즉, SE Block은 인스턴스별 응답을 생성하며, 아키텍처의 서로 다른 계층에서 점점 더 세분화된 모델의 요구를 지원하는 기능을 함.
 

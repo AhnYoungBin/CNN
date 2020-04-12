@@ -127,9 +127,9 @@ ImageNet 2012 dataset(train images 128만개, validation images 50K), classes_nu
 
 초기 학습 속도 0.6 설정과 30세마다 10배씩 감소, 모델 중량 초기화 전략을 사용하여 100세대에 대해 교육함.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980095-2eb0f880-5f25-11ea-8c6a-f43e9cffbf37.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980095-2eb0f880-5f25-11ea-8c6a-f43e9cffbf37.png" width="70%"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980102-32447f80-5f25-11ea-8f60-662ef812ed9e.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980102-32447f80-5f25-11ea-8f60-662ef812ed9e.png" width="70%"></p>
 
 - Network depth.
 SE-ResNet-50은 101-ResNet과 비슷한 성능 면에서 전체 계산 부담은 그 절반으로 SE Block 자체는 깊이를 더하지만 계산적으로는 효율적인 방식으로 기본 구조의 깊이를 확장하여 수익이 감소하는 시점에도 좋은 수익을 낸다. 이것을 통해서 서로 다른 네트워크 깊이의 범위에서 일관성이 있다는 것을 알 수 있으며 이렇게 SE Block에 의해 유도된 개선이 기본 아키텍처의 깊이를 단순히 증가시킴으로써 얻어진 개선 상황과 보완적일 수 있음을 시사함.
@@ -183,7 +183,7 @@ SE Block을 ResNet-50에 단계별로 추가하여 도입될 때 성능 이점�
 
 ##### 6.5 Integration strategy
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980185-53a56b80-5f25-11ea-888a-cbdf4fd10352.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75980185-53a56b80-5f25-11ea-888a-cbdf4fd10352.png" width="70%"></p>
 
 위 그림은 SE설계에 대한 변형 부분을 시각적으로 보여줌.
 

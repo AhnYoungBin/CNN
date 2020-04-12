@@ -1,19 +1,19 @@
 ## EfficientNet
 
 ### Abstract
-모델 스케일링을 체계적으로 연구하여 네트워크 깊이, 너비 및 해상도의 세심한 균형이 더 나은 성능으로 이어질 수 있음. 그럼으로 복합 계수를 사용하여 모든 차원의 깊이/폭/해상도를 균일하게 확장하는 새로운 스케일링 밥법을 제안.
+모델 스케일링을 체계적으로 연구하여 네트워크 Depth, Width 및 Resolution의 세심한 균형이 더 나은 성능으로 이어질 수 있음. 그럼으로 복합 계수를 사용하여 모든 차원의 Width/Depth/Resolution를 균일하게 확장하는 새로운 스케일링 밥법을 제안.
 
 EfficientNet-B에서  ImageNet에서 84.4% top-1 / 97.1% top-5 정확도를 달성함.
 
 결과적으로 높은 정확도와 매개변수가 크게 감소하는 효율성을 얻음.
 
 #### 1. Introduction
-ResNet, Gpipe 등 여러 모델에서 ConvNets의 크기를 증가시킴으로써 더 나은 정확성을 얻을 수 있었다. 그리고 깊이, 너비, 해상도 등 3차원 중 하나만 스케일링 하는 것이 일반적이었으며 임의의 스케일링은 지루한 수동 조정이 필요하며 최적 이하의 정확성과 효율성을 산출하는 경우가 많았음.
+ResNet, Gpipe 등 여러 모델에서 ConvNets의 크기를 증가시킴으로써 더 나은 정확성을 얻을 수 있었다. 그리고 Depth, Width, Resolution 등 3차원 중 하나만 스케일링 하는 것이 일반적이었으며 임의의 스케일링은 지루한 수동 조정이 필요하며 최적 이하의 정확성과 효율성을 산출하는 경우가 많았음.
 
-지금까지 정확성과 효율성을 달성할 수 있는 ConvNets 스케일업하는 원칙적인 방법이 있었나?라는 의문점이 생기면서 이번 연구에서는 경험을 바탕으로 폭/깊이/해상도의 모든 차원의 균형을 일정한 비율로 단순히 확장하여 해결할 수 있었음.
-그래서 지금부터는 복합 스케일링 방법을 제안으로 고정 스케일링 계수의 집합으로 네트워크 폭, 깊이 및 해상도를 균일하게 스케일링함.
+지금까지 정확성과 효율성을 달성할 수 있는 'ConvNets scale up 원칙적인 방법이 있었나?'라는 의문점이 생기면서 이번 연구에서는 경험을 바탕으로 Width/Depth/Resolution의 모든 차원의 균형을 일정한 비율로 단순히 확장하여 해결할 수 있었음.
+그래서 지금부터는 복합 스케일링 방법을 제안으로 고정 스케일링 계수의 집합으로 네트워크 Depth, Width 및 Resolution를 균일하게 스케일링함.
 
-Ex) 2^N배 더 많은 계산 자원을 사용한다면 네트워크 깊이(a^N), 너비(b^N), 해상도(r^N)으로 증가시킬 수 있음. 
+Ex) 2^N배 더 많은 계산 자원을 사용한다면 네트워크 Width(a^N), Depth(b^N), Resolution의(r^N)으로 증가시킬 수 있음. 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366426-0eb87e00-5902-11ea-84ee-fb65ccd6b35c.png" width="50%"></p>
 
@@ -33,11 +33,11 @@ AlexNet, GoogleNet, SENet 등 ImageNet, ConvNet 좋은 결과를 달성할 수 �
 - ConvNet Efficiency
 Deep ConvNets은 지나치게 매개변수를 사용함.
 모델 압축은 효율을 위해 정확도를 거래함으로써 모델 크기를 재조정하는 방법을 소개하고자 함.
-유비쿼터스화되면서 SqueezeNets, MobileNets, ShuffleNets 등 효율적인 모바일 사이즈의 ConvNets 설계에서 네트워크 폭, 깊이, 컨볼루션 커널 유형 및 크기를 광범위하게 조정함으로써 모바일 ConvNets보다 훨씬 더 높은 효율을 달성함.
+유비쿼터스화되면서 SqueezeNets, MobileNets, ShuffleNets 등 효율적인 모바일 사이즈의 ConvNets 설계에서 네트워크 Width, Depth 컨볼루션 커널 유형 및 크기를 광범위하게 조정함으로써 모바일 ConvNets보다 훨씬 더 높은 효율을 달성함.
 따라서 본 논문에서는 최첨단 접근성을 능가하는 초대형 ConvNets의 모델 효율을 연구하는 것을 목표로 함.
 
 - Model Scaling
-더 나은 효율과 정확성을 달성하기 위해 네트워크 폭, 깊이, 해상도 3차원 모두에 대한 ConvNet Scaling을 체계적이고 경험적으로 연구하고자 함.
+더 나은 효율과 정확성을 달성하기 위해 네트워크 Depth, Width, Resolution 3차원 모두에 대한 ConvNet Scaling을 체계적이고 경험적으로 연구하고자 함.
 
 #### 3. Compound Model Scaling
 스케일링 문제를 공식화하고, 다양한 접근 방법을 연구하며, 새로운 스케일링 방법을 제안함.
@@ -48,7 +48,7 @@ ConvNet Layer i는 다음과 같은 함수로 정의함.
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366446-1546f580-5902-11ea-8339-c1831b3b6257.png" width="50%"></p>
 
 Yi = Fi(Xi)는 연산자로 출력 텐서, Xi는 입력 텐서이며, Fi를 나타내는 Li를 반복하는 경우 <Hi, Wi, Ci>는 층 i의 입력 텐서 X의 모양을 나타냄.
-따라서 모델 스케일링은 기준선 네트워크에 미리 정의된 Fi를 변경하지 않고 네트워크 길이(Li), 폭(Ci), 해상도(Hi, Wi)를 확장하려고 함.
+따라서 모델 스케일링은 기준선 네트워크에 미리 정의된 Fi를 변경하지 않고 네트워크 Depth(Li), Width(Ci), Resolution(Hi, Wi)를 확장하려고 함.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366452-17a94f80-5902-11ea-8762-fa09cce83647.png" width="50%"></p>
 
@@ -56,7 +56,7 @@ Yi = Fi(Xi)는 연산자로 출력 텐서, Xi는 입력 텐서이며, Fi를 나�
 설계 공간을 더욱 줄이기 위해 모든 레이어를 일정한 비율로 균일하게 스케일링해야 한다고 제한함. 따라서 최적화 문제로 공식화할 수 있는 주어진 자원 제약에 대한 모델 정확도를 극대화하는 것을 목표로 함.
 
 ##### 3-2. Scaling Dimensions
-깊이(d)/너비(w)/해상도(r) 서로 의존하고 다른 자원 제약 하에서 값이 변화한다는 것에 대해서 다음과 같은 차원 중 하나로 ConvNets을 확장함.
+Depth(d)/Width(w)/Resolution(r) 서로 의존하고 다른 자원 제약 하에서 값이 변화한다는 것에 대해서 다음과 같은 차원 중 하나로 ConvNets을 확장함.
 
 - Depth(d)
 
@@ -64,7 +64,7 @@ Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방
 
 - Width(w)
 
-- 아래 그림으로는 너비(w), 깊이(d), 해상도® 순으로 FLOPS에 대한 top-1 정확도를 보여줌.(FLOPS(Floating Point Operations Persecond) - 컴퓨터의 성능을 수치로 표현하는 단위, 1초동안 수행할 수 있는 부동소수점 연산의 횟수)
+- 아래 그림으로는 Width(w), Depth(d), Resolution(r) 순으로 FLOPS에 대한 top-1 정확도를 보여줌.(FLOPS(Floating Point Operations Persecond) - 컴퓨터의 성능을 수치로 표현하는 단위, 1초동안 수행할 수 있는 부동소수점 연산의 횟수)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366460-1aa44000-5902-11ea-95eb-9e7e0640fb79.png" width="70%"></p>
 
@@ -82,15 +82,15 @@ Scaling network depth은 많은 ConvNets가 사용하는 가장 일반적인 방
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366467-1ed05d80-5902-11ea-8939-ddb85ca964da.png" width="50%"></p>
 
-기존의 단일 차원 스케일링보다는 서로 다른 스케일링 치수를 조정하고 균형을 맞출 필요가 있음을 보여줌으로 다음 그래프는 깊이와 해상도에서 1.0보다 2.0에서 높은 정확도를 보여줌.
+기존의 단일 차원 스케일링보다는 서로 다른 스케일링 치수를 조정하고 균형을 맞출 필요가 있음을 보여줌으로 다음 그래프는 Depth, Resolution에서 1.0보다 2.0에서 높은 정확도를 보여줌.
 
-###### -  Observation 2 - 더 나은 정확성과 효율성을 추구하기 위해서는 ConvNet 확장 중에 네트워크 폭, 깊이 및 해상도의 모든 차원의 균형을 맞추는 것이 중요함.
+###### -  Observation 2 - 더 나은 정확성과 효율성을 추구하기 위해서는 ConvNet 확장 중에 네트워크 Width, Depth 및 Resolution의 모든 차원의 균형을 맞추는 것이 중요함.
 
 Compound scaling method 제안
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75366472-2263e480-5902-11ea-8bc9-3d0782aa200f.png" width="50%"></p>
 
-Reqular convolution op의 FLOPS는 d, w^2, r^2의 비례함. 즉, 네트워크 깊이를 두배로 하면 FLOPS가 두배가 되지만, 네트워크 폭이나 해상도를 2배로 하면 FLOPS가  4배가 증가함.
+Reqular convolution op의 FLOPS는 d, w^2, r^2의 비례함. 즉, 네트워크 Depth를 두배로 하면 FLOPS가 두배가 되지만, 네트워크 폭이나 해상도를 2배로 하면 FLOPS가  4배가 증가함.
 따라서 위의 식을 보면 총 FLOPS가 대략 (a * p ^2* r^2)자승 만큼 증가함.
 
 #### 4. EfficientNet Architecture
@@ -121,4 +121,4 @@ EfficientNets가 실제 하드웨어면에서도 빠름을 Gpipe와 비교하여
 복합 스케일링(d, w, r)의 중요성을 한번 더 부각하며 개체 세부 정보가 더 많은 관련 영역에 초점을 맞추는 경향이 있는 반면, 다른 모델은 개체 세부 정보가 부족하거나 이미지의 모든 개체를 캡처할 수 없음.
 
 #### 7. Conclusion
-네트워크 폭, 깊이 및 해상도의 균형을 신중하게 맞추는 것이 중요하지만 누락된 부분을 확인함으로써 더 나은 정확성과 효율성을 방해 하였음. 그래서 이 부분은 복합 스케일링 방법을 통해 보완할 수 있었다.
+네트워크 Width, Depth 및 Resolution의 균형을 신중하게 맞추는 것이 중요하지만 누락된 부분을 확인함으로써 더 나은 정확성과 효율성을 방해 하였음. 그래서 이 부분은 복합 스케일링 방법을 통해 보완할 수 있었다.

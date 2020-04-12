@@ -51,7 +51,7 @@ Shared Weights - 동일한 계수를 갖는 filter를 전체 영상에 반복적
 
 #### CNN의 구조 및 과정
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png" width="70%"></p>
 
     1. 특징을 추출
     2. topology 변화에 영향을 받지 않도록 함.

@@ -91,7 +91,7 @@ Lecun - CNN의 구조
 
 #### Krizhevsky - "ImageNet classification with deep convolution neural network"
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75656804-1d0eed00-5ca8-11ea-9f14-1d40f3e8e36f.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75656804-1d0eed00-5ca8-11ea-9f14-1d40f3e8e36f.png" width="70%"></p>
 
 위/아래 구조가 나눠져 있는 것은 2개의 gpu에 적용을 하기 위함.
 

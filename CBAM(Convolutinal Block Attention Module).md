@@ -22,6 +22,7 @@ Convolution 운영은 채널과 공간 정보를 함께 혼합하여 유용한 �
 	- 광범위하고 적절한 연구를 통해 Attention Module의 효과를 검증함.
 	- 가벼운 Module을 연결하여 여러 데이터셋에서 다양한 네트워크의 성능이 크게 향상되었음을 확인함.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75627787-c60d0780-5c16-11ea-8db6-329e879b8ca0.png" width="50%"></p>
 ![image](https://user-images.githubusercontent.com/45933225/76643320-29dcec00-6598-11ea-85ca-6fdfcb5f58e3.png)	
 	
 위 그림은 채널과 공간 모듈로 CBAM으 전반적인 흐름을 보여줌.
@@ -41,20 +42,20 @@ Squeeze-Excitation 모듈에서는 채널에 대한 Attention을 계산하기 �
 ### 3 Convolutional Block Attention Module
 중간 feature map F ∈ R^C×H×W 입력 받을 때 1D Channel attention map Mc ∈ R^C×1×1, 2D Spatial attention map Ms ∈ R^1×H×W 순차적으로 입력 받음.
 
-![image](https://user-images.githubusercontent.com/45933225/76643327-2d707300-6598-11ea-8196-2554624c5fb2.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643327-2d707300-6598-11ea-8196-2554624c5fb2.png" width="50%"></p>
 
  전체적인 과정은 다음과 같이 요약하며 F" 최종 출력을 말함.
 
 ### Channel, Spatial attention module.
  
-![image](https://user-images.githubusercontent.com/45933225/76643341-32cdbd80-6598-11ea-925d-c9aa4b282162.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643341-32cdbd80-6598-11ea-925d-c9aa4b282162.png" width="50%"></p>
 
 #### Channel attention module.
 Feature map에서 각 채널이 형상 검출기로 간주되기 때문에 Channel attention은 입력 이미지에 주어진 'what' 집중됨. 일반적으로 지금까지는 공간 차원을 압축하여 정보를 집계하는 Avg pooling을 사용하였으며 여기서는 채널에 대한 더 세밀한 관심을 추론하기 위해 Max pooling을 동시에 사용한다. 이것을 독립적으로 사용하는 것보다 모두 이용하는 것이 네트워크의 표현력을 크게 향상시키는 것을 확인하였음.
 
 위 그림을 확인하면 Fc avg, Fc max 두개의 Full feature을 사용함으로써 Channel attention map Mc ∈ R^c×1×1을 생성함. 그리고 공유네트워크로 1개의 숨겨진 레이어가 있는 다중 레이어 인식자(MLP)로 구성되며, 파라미터 오버헤드를 줄이기 위해 숨겨진 활성화 크기 R^c/r×1×1로 설정되며, 여기서 r은 감소 비율을 나타냄. 공유 네트워크는 각 설명자에게 적용된 후, 요소별 합계를 사용하여 출력 feature vector를 병합함.
 
-![image](https://user-images.githubusercontent.com/45933225/76643346-35c8ae00-6598-11ea-82ac-73d2bd67c351.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643346-35c8ae00-6598-11ea-82ac-73d2bd67c351.png" width="50%"></p>
 
 Channel attention은 다음과 같이 계산함. σ는 sigmoid 함수, W0 ∈ R^c/r×c, and W1 ∈ R^c×c/r,  MLP 가중치 W0, W1이 두 입력에 대해 공유되고 ReLU 활성화 기능이 W0에 따라 수행되는지 여부를 나타냄. 
 
@@ -63,7 +64,7 @@ Channel attention은 다음과 같이 계산함. σ는 sigmoid 함수, W0 ∈ R
 
 Spatial attention은 'where' 집중하는 것으로, channel attention을 보완하는 정보적인 부분이다. 그래서 channel attention을 따라 Avg, Max pooling을 적용하고 이를 연계하여 효율적인 특징을 생성함.
 
-![image](https://user-images.githubusercontent.com/45933225/76643350-395c3500-6598-11ea-8721-257c41f24a3e.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643350-395c3500-6598-11ea-8721-257c41f24a3e.png" width="50%"></p>
 
 Convolution layer 적용하여 Spatial attention map Ms(F)를 생성하며, 두 개의 풀링을 사용하여 feature map의 채널 정보를 집계한 후 강조하거나 억제할 위치를 R^h×w  인코딩 함.
 
@@ -77,7 +78,7 @@ Convolution layer 적용하여 Spatial attention map Ms(F)를 생성하며, 두 
 ### 4 Experiments
 표준 벤치마크에서 CBAM을 평가하며 이미지 분류와 개체 감지를 위한 여러 데이터셋을 활용하고 여러 아키텍처를 사용하여 CBAM의 일반적인 적용 가능성을 입증함.
 
-![image](https://user-images.githubusercontent.com/45933225/76643364-3d885280-6598-11ea-9cfe-3a54527f5fd0.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643364-3d885280-6598-11ea-9cfe-3a54527f5fd0.png" width="50%"></p>
 
 다음 그림은 ResNet의 ResBlock과 통합된 CBAM을 보여줌.
 
@@ -97,9 +98,9 @@ Train images 120만개, 1,000개의 객체 클래스를 가진 test images 5만�
 #### Channel attention.
 채널 관심의 3가지 변형, Avg-pooling, Max-pooling, 두 가지 공동 사용을 비교함. 여기서 두 가지를 공동 사용 하였을 때, 두 가지 동일한 의미 내장 공간에 있기 때문에 매개변수를 저장하기 위해 공유 MLP를 사용함.
 
-![image](https://user-images.githubusercontent.com/45933225/76643384-437e3380-6598-11ea-9f08-799c20be8f5b.png)
-![image](https://user-images.githubusercontent.com/45933225/76643387-46792400-6598-11ea-892a-525ef3ca04ad.png)
-![image](https://user-images.githubusercontent.com/45933225/76643401-4a0cab00-6598-11ea-83c7-550f76c9b332.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643384-437e3380-6598-11ea-9f08-799c20be8f5b.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643387-46792400-6598-11ea-892a-525ef3ca04ad.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643401-4a0cab00-6598-11ea-83c7-550f76c9b332.png" width="50%"></p>
 
 여기서 보이는 실험은 Channel attention module 사용하며 감소율은 16으로 수정함.
 
@@ -122,7 +123,7 @@ sigmoid function에 의해 표준화 됨.
 ### 4.2 Image classification on ImageNet-1K
 CBAM이 대규모 데이터 셋의 다양한 아키텍처의 잘 일반회될 수 있음을 입증하며, 정확도 측면에서도 개선을 보여줌.
 
-![image](https://user-images.githubusercontent.com/45933225/76643411-4ed15f00-6598-11ea-98e9-fa8bb89bbbfc.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643411-4ed15f00-6598-11ea-98e9-fa8bb89bbbfc.png" width="50%"></p>
 
 위의 결과를 보면 channel attention을 효과적으로 보완하는 new pooling의 효능울 보여줌.
 
@@ -130,7 +131,7 @@ CBAM이 대규모 데이터 셋의 다양한 아키텍처의 잘 일반회될 �
 
 결과적으로 정확도를 크게 높일 뿐만 아니라 SE의 성능을 개선하며 높은 효율성을 보여줌.
 
-![image](https://user-images.githubusercontent.com/45933225/76643419-5264e600-6598-11ea-963c-f0db4259cbd1.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643419-5264e600-6598-11ea-963c-f0db4259cbd1.png" width="50%"></p>
 
 마지막으로 MobileNet에 동기 부여를 줌.
 
@@ -139,7 +140,7 @@ Test data images 사용하여 Grad-CAM을 여러 아키텍처에 적용함.
 
 결과적으로 컨볼루션 층에서 공간 위치의 중요성을 계산하여 고유한 클래스에 대한 관심 영역을 명확히 보여줌.
 
-![image](https://user-images.githubusercontent.com/45933225/76643424-555fd680-6598-11ea-93ef-164d1b8ef487.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643424-555fd680-6598-11ea-93ef-164d1b8ef487.png" width="50%"></p>
 
 CBAM 통합 네트워크의 결과 다른 방법보다 대상 객체 영역을 더 잘 커버하며 대상 객체 영역의 정보를 유용하게 이용하며 학습하고 특징을 모음. 그에 따라 클래스 점수도 증가한다는 것을 유의함.
 
@@ -148,7 +149,7 @@ Grad-CAM 시각화에 기초한 사용자 연구를 수행 함. ImageNet 유효�
 
 시각화의 경우 Grad-CAM 값이 0.6 이상인 영상의 영역이 표시함. 그리고 CBAM이 기준치를 초과하여 향상된 해석을 보여주는 것을 분명히 볼 수 있음.
 
-![image](https://user-images.githubusercontent.com/45933225/76643436-5a248a80-6598-11ea-90d3-886d14a149bb.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643436-5a248a80-6598-11ea-90d3-886d14a149bb.png" width="50%"></p>
 
 ### 4.5 MS COCO Object Detection
 COCO 데이터셋을 기반으로 한 여러 아키텍처를 사용함으로써 성능 향상에 관심이 있었으며, 이는 CBAM에 의해 주어지는 향상된 표현력에만 기인할 수 있었다. 따라서 일반화 성능을 입증함.
@@ -156,8 +157,8 @@ COCO 데이터셋을 기반으로 한 여러 아키텍처를 사용함으로써 
 ### 4.6 VOC 2007 Object Detection
 PASCAL VOC 2007 테스트 세트에 대한 실험을 추가로 수행 함.
 
-![image](https://user-images.githubusercontent.com/45933225/76643443-5ee93e80-6598-11ea-9b27-e4823f1965ee.png)
-![image](https://user-images.githubusercontent.com/45933225/76643444-614b9880-6598-11ea-910c-36a4500ef2e2.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643443-5ee93e80-6598-11ea-9b27-e4823f1965ee.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643444-614b9880-6598-11ea-910c-36a4500ef2e2.png" width="50%"></p>
 
 위의 실혐 결과로 CBAM을 사용함으로써 더 높은 정확성을 달성할 수 있으며 동시에 매개변수 오버헤드를 동반한다는 점을 유의하고자 함.
 

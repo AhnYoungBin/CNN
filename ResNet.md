@@ -24,7 +24,7 @@ Detection, Localization, Segmentation, Classification 부분에서도 좋은 결
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325687-95e30300-58bc-11ea-8f6f-8553b1cd1625.png" width="50%"></p>
 
 본 논문에서는 deep residual learning framework을 도입하여 열화 문제를 다룬다.
-Residual mapping(잔차 매핑)을 최적화하는 것이 더 쉽다는 가설 세움. 위 그림에서 F(x) + x 공식은 'shortcut connections이 있는 feedforward neural networks)을 통해 실현할 수 있다. 여기서 shortcut connections은 하나 이상의 레이어를 건너뛰는 것을 말함. 
+Residual mapping(잔차 매핑)을 최적화하는 것이 더 쉽다는 가설 세움. 위 그림에서 F(x) + x 공식은 (shortcut connections이 있는 feedforward neural networks)을 통해 실현할 수 있다. 여기서 shortcut connections은 하나 이상의 레이어를 건너뛰는 것을 말함. 
 그렇게 얻을 수 있는 성능으로는 Deep residual nets 깊이가 크게 증가하여 정확도가 쉽게 향상되어 이전 네트워크보다 상당히 우수한 결과를 얻을 수 있음.
 
 #### 2. Relaated Work

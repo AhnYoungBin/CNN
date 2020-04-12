@@ -14,14 +14,14 @@ Detection, Localization, Segmentation, Classification 부분에서도 좋은 결
 #### 1. INTRODUCTION
 깊은 Convolutional Neural Networks는 이미지 분류를 위한 일련의 획기적인 발전을 가져옴. 또한 시각적 인식 작업도 매우 깊은 모델로부터 큰 이점을 얻음.
 
-![image](https://user-images.githubusercontent.com/45933225/75325679-92e81280-58bc-11ea-82b3-2720572286d2.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325679-92e81280-58bc-11ea-82b3-2720572286d2.png" width="50%"></p>
 
 - 망이 깊어질수록 나타나는 문제점:
 
 다음 위 그래프를 보면 네트워크가 깊을수록 학습 오류가 높아 테스트 오류가 발생하는 것을 확인할 수 있음. 그래서 깊이의 중요성에 의해 다음과 같은 의문(많은 레이어를 쌓을수록 더 나은 네트워크를 학습하는 것이 쉬운가?)에 대해서 해결하고자 함.
 이 의문은 Vanishing/Exploding(소멸/폭발) 문제로 처음부터 수렴을 방해함. 즉, 네트워크 깊이가 증가하면 정확도가 포화되고, 그후 빠르게 감소한다. 단, 오버피팅은 아니다.
 
-![image](https://user-images.githubusercontent.com/45933225/75325687-95e30300-58bc-11ea-8f6f-8553b1cd1625.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325687-95e30300-58bc-11ea-8f6f-8553b1cd1625.png" width="50%"></p>
 
 본 논문에서는 deep residual learning framework을 도입하여 열화 문제를 다룬다.
 Residual mapping(잔차 매핑)을 최적화하는 것이 더 쉽다는 가설 세움. 위 그림에서 F(x) + x 공식은 'shortcut connections이 있는 feedforward neural networks)을 통해 실현할 수 있다. 여기서 shortcut connections은 하나 이상의 레이어를 건너뛰는 것을 말함. 
@@ -37,23 +37,23 @@ Shortcut Connections. Vanishing/Exploding gradients을 해결하기 위해 몇�
 
 ##### 3-1. Residual Learning
 
-![image](https://user-images.githubusercontent.com/45933225/75325699-99768a00-58bc-11ea-912b-64bf972cfc05.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325699-99768a00-58bc-11ea-912b-64bf972cfc05.png" width="50%"></p>
 
 위 그림에서 H(x)를 얻는 것이 목표가 아니라 H(x) - x를 얻는 것으로 목표를 수정한다면 출력과 입력의 차를 얻을 수 있도록 학습을 하게 되면 2개의 weighted layer는 H(x) - x를 얻도록 학습이 되어야 한다. 따라서 F(x) = H(x) - x라면 결과적으로 H(x)는 H(x)=F(x) + x가 됨. 
 
-![image](https://user-images.githubusercontent.com/45933225/75325706-9bd8e400-58bc-11ea-8602-1795d5216255.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325706-9bd8e400-58bc-11ea-8602-1795d5216255.png" width="50%"></p>
 
 따라서 다음과 같은 구조를 가질 수 있음. 이것은 Residual Learning의 기본 구성이며 입력에서 바로 출력으로 연결되는 shortcut 연결이 생기게 되었으며, 이 shortcut는 파라미터가 없이 바로 연결외 되는 구조로 연산의 크게 영향을 끼치지 않음.
 결과적으로 identity 매핑으로 깊은 망에 대해서 최적화, 정확도 부분에서 좋은 성능을 이끌어 낼 수 있었음.
 
 ##### 3-2. Identity Mapping by Shortcuts
 
-![image](https://user-images.githubusercontent.com/45933225/75325712-9f6c6b00-58bc-11ea-822c-89fc2ca13ff5.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325712-9f6c6b00-58bc-11ea-822c-89fc2ca13ff5.png" width="50%"></p>
 
 여기서 x와 y는 고려된 레이어의 입력 및 출력 벡터를 나타내며 함수 F(x, {Wi})는 학습할 잔차 매핑을 말함. 위의 식은 shortcut connection은 추가 매개변수나 계산 복장섭을 도입하지 않음. 이것은 동일한 개수의 매개 변수, 깊이, 너비 및 계산 비용을 동시에 갖는 일반 / 잔차 네트워크를  공정하게 비교 가능하게 함.
 반면에, 아래 식에는 입력/출력 채널을 변경할 때 shortcut connection로 선형 투영 Ws는 치수를 일치시킬 때만 사용됨을 보여줌.
 
-![image](https://user-images.githubusercontent.com/45933225/75325725-a2675b80-58bc-11ea-9a07-9005a22b7e51.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325725-a2675b80-58bc-11ea-9a07-9005a22b7e51.png" width="50%"></p>
 
 위에 식들은 표기법 단순화를 위해 완전히 연결된 레이어에 관한 것이지만 컨볼루션 레이어에도 적용할 수 있음.
 
@@ -63,7 +63,7 @@ Shortcut Connections. Vanishing/Exploding gradients을 해결하기 위해 몇�
 - Plain Network 
 다음 아래 그림에서는 VGGNet에서 영감을 얻었음을 보여줌.
 
-![image](https://user-images.githubusercontent.com/45933225/75325731-a5fae280-58bc-11ea-9e93-6b9196081050.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325731-a5fae280-58bc-11ea-9e93-6b9196081050.png" width="50%"></p>
 
 그림 왼쪽 VGG-19, 중간 34개의 매개변수 레이어 평이한 네트워크, 오른쪽 34개의 매개변수 레이어 잔차 네트워크를 보여줌. 
 총 가중 계층 수는 34개이며 VGGNet보다 필터가 적고 복잡성이 낮다는 것을 보여줌으로 34 계층 기준에는 36억 개의 FLOP(곱하기)가 있으며 이는 VGG-19(1896억 FLOP)의 18%에 불과함.
@@ -102,12 +102,12 @@ Top-1 and top-5 error 평가함.
 
 - Plain Networks.
 
-![image](https://user-images.githubusercontent.com/45933225/75325739-ab582d00-58bc-11ea-9684-4b0004ce5d94.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325739-ab582d00-58bc-11ea-9684-4b0004ce5d94.png" width="50%"></p>
 
 우선 18, 34layer Plain Networks를 평가함.
 
-![image](https://user-images.githubusercontent.com/45933225/75325747-b14e0e00-58bc-11ea-9a37-693a4e122c63.png)
-![image](https://user-images.githubusercontent.com/45933225/75325752-b4e19500-58bc-11ea-82f7-1d2c307dc756.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325747-b14e0e00-58bc-11ea-9a37-693a4e122c63.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325752-b4e19500-58bc-11ea-82f7-1d2c307dc756.png" width="50%"></p>
 
 다음은 Top-1 error 보여줌으로써, 34 layer가 얕은 18 layer 보다 plain network에서 더 높은 vlidation error 확인할 수 있음. 그래서 앞으로 나오는 관찰은 train/validation 검사 오류를 비교함.
 이 최적화 어려움이 경사 사라짐으로 인해 발생할 것 같지는 않다고 주장하며 Plain Networks는 BN으로 교육되어 전방의 전파 신호가 0이 아닌 분산을 갖도록 보장함. 그래서 앞 또는 뒤의 신호도 소멸하지 않음.
@@ -119,7 +119,7 @@ Top-1 and top-5 error 평가함.
 기본 구조는 동일하며 3x3 필터에 지름길 연결을 추가하며 identity매핑을 사용하며 차원을 증가시키기 위해 제로패딩을 사용한다. 그래서 일반적인 것에 비해 특별한 매개변수가 없음을 확인할 수 있음.
 결과적으로 위에 있는 오른쪽 그래프를 보면 34-layer에서 더 낮은 error 보여주면서 Train은 확연히 낮은 것을 보여줌으로써 아래 표를 보면 검증 데이터에 일반화할 수 있었음.
 
-![image](https://user-images.githubusercontent.com/45933225/75325761-b8751c00-58bc-11ea-99c2-f9a4ce54d00f.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325761-b8751c00-58bc-11ea-99c2-f9a4ce54d00f.png" width="50%"></p>
 
 - Identity vs Projection Shortcuts 
 매개변수가 없는 identity 지름길이 훈련에 도움이 된다는 것을 보여줌.
@@ -132,7 +132,7 @@ C) 모든 지름길을 예상.
 
 - Deeper Bottleneck Architectures.
 
-![image](https://user-images.githubusercontent.com/45933225/75325770-bca13980-58bc-11ea-9497-d4ba1d4ed206.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75325770-bca13980-58bc-11ea-9497-d4ba1d4ed206.png" width="50%"></p>
 
 위 왼쪽 그림은 34-layer에서 블록이며 오른쪽 그림은 50, 101, 152-layer "병목" 빌딩 블록을 나타냄.
 

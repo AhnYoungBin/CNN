@@ -77,7 +77,7 @@ Convolution layer 적용하여 Spatial attention map Ms(F)를 생성하며, 두 
 ### 4 Experiments
 표준 벤치마크에서 CBAM을 평가하며 이미지 분류와 개체 감지를 위한 여러 데이터셋을 활용하고 여러 아키텍처를 사용하여 CBAM의 일반적인 적용 가능성을 입증함.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643364-3d885280-6598-11ea-9cfe-3a54527f5fd0.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643364-3d885280-6598-11ea-9cfe-3a54527f5fd0.png" width="70%"></p>
 
 다음 그림은 ResNet의 ResBlock과 통합된 CBAM을 보여줌.
 

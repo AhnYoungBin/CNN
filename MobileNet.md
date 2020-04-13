@@ -125,7 +125,7 @@ MobileNet 전반적인 구성을 보여줌.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521601-6f070700-5a4b-11ea-828f-ea4d36c05901.png" width="50%"></p>
 
-이러한 폭 승수의 추가적인 구성으로 합리적인 정확도, 대기 시간 및 크기 트레이드 오프로 새로운 더 작은 모델을 정의할 수 있으며 처음부터 교육을 받아야 하는 새로운 축소된 구조를 정의하기 위해 사용함.
+이러한 폭 승수의 추가적인 구성으로 합리적인 정확도, 대기 시간 및 크기 trade-off로 새로운 더 작은 모델을 정의할 수 있으며 처음부터 교육을 받아야 하는 새로운 축소된 구조를 정의하기 위해 사용함.
 
 ##### 3.4. Resolution Multiplier: Reduced Representation
 신경망의 연산비를 줄이는 두 번째 하이퍼 파라미터는 분해능 곱셈기 ρ해상도 승수이다.
@@ -137,15 +137,13 @@ MobileNet 전반적인 구성을 보여줌.
 Convolution, depthwise separable conv, 폭 승수, 해상도 승수를 차례로 확인하면서 계산 비용에 대한 표현을 한 눈에 볼 수 있음.
 
 #### 4. Experiments
-계층 수 보다는 네트워크의 폭을 줄임으로써 depthwise convolution 효과에 대한 부분을 조사함. 그런 다음 폭, 해상도 승수를 기반으로 네트워크 축소와 트레이드오프, 여러 가지 모델을 비교와 다른 응용 프로그램에 적용됨을 설명하고자 함.
+계층 수 보다는 네트워크의 폭을 줄임으로써 depthwise convolution 효과에 대한 부분을 조사함. 그런 다음 폭, 해상도 승수를 기반으로 네트워크 축소와 trade-off, 여러 가지 모델을 비교와 다른 응용 프로그램에 적용됨을 설명하고자 함.
 
 ##### 4.1. Model Choices
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521613-74fce800-5a4b-11ea-8daf-b6711eea4743.png" width="50%"></p>
 
-Standard convolution을 사용하였을 때와 depthwise 
-
-ble convolution 사용할 때 정확도 부분에서 1%만 감소킨다는 것을 확인하면서 그의 비용적인 측면을 같이 보여줌.
+Standard convolution을 사용하였을 때와 depthwise separable convolution 사용할 때 정확도 부분에서 1%만 감소킨다는 것을 확인하면서 그의 비용적인 측면을 같이 보여줌.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521620-775f4200-5a4b-11ea-93de-4ac7e41d82d2.png" width="50%"></p>
 
@@ -160,7 +158,7 @@ ble convolution 사용할 때 정확도 부분에서 1%만 감소킨다는 것�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521636-7e865000-5a4b-11ea-98c8-29178cd51bc7.png" width="50%"></p>
 
-16개 모델의 변수 수와 Imagenet 정확도 간의 트레이드오프를 보여줌.
+16개 모델의 변수 수와 Imagenet 정확도 간의 trade-off 보여줌.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/75521646-834b0400-5a4b-11ea-89c8-646d6a437358.png" width="50%"></p>
 

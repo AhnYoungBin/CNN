@@ -40,6 +40,7 @@ Convolution은 각 입력 채널에 단일 필터를 적용한 후 pointwise 결
 
 	- 여과하기 위한 별도의 층
 	- 결합하기 위한 별도의 층
+	
 이와 같은 구성들은 크기를 획기적으로 줄이는 효과가 있음.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/76104898-7ca62900-6017-11ea-9132-26ec939bd16b.png" width="70%"></p>
@@ -62,7 +63,7 @@ standard convolutional 계층은 DK x DK x M x N 크기의 convolution kernel K�
 
 M, N, Dk x Dk 및 피쳐 맵 DF x DF에 따라 달라짐.
 
-따라서 출력 채널의 수와 커널의 크기 사이의 상호작용을 끊기 위해 깊이 분리 가능한 convolution을 사용하며 커널을 기반으로 형상을 필터랑하고 새로운 표현을 만들기 위해 형상을 결합하는 효과를 가져옴.
+따라서 출력 채널의 수와 커널의 크기 사이의 상호작용을 끊기 위해 깊이 분리 가능한 convolution을 사용하며 커널을 기반으로 형상을 필터하고 새로운 표현을 만들기 위해 형상을 결합하는 효과를 가져옴.
 
 - depthwise separable convolution
 
@@ -136,7 +137,7 @@ MobileNet 전반적인 구성을 보여줌.
 Convolution, depthwise separable conv, 폭 승수, 해상도 승수를 차례로 확인하면서 계산 비용에 대한 표현을 한 눈에 볼 수 있음.
 
 #### 4. Experiments
-계층 수보다는 네트워크의 폭을 줄임으로써 depthwise convolution 효과에 대한 부분을 조사함. 그런 다음 폭, 해상도 승수를 기반으로 네트워크 축소와 트레이드오프, 여러 가지 모델을 비교와 다른 응용 프로그램에 적용됨을 설명하고자 함.
+계층 수 보다는 네트워크의 폭을 줄임으로써 depthwise convolution 효과에 대한 부분을 조사함. 그런 다음 폭, 해상도 승수를 기반으로 네트워크 축소와 트레이드오프, 여러 가지 모델을 비교와 다른 응용 프로그램에 적용됨을 설명하고자 함.
 
 ##### 4.1. Model Choices
 

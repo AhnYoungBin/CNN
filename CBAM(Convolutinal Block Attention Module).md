@@ -8,7 +8,7 @@ Convolutional Block Attention Module(CBAM)은 CNN을 위한 간단하지만 효�
 ###### Keywords: Object recognition, attention mechanism, gated convolution
 
 ### 1 Introduction
-CNN은 지난 네트워크의 요소인 Depth, Width, Cardinality 부분을 중심으로 발전과 동시에 큰 성과를 보여줌. 그리고 Cardinality는 전체 매개변수 수를 저장할 뿐만 아니라 다른 두요소인 깊이와 너비보다 강한 표현력을 가져오는 것을 Xception ResNext 네트워크의 경험을 통해서 확인하였음.
+CNN은 지난 네트워크의 요소인 Depth, Width, Cardinality 부분을 중심으로 발전과 동시에 큰 성과를 보여줌. 그리고 Cardinality는 전체 매개변수 수를 저장할 뿐만 아니라 다른 두요소인 Depth, Width보다 강한 표현력을 가져오는 것을 Xception ResNext 네트워크의 경험을 통해서 확인하였음.
 
 이러한 요소와는 별도로, 아키텍처 설계의 다른 측면인 Attention을 조사함.
 
@@ -31,10 +31,10 @@ Convolution 운영은 채널과 공간 정보를 함께 혼합하여 유용한 �
 #### Network engineering.
 설계가 좋은 네트워크가 다양한 애플리케이션에서 성능 향상을 보장함.
 
-대규모 CNN의 성공적인 구현 이후 광범위한 깊이, 너비, 카디널리티를 중심으로 한 여러 아키텍처가 제안되었으며 다른 측면인 'Attention'에 초점을 맞추고 있다.
+대규모 CNN의 성공적인 구현 이후 광범위한 Depth, Width, Cardinality 중심으로 한 여러 아키텍처가 제안되었으며 다른 측면인 'Attention'에 초점을 맞추고 있다.
 
 #### Attention mechanism.
-Squeeze-Excitation 모듈에서는 채널에 대한 Attention을 계산하기 위해 글로벌 평균 풀링 기능을 사용하며 미세한 채널의 Attention을 추론하기 위해 최적의 기능이라는 것을 보여주며, 여기서는 추가적으로 Max pooling 기능도 사용할 것을 제안함.
+Squeeze-Excitation 모듈에서는 채널에 대한 Attention을 계산하기 위해 Global Average Pooling 기능을 사용하며 미세한 채널의 Attention을 추론하기 위해 최적의 기능이라는 것을 보여주며, 여기서는 추가적으로 Max pooling 기능도 사용할 것을 제안함.
 
 앞에서 제시한 방법은 초점을 맞출 'where' 부분을 결정하는데 중요한 역할을 하는 공간적 관심을 놓친다. CBAM에서는 효율적인 구조에 기초하여 공간, 채널 Attention을 모두 이용하여 채널을 이용만 하는 것 보다 우월하다는 것을 입증함.
 
@@ -52,7 +52,7 @@ Squeeze-Excitation 모듈에서는 채널에 대한 Attention을 계산하기 �
 #### Channel attention module.
 Feature map에서 각 채널이 형상 검출기로 간주되기 때문에 Channel attention은 입력 이미지에 주어진 'what' 집중됨. 일반적으로 지금까지는 공간 차원을 압축하여 정보를 집계하는 Avg pooling을 사용하였으며 여기서는 채널에 대한 더 세밀한 관심을 추론하기 위해 Max pooling을 동시에 사용한다. 이것을 독립적으로 사용하는 것보다 모두 이용하는 것이 네트워크의 표현력을 크게 향상시키는 것을 확인하였음.
 
-위 그림을 확인하면 Fc avg, Fc max 두개의 Full feature을 사용함으로써 Channel attention map Mc ∈ R^c×1×1을 생성함. 그리고 공유네트워크로 1개의 숨겨진 레이어가 있는 다중 레이어 인식자(MLP)로 구성되며, 파라미터 오버헤드를 줄이기 위해 숨겨진 활성화 크기 R^c/r×1×1로 설정되며, 여기서 r은 감소 비율을 나타냄. 공유 네트워크는 각 설명자에게 적용된 후, 요소별 합계를 사용하여 출력 feature vector를 병합함.
+위 그림을 확인하면 Fc avg, Fc max 두개의 Full feature을 사용함으로써 Channel attention map Mc ∈ R^c×1×1을 생성함. 그리고 공유 네트워크로 1개의 숨겨진 레이어가 있는 다중 레이어 인식자(MLP)로 구성되며, 파라미터 오버헤드를 줄이기 위해 숨겨진 활성화 크기 R^c/r×1×1로 설정되며, 여기서 r은 감소 비율을 나타냄. 공유 네트워크는 각 설명자에게 적용된 후, 요소별 합계를 사용하여 출력 feature vector를 병합함.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/76643346-35c8ae00-6598-11ea-82ac-73d2bd67c351.png" width="50%"></p>
 
@@ -112,10 +112,10 @@ Train images 120만개, 1,000개의 객체 클래스를 가진 test images 5만�
 
 sigmoid function에 의해 표준화 됨.
 
-따라서 위의 결과를 바탕으로 채널, 공간 attention을 동시에 사용하고 kernel_size을 7 x 7을 사용함으로써 높은 성곽를 얻을 수 있었음.
+따라서 위의 결과를 바탕으로 채널, 공간 attention을 동시에 사용하고 kernel_size을 7 x 7을 사용함으로써 높은 성과를 얻을 수 있었음.
 
 #### Arrangement of the channel and spatial attention.
-이 실험에서는 순차 채널 공간, 순차 공간 채널, 두 개의 attention  module의 병렬 사용 방법을 비교함.
+이 실험에서는 순차 채널 공간, 순차 공간 채널, 두 개의 attention module의 병렬 사용 방법을 비교함.
 
 결과적으로 채널과 공간을 사용을 동시에 사용함으로써 더욱 더 높은 성과를 이루었음.
 
@@ -161,6 +161,6 @@ PASCAL VOC 2007 테스트 세트에 대한 실험을 추가로 수행 함.
 
 위의 실혐 결과로 CBAM을 사용함으로써 더 높은 정확성을 달성할 수 있으며 동시에 매개변수 오버헤드를 동반한다는 점을 유의하고자 함.
 
-따라서 CNN 표현력을 증가시키고자 CBAM을 제안 하였으며 채널과 공간이라는 두 가지 독특한 모듈로 Attention 기반 기능 개선을 적용하고 오버헤드를 작게 유지하면서 상다한 성능 향상을 달성함.
+따라서 CNN 표현력을 증가시키고자 CBAM을 제안 하였으며 채널과 공간이라는 두 가지 독특한 모듈로 Attention 기반 기능 개선을 적용하고 오버헤드를 작게 유지하면서 상당한 성능 향상을 달성함.
 
-최종 결과적으로 강조하거나 억제하고 리필해야 할 대상과 위치를 학습함으로 그 성능을 입증하기 위해 다양한 실험을 실시 하였으며 CBAM이 세 가지 서로 다른 벤치마크 데이터셋에서 모든 기준선을 능가한다는 것을 관찰함.
+최종 결과적으로 강조하거나 억제하고 복구해야 할 대상과 위치를 학습함으로 그 성능을 입증하기 위해 다양한 실험을 실시 하였으며 CBAM이 세 가지 서로 다른 벤치마크 데이터셋에서 모든 기준선을 능가한다는 것을 관찰함.

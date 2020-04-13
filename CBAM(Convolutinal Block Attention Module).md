@@ -5,7 +5,7 @@ Convolutional Block Attention Module(CBAM)은 CNN을 위한 간단하지만 효�
 
 다양한 데이터셋에 적용하여 검증했으며, 분류 및 탐지 성능의 일관성 있는 개선을 보여줌.
 
-##### Keywords: Object recognition, attention mechanism, gated convolution
+###### Keywords: Object recognition, attention mechanism, gated convolution
 
 ### 1 Introduction
 CNN은 지난 네트워크의 요소인 깊이, 폭, 카디널리티의 부분을 중심으로 발전과 동시에 큰 성과를 보여줌. 그리고 카디널리티는 전체 매개변수 수를 저장할 뿐만 아니라 다른 두요소인 깊이와 너비보다 강한 표현력을 가져오는 것을 Xception ResNext 네트워크의 경험을 통해서 확인하였음.

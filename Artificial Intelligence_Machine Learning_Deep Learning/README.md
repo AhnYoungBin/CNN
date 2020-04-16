@@ -15,9 +15,9 @@ Big_data - K-means Clustering, EM Clustering 등.
 강화 학습 : 능동적으로 학습을 진행하여 옳은 길을 찾으면 상을 주고 아니면 벌을 주는 형식으로 찾아가는 방식.
 Ex)(바둑, 스타크래프트, 테트리스 등..)게임 - 결과값이 확실하고 컨트롤이 가능한 가상 환경에서 데이터를 무수히 만들 수 있기 때문 사용.
 
-기계를 학습하는 방법(머신 러닝 알고리즘) - 이것이 찾고자 하는 과제~~
+기계를 학습하는 방법(머신 러닝 알고리즘)
 
-
+![image](https://user-images.githubusercontent.com/45933225/79492146-8c734d00-805a-11ea-8700-c2ba511cea48.png)
 
 신경망 학습(1940 시작) - Neural Networks
 인간의 뇌를 모방하여 구성.
@@ -41,6 +41,6 @@ Deep Learning 안에서도 여러가지 방법이 있음.(대표적으로 3가�
 
 구체적인 Deep Learning과 Biomedical 분야의 간략한 역사
 
-
+![image](https://user-images.githubusercontent.com/45933225/79492154-9006d400-805a-11ea-8585-11aae7bd8655.png)
 
 앞으로 기대성으로는 양자역학을 입증하며 꿈, 창의성, 상상력, 의식, 인간이란 무엇일까라는 궁극성, 기대감을 가지고 있다.

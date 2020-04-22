@@ -77,3 +77,12 @@ ResNet-D와 SK를 스택으로 하면 ResNet-D와 SK를 별도로 적용하여 �
 Conclusion
 CNN을 위한 다양한 기법을 단일의 couvolutional 네트워크에 조립하는 것이 ImageNet ILSVRC2012 검증 데이터 집합에서 Top-1 정확도와 mCE의 개선을 이끈다는 것을 보여준다. 시너지 효과는 단일 네트워크에서 다양한 네트워크 트윗과 정규화 기법을 함께 사용함으로써 달성되었다. 
 
+
+<img width="482" alt="스크린샷 2020-04-22 19 00 47" src="https://user-images.githubusercontent.com/45933225/79968789-94ecdd00-84cb-11ea-9138-d2b190762176.png">
+<img width="398" alt="스크린샷 2020-04-22 19 01 14" src="https://user-images.githubusercontent.com/45933225/79968845-a504bc80-84cb-11ea-8e65-bd4371ab1d84.png">
+<img width="435" alt="스크린샷 2020-04-22 19 01 26" src="https://user-images.githubusercontent.com/45933225/79968865-ac2bca80-84cb-11ea-8d9e-371e991321d2.png">
+<img width="355" alt="스크린샷 2020-04-22 19 02 08" src="https://user-images.githubusercontent.com/45933225/79968932-c5347b80-84cb-11ea-8183-96a045e180cf.png">
+<img width="355" alt="스크린샷 2020-04-22 19 02 21" src="https://user-images.githubusercontent.com/45933225/79968958-cd8cb680-84cb-11ea-8f40-a9e2a8de91e3.png">
+<img width="346" alt="스크린샷 2020-04-22 19 02 41" src="https://user-images.githubusercontent.com/45933225/79968991-d9787880-84cb-11ea-9356-0b7c20a21411.png">
+<img width="608" alt="스크린샷 2020-04-22 19 02 55" src="https://user-images.githubusercontent.com/45933225/79969017-e1d0b380-84cb-11ea-9a63-9e7675cfbb95.png">
+

@@ -2,6 +2,7 @@ Assembled CNN
 
 CNN과 관련된 여러 기법을 하나의 네트워크로 조립하는 좀 더 광범위하고 체계적인 연구를 수행했다. 도입된 많은 기법을 고려할 때, 우리는 먼저 기법을 네트워크 트윗과 정규화라는 두 가지 범주로 나누었다.
  
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968789-94ecdd00-84cb-11ea-9138-d2b190762176.png" width="50%"></p>
 
 정규화는 AutoAugment [4], Mixup [39] 등의 데이터 증강 프로세스를 통해 교육 데이터를 증가시키거나, 드롭아웃 [31], DropBlock [5] 등의 프로세스로 CNN의 복잡성을 제한함으로써 오버피팅을 방지하는 방법이며, 광범위한 실험을 통해 이 두 종류의 기법을 조립하는 과정을 체계적으로 분석하고, 우리의 접근법이 상당한 성능 향상으로 이어진다는 것을 증명한다. FLOPS가 실제 GPU 장치의 추론 속도에 비례하지 않는다고 보았기 때문에, 일반적으로 사용되는 FLOPS 측정(초당 부동 소수점 작업) 대신 처리량(이미지/초)을 사용했다.
 
@@ -26,6 +27,8 @@ Network Tweaks
 
 ResNet-D
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968845-a504bc80-84cb-11ea-8e65-bd4371ab1d84.png" width="50%"></p>
+
 처음 두 개의 convolution stride 사이즈가 바뀌었다. (그림 2(b)의 파란색) 
 2×2 Average pooling layer는 Convolution(녹색) 전에 2의 stride로 추가되었다. 
 7x7의 큰 Convolution은 stem layer(빨간색)에서 3개의 작은 3x3 Convolution으로 대체되었다.
@@ -34,17 +37,17 @@ Channel Attention (SE, SK)
 SE(Squeeze and Excitation) 네트워크는 채널과 같은 관계를 모델링하여 네트워크의 표현 능력을 높이는 데 초점을 맞춘다. SE는 채널 정보만을 얻기 위해 글로벌 풀링을 통해 공간 정보를 제거한 후, 이 모듈에서 완전히 연결된 두 레이어가 채널 간의 상관 관계를 학습한다. 
 Selective kernel(SK)은 인간의 시각 피질에서 뉴런의 수용 크기가 서로 다르다는 사실에서 영감을 얻는다. SK 유닛은 커널 크기가 다른 여러 개의 지점이 있으며, 소프트맥스 주의를 이용해 모든 지점이 융합되어 있다
 
-
-
-
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968865-ac2bca80-84cb-11ea-8d9e-371e991321d2.png" width="50%"></p>
  
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968932-c5347b80-84cb-11ea-8183-96a045e180cf.png" width="50%"></p>
+
 표 2는 channel attention의 다른 구성에 대한 결과를 보여준다. SE는 SK에 비해 처리량은 높지만 정확도는 낮다(표 2의 C1). Top-1의 정확도와 처리량 사이의 관계를 고려하여 R50+SK†이 사용된다.
 
 Anti-Alias Downsampling (AA)
 AA는 심층 네트워크의 이동-균형도를 개선할 것을 제안한다
 AA는 저역-통과 필터로서 그들 사이에 기존의 strided-Conv와 함께 실질적인 앨리어스 방지 효과를 얻기 위해 제안된다.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968958-cd8cb680-84cb-11ea-8f40-a9e2a8de91e3.png" width="50%"></p>
 
 Big Little Network (BL)
 BigLittleNet[3]은 컴퓨터 비용을 절감하고 정확도를 높이는 것을 목표로 하는 동시에 해상도가 다른 여러 지점을 적용한다. 
@@ -69,8 +72,11 @@ Teacher model은 복잡하지만 정확도가 높은 번거로운 모델이며, 
 
 Experiment Results
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968991-d9787880-84cb-11ea-9356-0b7c20a21411.png" width="50%"></p>
+
 ResNet-D와 SK를 스택으로 하면 ResNet-D와 SK를 별도로 적용하여 얻은 성능 이득의 합계와 거의 동등한 수준으로 정확도 상위 1위 이득을 증가시킨다. 그 결과, 두 개의 트윗은 서로 거의 영향을미치지 않고 독립적으로 성능을 향상시킬 수 있다는 것을 보여준다.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79969017-e1d0b380-84cb-11ea-9a63-9e7675cfbb95.png" width="50%"></p>
 
 최종 모델은 표 7에 E11로 나와 있으며, 이 모델을 Asemble-ResNet-50이라고 부른다.
 
@@ -78,11 +84,17 @@ Conclusion
 CNN을 위한 다양한 기법을 단일의 couvolutional 네트워크에 조립하는 것이 ImageNet ILSVRC2012 검증 데이터 집합에서 Top-1 정확도와 mCE의 개선을 이끈다는 것을 보여준다. 시너지 효과는 단일 네트워크에서 다양한 네트워크 트윗과 정규화 기법을 함께 사용함으로써 달성되었다. 
 
 
-<img width="482" alt="스크린샷 2020-04-22 19 00 47" src="https://user-images.githubusercontent.com/45933225/79968789-94ecdd00-84cb-11ea-9138-d2b190762176.png">
-<img width="398" alt="스크린샷 2020-04-22 19 01 14" src="https://user-images.githubusercontent.com/45933225/79968845-a504bc80-84cb-11ea-8e65-bd4371ab1d84.png">
-<img width="435" alt="스크린샷 2020-04-22 19 01 26" src="https://user-images.githubusercontent.com/45933225/79968865-ac2bca80-84cb-11ea-8d9e-371e991321d2.png">
-<img width="355" alt="스크린샷 2020-04-22 19 02 08" src="https://user-images.githubusercontent.com/45933225/79968932-c5347b80-84cb-11ea-8183-96a045e180cf.png">
-<img width="355" alt="스크린샷 2020-04-22 19 02 21" src="https://user-images.githubusercontent.com/45933225/79968958-cd8cb680-84cb-11ea-8f40-a9e2a8de91e3.png">
-<img width="346" alt="스크린샷 2020-04-22 19 02 41" src="https://user-images.githubusercontent.com/45933225/79968991-d9787880-84cb-11ea-9356-0b7c20a21411.png">
-<img width="608" alt="스크린샷 2020-04-22 19 02 55" src="https://user-images.githubusercontent.com/45933225/79969017-e1d0b380-84cb-11ea-9a63-9e7675cfbb95.png">
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968789-94ecdd00-84cb-11ea-9138-d2b190762176.png" width="50%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968845-a504bc80-84cb-11ea-8e65-bd4371ab1d84.png" width="50%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968865-ac2bca80-84cb-11ea-8d9e-371e991321d2.png" width="50%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968932-c5347b80-84cb-11ea-8183-96a045e180cf.png" width="50%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968958-cd8cb680-84cb-11ea-8f40-a9e2a8de91e3.png" width="50%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968991-d9787880-84cb-11ea-9356-0b7c20a21411.png" width="50%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79969017-e1d0b380-84cb-11ea-9a63-9e7675cfbb95.png" width="50%"></p>

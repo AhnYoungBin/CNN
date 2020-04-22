@@ -7,7 +7,7 @@
 4. EfficientNet
 5. MobileNet
 6. SE(Squeeze-and-Excitation)Net
-7. CBAM(Convolutinal Block Attention Module)
+7. Convolutinal Block Attention Module
 8. Learning in the Frequency Domain
 
 

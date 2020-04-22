@@ -26,17 +26,17 @@ CNN과 관련된 여러 기법을 하나의 네트워크로 조립하는 좀 더
 
 ### Network Tweaks
 
-ResNet-D
+- ResNet-D
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968845-a504bc80-84cb-11ea-8e65-bd4371ab1d84.png" width="50%"></p>
 
-처음 두 개의 convolution stride 사이즈가 바뀌었다. (그림 2(b)의 파란색) 
-2×2 Average pooling layer는 Convolution(녹색) 전에 2의 stride로 추가되었다. 
-7x7의 큰 Convolution은 stem layer(빨간색)에서 3개의 작은 3x3 Convolution으로 대체되었다.
+1. 처음 두 개의 convolution stride 사이즈가 바뀌었다. (그림 2(b)의 파란색) 
+2. 2×2 Average pooling layer는 Convolution(녹색) 전에 2의 stride로 추가되었다. 
+3. 7x7의 큰 Convolution은 stem layer(빨간색)에서 3개의 작은 3x3 Convolution으로 대체되었다.
 
 #### Channel Attention (SE, SK)
-SE(Squeeze and Excitation) 네트워크는 채널과 같은 관계를 모델링하여 네트워크의 표현 능력을 높이는 데 초점을 맞춘다. SE는 채널 정보만을 얻기 위해 글로벌 풀링을 통해 공간 정보를 제거한 후, 이 모듈에서 완전히 연결된 두 레이어가 채널 간의 상관 관계를 학습한다. 
-Selective kernel(SK)은 인간의 시각 피질에서 뉴런의 수용 크기가 서로 다르다는 사실에서 영감을 얻는다. SK 유닛은 커널 크기가 다른 여러 개의 지점이 있으며, 소프트맥스 주의를 이용해 모든 지점이 융합되어 있다
+1. SE(Squeeze and Excitation) 네트워크는 채널과 같은 관계를 모델링하여 네트워크의 표현 능력을 높이는 데 초점을 맞춘다. SE는 채널 정보만을 얻기 위해 글로벌 풀링을 통해 공간 정보를 제거한 후, 이 모듈에서 완전히 연결된 두 레이어가 채널 간의 상관 관계를 학습한다. 
+2. Selective kernel(SK)은 인간의 시각 피질에서 뉴런의 수용 크기가 서로 다르다는 사실에서 영감을 얻는다. SK 유닛은 커널 크기가 다른 여러 개의 지점이 있으며, 소프트맥스 주의를 이용해 모든 지점이 융합되어 있다
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968865-ac2bca80-84cb-11ea-8d9e-371e991321d2.png" width="50%"></p>
  

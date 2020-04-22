@@ -38,7 +38,7 @@ CNN과 관련된 여러 기법을 하나의 네트워크로 조립하는 좀 더
 1. SE(Squeeze and Excitation) 네트워크는 채널과 같은 관계를 모델링하여 네트워크의 표현 능력을 높이는 데 초점을 맞춘다. SE는 채널 정보만을 얻기 위해 글로벌 풀링을 통해 공간 정보를 제거한 후, 이 모듈에서 완전히 연결된 두 레이어가 채널 간의 상관 관계를 학습한다. 
 2. Selective kernel(SK)은 인간의 시각 피질에서 뉴런의 수용 크기가 서로 다르다는 사실에서 영감을 얻는다. SK 유닛은 커널 크기가 다른 여러 개의 지점이 있으며, 소프트맥스 주의를 이용해 모든 지점이 융합되어 있다
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968865-ac2bca80-84cb-11ea-8d9e-371e991321d2.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968865-ac2bca80-84cb-11ea-8d9e-371e991321d2.png" width="70%"></p>
  
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/79968932-c5347b80-84cb-11ea-8183-96a045e180cf.png" width="50%"></p>
 
@@ -77,7 +77,7 @@ CNN과 관련된 여러 기법을 하나의 네트워크로 조립하는 좀 더
 
 ResNet-D와 SK를 스택으로 하면 ResNet-D와 SK를 별도로 적용하여 얻은 성능 이득의 합계와 거의 동등한 수준으로 정확도 상위 1위 이득을 증가시킨다. 그 결과, 두 개의 트윗은 서로 거의 영향을미치지 않고 독립적으로 성능을 향상시킬 수 있다는 것을 보여준다.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79969017-e1d0b380-84cb-11ea-9a63-9e7675cfbb95.png" width="70%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79969017-e1d0b380-84cb-11ea-9a63-9e7675cfbb95.png" width="100%"></p>
 
 최종 모델은 표 7에 E11로 나와 있으며, 이 모델을 Asemble-ResNet-50이라고 부른다.
 

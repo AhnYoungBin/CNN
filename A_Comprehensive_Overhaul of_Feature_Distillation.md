@@ -46,7 +46,7 @@ feature distillation loss의 설계 측면은 Teacher transform, Student transfo
 Teacher의 값이 긍정적이면 Student은 Teacher와 같은 값을 생산해야 한다. 반대로 Teacher의 값이 부정적이면 Student은 0보다 작은 값을 만들어 뉴런의 활성화 상태를 동일하게 만들어야 한다.
 Student의 가치를 0 이하로 만들기 위해서는 margin이 요구된다는 점에 주목했다. 따라서, 우리는 긍정적인 가치를 유지하면서 부정적인 margin을 주는 Teacher transform을 제안한다.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79970930-a1bf0000-84ce-11ea-9f1b-bc3b35adfecc.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79970930-a1bf0000-84ce-11ea-9f1b-bc3b35adfecc.png" width="100%"></p>
 
 margin 값이 0보다 작다.우리는 이 기능을 Margin ReLU로 한다. Margin ReLU는 teacher의 부정적인 값보다 따라 하기 쉬운 negative Margin을 제공하도록 설계되었다. Teacher의 weight 값을 반영하지 않는 임의의 스칼라 값으로 margin을 설정했다.
 

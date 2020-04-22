@@ -55,3 +55,13 @@ Task loss란 network의 task로 지정되는 loss을 말한다.
 
 Batch normalization
 Teacher의 batch normalization layer의 모드는 정보를 distillation할 때 훈련 모드가 되어야 한다. 이를위해 1*1 conolutional layer 다음에 batch normalization layer를 붙여 Student transform으로 사용하고, Teacher로부터 얻은 knowledge을 training mode로 가져온다.
+
+<img width="300" alt="스크린샷 2020-04-22 19 21 45" src="https://user-images.githubusercontent.com/45933225/79970850-8227d780-84ce-11ea-95e7-7dd09174ee43.png">
+<img width="307" alt="스크린샷 2020-04-22 19 21 55" src="https://user-images.githubusercontent.com/45933225/79970870-88b64f00-84ce-11ea-8413-f156843a7c1a.png">
+<img width="307" alt="스크린샷 2020-04-22 19 22 09" src="https://user-images.githubusercontent.com/45933225/79970888-910e8a00-84ce-11ea-997f-af2f1d103e9e.png">
+<img width="602" alt="스크린샷 2020-04-22 19 22 37" src="https://user-images.githubusercontent.com/45933225/79970930-a1bf0000-84ce-11ea-9f1b-bc3b35adfecc.png">
+<img width="238" alt="스크린샷 2020-04-22 19 22 55" src="https://user-images.githubusercontent.com/45933225/79970966-ac799500-84ce-11ea-9918-823861be0138.png">
+<img width="488" alt="스크린샷 2020-04-22 19 23 07" src="https://user-images.githubusercontent.com/45933225/79970985-b3a0a300-84ce-11ea-904b-171382603021.png">
+<img width="345" alt="스크린샷 2020-04-22 19 23 24" src="https://user-images.githubusercontent.com/45933225/79971011-bdc2a180-84ce-11ea-923b-8c0716703686.png">
+<img width="345" alt="스크린샷 2020-04-22 19 23 34" src="https://user-images.githubusercontent.com/45933225/79971033-c3b88280-84ce-11ea-8ba7-21cd42e7bffc.png">
+

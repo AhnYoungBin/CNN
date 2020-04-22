@@ -42,8 +42,6 @@ feature distillation loss의 설계 측면은 Teacher transform, Student transfo
             B. negative region에대한 정보의 distillation를 건너뛰도록 고안된 부분 L2 거리라고 불리는 새로운 거리 함수를 제안한다.
             C. 우리가 제안한 방법에서 distillation 위치는 첫 번째 ReLU와 레이어 block의 끝 사이에 있다. 이 위치 지정은 Student가 Teacher가 ReLU를 통과하기 전에 보존된 정보에 도달할 수 있도록 한다. 
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/79970888-910e8a00-84ce-11ea-997f-af2f1d103e9e.png" width="100%"></p>
-
 ### Loss Function
 Teacher의 값이 긍정적이면 Student은 Teacher와 같은 값을 생산해야 한다. 반대로 Teacher의 값이 부정적이면 Student은 0보다 작은 값을 만들어 뉴런의 활성화 상태를 동일하게 만들어야 한다.
 Student의 가치를 0 이하로 만들기 위해서는 margin이 요구된다는 점에 주목했다. 따라서, 우리는 긍정적인 가치를 유지하면서 부정적인 margin을 주는 Teacher transform을 제안한다.

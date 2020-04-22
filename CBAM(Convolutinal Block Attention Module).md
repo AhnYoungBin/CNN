@@ -1,4 +1,4 @@
-## CBAM(Convolutinal Block Attention Module)
+## Convolutinal Block Attention Module
 
 ### Abstract
 Convolutional Block Attention Module(CBAM)은 CNN을 위한 간단하지만 효과적인 Attention Module이다. 중간 feature map을 고려할 때, 채널과 공간이라는 두 개의 별도 치수를 따라 관심 맵을 순차적으로 주입한 다음, Attention map을 입력 feature map에 곱하여 적응형 특징 정교함을 제공.

@@ -8,7 +8,9 @@
 5. MobileNet
 6. SE(Squeeze-and-Excitation)Net
 7. Convolutinal Block Attention Module
-8. Learning in the Frequency Domain
+8. A Comprehensive Overhaul of Feature Distillation
+9. Assemble_CNN
+10. Learning in the Frequency Domain
 
 
 ##### - model code

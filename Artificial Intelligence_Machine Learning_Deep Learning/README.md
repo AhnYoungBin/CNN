@@ -5,7 +5,7 @@
 Tensorflow 2.0.0
 
 #### 앞으로 가고 싶은 분야
-computer vision & digital image processing
+computer vision & digital image processing - Web
 
 #### 학습이란 무엇인가?
 여러 경험을 통해 패턴을 얻어내고 다음 행동에 영향을 주는 것이 바로 학습이다.

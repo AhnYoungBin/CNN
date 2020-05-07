@@ -25,3 +25,19 @@ Contraction path(수축 경로), Expansion path(확장 경로)를 확인할 수 
 
 ##### Overlap Tile Strategy
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81299146-bdbac800-90b0-11ea-8919-33dc07db0cbf.png" width="75%"></p>
+
+위 그림에서 전체 이미지가 부분적으로 예측됨. 자세히 보면 영상의 노락색 영역은 파란색 영역을 사용하여 예측함.
+즉 이미지 경계에서 이미지는 미러링에 의해 얻어짐.
+
+출력 분할 맵의 매끄러운 타일을 얻기 위해서는 입력 타일 크기를 선택하는 것이 중요함.
+즉, 모든 2 x 2 Max-pooling 작업이 균등한 x와 y 사이즈의 레이어에 적용되도록 해야 함.
+
+##### Elastic Deformation for Data Augmentation
+
+
+
+훈련 세트가 작아서 세트의 크기를 증가시키기 위해, 입력 및 출력 이미지 세그먼테이션 맵을 임의로 변형함으로써 수행함.
+
+##### Separation of Touching Objects
+

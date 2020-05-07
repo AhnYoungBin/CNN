@@ -49,8 +49,12 @@ Contraction path(수축 경로), Expansion path(확장 경로)를 확인할 수 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81301065-8568b900-90b3-11ea-84aa-04587fdf1a26.png" width="50%"></p>
 
-위의 식은 가중치 맵을 계산하기 위한 식이며
-
+위의 식은 가중치 맵을 계산하기 위한 식이 d1(x)는 위치 x에서 가장 가까운 셀 경계까지의 거리이고, d2(x)는 두번째로 가까운 셀 경계까지의 거리이다. 따라서 border에서는 수치에서와 같이 무게가 높음.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81301098-9285a800-90b3-11ea-91e2-571b4fdce746.png" width="50%"></p>
 
+따라서 교차 엔트로피 기능은 가중치 맵에 의해 각 위치에서 불이익을 받음.
+또한 네트워크가 Touch Cell 사이의 작은 분리 경계를 학습하도록 하는데 도움이 됨.
+
+##### 결과
+ISBI 2012 Challenge에서 Rank 1위를 거둠.

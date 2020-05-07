@@ -26,3 +26,6 @@
 3. submit_kaggle
 
 #### - Artificial Intelligence_Machine Learning_Deep Learning
+
+#### - kaggle_plant pathology 2020
+

@@ -47,3 +47,10 @@ Contraction path(수축 경로), Expansion path(확장 경로)를 확인할 수 
 
 서로 밀접하게 배치되어 있어 네트워크에 의해 쉽게 병합되고 분리되어 가중치 맵이 출력에 적용됨.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81301065-8568b900-90b3-11ea-84aa-04587fdf1a26.png" width="50%"></p>
+
+위의 식은 가중치 맵을 계산하기 위한 식이며
+
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81301098-9285a800-90b3-11ea-91e2-571b4fdce746.png" width="50%"></p>
+

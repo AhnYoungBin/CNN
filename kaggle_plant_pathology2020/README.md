@@ -21,4 +21,4 @@
     
 학습(Train) 데이터 그래프
 
-사진
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81252299-8fad9780-9060-11ea-8c17-99b1abd089ef.png" width="50%"></p>

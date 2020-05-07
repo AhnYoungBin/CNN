@@ -58,3 +58,6 @@ Contraction path(수축 경로), Expansion path(확장 경로)를 확인할 수 
 
 ##### 결과
 ISBI 2012 Challenge에서 Rank 1위를 거둠.
+Warping Error, Rand Error, Pixel Error, 훈련 시간, 테스트 속도에서 좋은 성능을 얻음.
+
+PhC-U373, Dlc-HeLa 데이터 세트에서 가장 높은 IoU를 얻음.

@@ -35,9 +35,15 @@ Contraction path(수축 경로), Expansion path(확장 경로)를 확인할 수 
 
 ##### Elastic Deformation for Data Augmentation
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81300529-bf858b00-90b2-11ea-97be-84a24d78afbd.png" width="75%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81300529-bf858b00-90b2-11ea-97be-84a24d78afbd.png" width="50%"></p>
 
 훈련 세트가 작아서 세트의 크기를 증가시키기 위해, 입력 및 출력 이미지 세그먼테이션 맵을 임의로 변형함으로써 수행함.
 
 ##### Separation of Touching Objects
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81300763-0e332500-90b3-11ea-9d53-fa0c1bc6e26c.png" width="50%"></p>
+
+위 그림에서 왼쪽은 분할 맵, 오른쪽은 가중치 맵을 나타냄.
+
+서로 밀접하게 배치되어 있어 네트워크에 의해 쉽게 병합되고 분리되어 가중치 맵이 출력에 적용됨.
 

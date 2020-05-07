@@ -35,7 +35,7 @@ Contraction path(수축 경로), Expansion path(확장 경로)를 확인할 수 
 
 ##### Elastic Deformation for Data Augmentation
 
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81300529-bf858b00-90b2-11ea-97be-84a24d78afbd.png" width="75%"></p>
 
 훈련 세트가 작아서 세트의 크기를 증가시키기 위해, 입력 및 출력 이미지 세그먼테이션 맵을 임의로 변형함으로써 수행함.
 

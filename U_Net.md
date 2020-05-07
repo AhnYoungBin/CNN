@@ -57,7 +57,12 @@ Contraction path(수축 경로), Expansion path(확장 경로)를 확인할 수 
 또한 네트워크가 Touch Cell 사이의 작은 분리 경계를 학습하도록 하는데 도움이 됨.
 
 ##### 결과
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81302515-7256e880-90b5-11ea-9108-03d437f5dae6.png" width="50%"></p>
+
 ISBI 2012 Challenge에서 Rank 1위를 거둠.
 Warping Error, Rand Error, Pixel Error, 훈련 시간, 테스트 속도에서 좋은 성능을 얻음.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81302544-7a168d00-90b5-11ea-8983-795f8b859e41.png" width="50%"></p>
 
 PhC-U373, Dlc-HeLa 데이터 세트에서 가장 높은 IoU를 얻음.

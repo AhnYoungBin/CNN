@@ -1,36 +1,64 @@
 ## U-Net(Biomedical Image Segmentation)
-Biomedical Image Segmentation에서 유명한 FCN(Fully Convolutional Networks)중 하나로 각 이미지에 annotated을 달기 위해 관련 지식을 가지고 있는 전문가 도움이 필요하다. 이런 시간의 소비를 줄이고자 annotated process가 자동으로 이루어지면 사람의 노력을 줄이고 비용을 절감 할 수 있다. 또는 사람의 실수를 줄이기 위해 보조 역할을 할 수 있다.
+
+#### Abstract
+Data Augmentation을 활용함으로써 annotated sample을 보다 효율적으로 사용하는 학습 전략을 보여줌.
+이 네트워크는 Contracting path, Expanding path 구조를 전반적으로 다룸.
 
 다음은 전자 현미경(EM)이미지를 segment/annotate화 한다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81296649-2dc74f00-90ad-11ea-9168-766f65a2edaa.png" width="50%"></p>
 
-#### U-Net Network Architecture
+#### Introduction & Network Architecture
+Convolution Network 일반적인 용도는 이미지에 대한 출력이 클래스 레이블 분류 작업에 있었다.
+
+그러나 많은 시간 작업이 걸리는 Biomedical Processing에서 원하는 출력은 localization을 포함해야 한다.
+즉, 클래스 라벨은 각 pixel에 할당 되어야 한다는 것.
+
+##### U-Net Network Architecture
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81297096-c3fb7500-90ad-11ea-9e2e-dce8873dbc07.png" width="75%"></p>
 
-Contraction path(수축 경로)은 Context를 캡쳐하며 Expansion path(확장 경로)은 정교한 localization을 가능하게 만드는 구조를 확인할 수 있음.
+Contracting path은 Context를 캡쳐하며 Expanding path은 정교한 localization을 가능하게 만드는 구조를 확인할 수 있음.
 
-##### Contraction path(수축 경로) - Down sampling
-3 x 3 Conv 2회 및 2 x 2 Max-pooling 연속 수행됨. - 고급 기능을 추출하는데 도움이 되지만 피쳐 맵의 크기는 줄어듬.
+##### Contracting path - Convolution Encoder
+피쳐 맵 Copy and Crop하여 Concat하는 구조이다.
 
-##### Expansion path(확장 경로) - Up sampling
-2 x 2 Up-Conv 3 x 3 Conv 2회 연속 수행하여 피쳐 맵의 크기를 복구함. - "what'을 증가시키지만 "where"를 감소시킴.
-즉, 고급 기능을 얻을 수 있지만, 현지화 정보는 잃어 버림.
+3 x 3 Convolution 2회 및 2 x 2 Max-pooling stride2를 연속 수행되며 downsampling시에는 2배의 featre channel을 사용함. - 고급 기능을 추출하는데 도움이 되지만 피쳐 맵의 크기는 줄어듬.
 
-따라서 Up samling 이후에는 동일한 수준의 피쳐 맵을 제공하기 위해 수축 경로에서 확장 경로로 현지화 정보를 제공함.
+##### Expanding path - Convolution Decoder
+Upsampling할 때, 조금 더 정확한 localization을 하기 위해서 위 Contracting path을 이용함.
 
-결과적으로 출력 피쳐 맵은 2개의 클래스, 셀 및 막만을 갖기 때문에 1 x 1 Conv 전환으로 피쳐 맵의 크기를 64에서 2로 맵핑함.
+2 x 2 Convolution(Up-convolution) 3 x 3 Conv 2회 연속 수행하여 피쳐 맵의 크기를 복구함(feature channel이 반으로 줄어듬). - "what'을 증가시키지만 "where"를 감소시킴.
+즉, 고급 기능을 얻을 수 있지만, localization 정보는 잃어 버림.
+
+Up samling 이후에는 동일한 수준의 피쳐 맵을 제공하기 위해 Contracting path에서 Expanding path로 localization 정보를 제공함.
+
+결과적으로 출력 피쳐 맵은 2개의 클래스, 셀 및 막만을 갖기 때문에 1 x 1 Conv 전환으로 피쳐 맵의 크기를 64에서 2개의 클래스로 맵핑함.
+
+
+
+기존에는 Sliding-window을 하면서 로컬 영역(패치)을 입력으로 제공해서 각 픽셀의 class label을 예측 했으면, 기존 방법에 2가지 단점을 보완하고자 Fully Convolution Network구조를 제안함.
+
+2가지 단점
+
+    - 네트워크가 각 패치에 대해 개별적으로 실행되어야 하고 패치가 겹쳐 중복성이 많기 때문에 상당히 느리다.
+    - localization과 context사이에는 trade-off가 있는데, 이는 큰 사이즈의 pathces는 많은 max-pooling을 요구해서 localization의 정확도가 떨어질 수 있고, 작은 사이즈의 patches는 협소한 context만을 볼 수 있다.
 
 ##### Overlap Tile Strategy
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81299146-bdbac800-90b0-11ea-8919-33dc07db0cbf.png" width="75%"></p>
 
-위 그림에서 전체 이미지가 부분적으로 예측됨. 자세히 보면 영상의 노락색 영역은 파란색 영역을 사용하여 예측함.
+위 그림에서 전체 이미지가 부분적으로 예측됨. 자세히 보면 영상의 노락색 영역은 파란색 영역을 Patch( == Tile)단위로 잘라서 사용하여 예측함.
 즉 이미지 경계에서 이미지는 미러링에 의해 얻어짐.
 
 출력 분할 맵의 매끄러운 타일을 얻기 위해서는 입력 타일 크기를 선택하는 것이 중요함.
 즉, 모든 2 x 2 Max-pooling 작업이 균등한 x와 y 사이즈의 레이어에 적용되도록 해야 함.
+
+
+
+#### Training
+
+
 
 ##### Elastic Deformation for Data Augmentation
 

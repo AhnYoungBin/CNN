@@ -95,7 +95,6 @@ Warping Error, Rand Error, Pixel Error, 훈련 시간, 테스트 속도에서 �
 PhC-U373, Dlc-HeLa 데이터 세트에서 가장 높은 IoU를 얻음.
 
 ### Conclusion
+U-Net 구조는 Elastic 변환을 적용한 Data Augmentation 덕분에 매우 다른 biomedical segmentation applications에서 좋은 성능을 보였다. 그리고 annotated image가 별로 없는 상황에서 매우 합리적임.
 
-
-
-U-Net 구조는 매우 다른 biomedical segmentation applications에서 
+U-Net 구현은 Caffe 기반으로 제공되며 다양한 task에서 쉽게 적용되어 사용될 것이다.

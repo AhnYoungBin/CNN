@@ -1,6 +1,6 @@
 ## U-Net(Biomedical Image Segmentation)
 
-#### Abstract
+### Abstract
 Data Augmentation을 활용함으로써 annotated sample을 보다 효율적으로 사용하는 학습 전략을 보여줌.
 이 네트워크는 Contracting path, Expanding path 구조를 전반적으로 다룸.
 
@@ -8,7 +8,7 @@ Data Augmentation을 활용함으로써 annotated sample을 보다 효율적으�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81296649-2dc74f00-90ad-11ea-9168-766f65a2edaa.png" width="50%"></p>
 
-#### Introduction & Network Architecture
+### Introduction & Network Architecture
 Convolution Network 일반적인 용도는 이미지에 대한 출력이 클래스 레이블 분류 작업에 있었다.
 
 그러나 많은 시간 작업이 걸리는 Biomedical Processing에서 원하는 출력은 localization을 포함해야 한다.
@@ -54,17 +54,17 @@ Up samling 이후에는 동일한 수준의 피쳐 맵을 제공하기 위해 Co
 출력 분할 맵의 매끄러운 타일을 얻기 위해서는 입력 타일 크기를 선택하는 것이 중요함.
 즉, 모든 2 x 2 Max-pooling 작업이 균등한 x와 y 사이즈의 레이어에 적용되도록 해야 함.
 
+### Training
+학습은 Stochastic gradient descent로 구현되었으며 이 논문에서는 학습 중 GPU memory의 사용량을 최대화 시키기 위해서 batch size를 크게해서 학습시키는 것 보다는 input tile의 size를 크게 주는 방법을 사용함.
 
+따라서, 이 방법은 batch size가 작기 때문에, 이를 보완하고자 momentum의 값을 0.99를 줘서 지난 값들을 더 많이 반영하게 하여서 학습이 잘 되도록 하였음.
 
-#### Training
-
-
-
-##### Elastic Deformation for Data Augmentation
+##### Elastic Deformation for Data Augmentation(Data Augmentation)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81300529-bf858b00-90b2-11ea-97be-84a24d78afbd.png" width="50%"></p>
 
-훈련 세트가 작아서 세트의 크기를 증가시키기 위해, 입력 및 출력 이미지 세그먼테이션 맵을 임의로 변형함으로써 수행함.
+훈련 세트가 작아서 세트의 크기를 증가시키기 위해, 입력 및 출력 이미지 세그먼테이션 맵을 3 by 3 elastic 변환 행렬을 통해 수행함.
+세포를 세그먼테이션 하는 것이기 때문에 성능 향상에 매우 큰 역할을 함.
 
 ##### Separation of Touching Objects
 
@@ -83,7 +83,7 @@ Up samling 이후에는 동일한 수준의 피쳐 맵을 제공하기 위해 Co
 따라서 교차 엔트로피 기능은 가중치 맵에 의해 각 위치에서 불이익을 받음.
 또한 네트워크가 Touch Cell 사이의 작은 분리 경계를 학습하도록 하는데 도움이 됨.
 
-##### 결과
+### Experiments
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81302515-7256e880-90b5-11ea-9108-03d437f5dae6.png" width="50%"></p>
 
@@ -93,3 +93,9 @@ Warping Error, Rand Error, Pixel Error, 훈련 시간, 테스트 속도에서 �
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81302544-7a168d00-90b5-11ea-8983-795f8b859e41.png" width="50%"></p>
 
 PhC-U373, Dlc-HeLa 데이터 세트에서 가장 높은 IoU를 얻음.
+
+### Conclusion
+
+
+
+U-Net 구조는 매우 다른 biomedical segmentation applications에서 

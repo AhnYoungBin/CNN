@@ -22,3 +22,5 @@
 학습(Train) 데이터 그래프
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81252299-8fad9780-9060-11ea-8c17-99b1abd089ef.png" width="75%"></p>
+
+=> label 1을 모두 합하면 학습 총 데이터 수가 1821장이 나옴.

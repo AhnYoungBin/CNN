@@ -24,7 +24,6 @@
 #### - classification training
 1. binary_model_tuning
 2. multiclass_model_tuning
-3. submit_kaggle
 
 #### - Artificial Intelligence_Machine Learning_Deep Learning
 

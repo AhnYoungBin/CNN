@@ -26,4 +26,17 @@ object detection을 단일 regression 문제로 재구성하고, 이미지 픽�
 
 The YOLO Detection System.
 
-    - 먼저 입력이미지를 
+    - 1. 먼저 입력이미지를 448 x 448의 크기로 조정한다.
+    - 2. 이미지에 대해 단일 Convolution Network를 실행함.
+    - 3. NMS(Non-Max Suppresion - 중복된 detection을 제거) - 모델의 신뢰도에 의한 결과 detection의 임계값을 정함.
+  
+간단하게 말하자면 단일의 Convolutional Network는 동시에 복수의 Bounding boxes를 예측하고, boxes에 대한 클래스 확률을 예측함.
+따라서 전체 이미지에 대해 학습하고 detection 성능을 직접적으로 최적화함.
+
+YOLO의 장점 3가지.
+
+1. 매우 빠름.
+detection을 regression 문제로 재구성하여 복잡한 파이프라인이 필요하지 않게 됨.
+Titan X GPU에서 배치 없이 45fps(frame per second), 빠른 버전 150fps보다 빠름. - real time으로 적용할 수 있다는 것을 의미, 다른 real time 시스템에 비해 두 배가 넘는 mAP를 달성함.
+
+2. 예측할 때, 이미지에 대해 전체적으로 추론함.

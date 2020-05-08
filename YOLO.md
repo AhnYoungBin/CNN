@@ -74,6 +74,9 @@ YOLO는 Fast R-CNN과 비교해서, 절반 이하의 배경 오류를 발생 시
 boxes의 갯수인 B에 상관하지 않고, 오직 grid cell당 하나의 클래스 확률을 예측함. - 테스트시에는 조건부 확률과 개개인의 신뢰도 예측을 곱하면 위에 합쳐져 있는 식이 나옴.
 
 결과적으로 각 box에 대해 클래스별 신뢰도를 알려줌. - 점수는 box에서 클래스가 나타나는 확률과 예측된 box가 객체와 얼마나 잘 맞는지를 담고 있다.
+<img width="124" alt="스크린샷 2020-05-08 23 11 54" src="https://user-images.githubusercontent.com/45933225/81414002-4f920600-9181-11ea-8101-e8cc9f7af219.png">
+![Uploading 스크린샷 2020-05-08 23.37.13.png…]()
+<img width="553" alt="스크린샷 2020-05-08 23 37 34" src="https://user-images.githubusercontent.com/45933225/81416602-e57b6000-9184-11ea-935b-aa427c8f4aeb.png">
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81414045-5ae53180-9181-11ea-99e0-0f49f2057144.png" width="75%"></p>
 

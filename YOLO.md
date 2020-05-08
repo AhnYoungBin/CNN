@@ -83,7 +83,6 @@ grid cell은 B 경계 상자, 해당 상자에 대한 신뢰도를 예측하여 
 Pascal VOC에 대해서는 S = 7, B = 2를 사용하고 클래스가 20개 이기에 C = 20이어서 최종 예측은 7 X 7 X 30 tensor가 됨.
 
 #### Network Design
-
 Fully connected layers가 출력의 확률과 좌표를 예측할 때, 네트워크의 초반 Convolutional Layers는 이미지로부터 특성을 추출함.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81416602-e57b6000-9184-11ea-935b-aa427c8f4aeb.png" width="75%"></p>
@@ -95,4 +94,7 @@ YOLO Network는 24개의 Convolution Layer와 2개의 FC Layer로 이루어져 �
 다른점으로는 GoogLeNet에서 인셉션 모듈을 썻던 것 대신, YOLO는 1 X 1 Reduction Layers를 사용하고, 그 뒤에 3 X 3 Convolution Layer을 사용함.
 
 추가적으로 Fast YOLO는 더 적은 Convolution Layer(Convolution Layer 24개 -> 9개)와 더 적은 filter를 사용하였음. - YOLO와 Fast YOLO는 네트워크 크기를 제외하고 학습, 테스트 파라미터는 동일함.
+
+#### Training
+Convolution Layer들은 ImageNet 1000 Class에 대해 pretrain 함. pretraining을 위해 처음 20개의 Convolution Layer들을 사용하고, 그 뒤에 Average Pooling과 FC Layer을 사용함.
 

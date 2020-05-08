@@ -59,7 +59,10 @@ YOLO는 Fast R-CNN과 비교해서, 절반 이하의 배경 오류를 발생 시
 
 동작 방식으로는 입력 이미지를 S x S grid로 나눠서 객체의 중심에 grid cell이 들어갔다면, 그 객체를 탐지하는 역할을 함.
 
-각 grid cell은 bounding boxes B와 boxes에 대한 신뢰 점수를 예측함. - 신뢰 점수는 box가 객체를 보유하고 있다고 생각하는 모델의 신뢰도와 예측하는 box의 정확도를 반영.
+<img width="335" alt="스크린샷 2020-05-08 23 11 27" src="https://user-images.githubusercontent.com/45933225/81413953-3f7a2680-9181-11ea-9f98-bffa77d36696.png">
+
+각 grid cell은 bounding boxes B와 boxes에 대한 신뢰 점수를 예측함. - 신뢰 점수는 box가 객체를 보유하고 있다고 생각하는 모델의 신뢰도와 예측하는 box의 정확도를 반영, <img width="124" alt="스크린샷 2020-05-08 23 11 54" src="https://user-images.githubusercontent.com/45933225/81414002-4f920600-9181-11ea-8101-e8cc9f7af219.png">
+.
 
 각 bounding box는 5개의 예측으로 구성됨. - x, y, w, h 그리고 신뢰도이다.
         
@@ -67,5 +70,6 @@ YOLO는 Fast R-CNN과 비교해서, 절반 이하의 배경 오류를 발생 시
         - 너비와 높이는 전체 이미지에 대해 예측함.
         - 신뢰도 예측은 예측된 box와 어느 ground truth box 사이의 IOU를 나타냄.
         
-각 grid cell은 조건부 클래스 확률인 C를 예측함. - 여기서 확률은 객체를 보유하고 있는 grid cell에 대한 조건부를 나타냄.
+각 grid cell은 조건부 클래스 확률인 C를 <img width="102" alt="스크린샷 2020-05-08 23 12 12" src="https://user-images.githubusercontent.com/45933225/81414045-5ae53180-9181-11ea-99e0-0f49f2057144.png">
+ 예측함. - 여기서 확률은 객체를 보유하고 있는 grid cell에 대한 조건부를 나타냄.
 boxes의 갯수인 B에 상관하지 않고, 오직 grid cell당 하나의 클래스 확률을 예측함. - 테스트시에는 조건부 확률과 개개인의 신뢰도 예측을 곱함.

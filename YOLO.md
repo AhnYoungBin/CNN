@@ -36,7 +36,13 @@ The YOLO Detection System.
 YOLO의 장점 3가지.
 
 1. 매우 빠름.
+
 detection을 regression 문제로 재구성하여 복잡한 파이프라인이 필요하지 않게 됨.
+
 Titan X GPU에서 배치 없이 45fps(frame per second), 빠른 버전 150fps보다 빠름. - real time으로 적용할 수 있다는 것을 의미, 다른 real time 시스템에 비해 두 배가 넘는 mAP를 달성함.
 
-2. 예측할 때, 이미지에 대해 전체적으로 추론함.
+2. 이미지에 대해 전체적으로 추론함.
+
+Sliding window와 region proposal 기반의 기술과 다르게, YOLO은 학습과 테스트시에 전체 이미지를 보기 때문에, 명백하게 그들의 외관과 같은 클래스에 대한 문맥상의 정보를 encodes한다.
+
+

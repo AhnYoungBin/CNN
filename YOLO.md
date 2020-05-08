@@ -76,6 +76,17 @@ boxes의 갯수인 B에 상관하지 않고, 오직 grid cell당 하나의 클�
 
 결과적으로 각 box에 대해 클래스별 신뢰도를 알려줌. - 점수는 box에서 클래스가 나타나는 확률과 예측된 box가 객체와 얼마나 잘 맞는지를 담고 있다.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81414045-5ae53180-9181-11ea-99e0-0f49f2057144.png" width="75%"></p>
+
+시스템은 detection regressopm 문제로 모델링한 후 이미지를 S × S grid와 각 gird로 나눔.
+grid cell은 B 경계 상자, 해당 상자에 대한 신뢰도를 예측하여 C 클래스 확률을 구함. - 이러한 예측은 다음과 같이 인코딩되어 있음(S × S × (B ∗ 5 + C) tensor).
+
+Pascal VOC에 대해서는 S = 7, B = 2를 사용하고 클래스가 20개 이기에 C = 20이어서 최종 예측은 7 X 7 X 30 tensor가 됨.
+
+#### Network Design
+
+
+
 
 
 

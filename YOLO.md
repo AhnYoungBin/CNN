@@ -22,6 +22,8 @@ R-CNN의 경우는 region proposal의 방법을 사용하여 먼저 이미지 �
 
 object detection을 단일 regression 문제로 재구성하고, 이미지 픽셀에서 bounding box 좌표와 클래스 확률까지 쭉 이어지도록 하였다. - 그래서 YOLO(You Only Look Once)라고 명칭함. - "객체가 무엇이고 어디 있는지를 예측하기 위해 이미지를 '단 한 번만 본다.'"
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81404373-477d9a80-9170-11ea-9f92-b1d6d10bd90f.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81404373-477d9a80-9170-11ea-9f92-b1d6d10bd90f.png" width="75%"></p>
 
 The YOLO Detection System.
+
+    - 먼저 입력이미지를 

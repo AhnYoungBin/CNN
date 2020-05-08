@@ -98,3 +98,7 @@ YOLO Network는 24개의 Convolution Layer와 2개의 FC Layer로 이루어져 �
 #### Training
 Convolution Layer들은 ImageNet 1000 Class에 대해 pretrain 함. pretraining을 위해 처음 20개의 Convolution Layer들을 사용하고, 그 뒤에 Average Pooling과 FC Layer을 사용함.
 
+그다음 모델을 detection 역할을 하도록 변환하여 이후에 4개의 Convolution Layer와 2개의 FC Layer를 추가함.
+
+detection에는 종종 세밀한 시각 정보가 필요하기 때문에 네트워크의 입력 해상도를 224 X 224에서 448 X 448으로 높임.
+

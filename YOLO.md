@@ -70,7 +70,7 @@ YOLO는 Fast R-CNN과 비교해서, 절반 이하의 배경 오류를 발생 시
         - 너비와 높이는 전체 이미지에 대해 예측함.
         - 신뢰도 예측은 예측된 box와 어느 ground truth box 사이의 IOU를 나타냄.
 
-각 grid cell은 조건부 클래스 확률인 C를 <img width="124" alt="스크린샷 2020-05-08 23 11 54" src="https://user-images.githubusercontent.com/45933225/81414002-4f920600-9181-11ea-8101-e8cc9f7af219.png"> 예측함. - 여기서 확률은 객체를 보유하고 있는 grid cell에 대한 조건부를 나타냄.
+각 grid cell은 조건부 클래스 확률인 C를 <img width="130" alt="스크린샷 2020-05-08 23 45 18" src="https://user-images.githubusercontent.com/45933225/81417320-fa0c2800-9185-11ea-8351-6e05bb6557df.png"> 예측함. - 여기서 확률은 객체를 보유하고 있는 grid cell에 대한 조건부를 나타냄.
 boxes의 갯수인 B에 상관하지 않고, 오직 grid cell당 하나의 클래스 확률을 예측함. - 테스트시에는 조건부 확률과 개개인의 신뢰도 예측을 곱하면 위에 합쳐져 있는 식이 나옴.
 
 결과적으로 각 box에 대해 클래스별 신뢰도를 알려줌. - 점수는 box에서 클래스가 나타나는 확률과 예측된 box가 객체와 얼마나 잘 맞는지를 담고 있다.
@@ -84,9 +84,15 @@ Pascal VOC에 대해서는 S = 7, B = 2를 사용하고 클래스가 20개 이�
 
 #### Network Design
 
+Fully connected layers가 출력의 확률과 좌표를 예측할 때, 네트워크의 초반 Convolutional Layers는 이미지로부터 특성을 추출함.
+
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81416602-e57b6000-9184-11ea-935b-aa427c8f4aeb.png" width="75%"></p>
 
+YOLO Network 구조는 이미지 분류 모델인 GoogLeNet 모델로부터 영감을 얻음.
 
+YOLO Network는 24개의 Convolution Layer와 2개의 FC Layer로 이루어져 있음.
 
+다른점으로는 GoogLeNet에서 인셉션 모듈을 썻던 것 대신, YOLO는 1 X 1 Reduction Layers를 사용하고, 그 뒤에 3 X 3 Convolution Layer을 사용함.
 
+추가적으로 Fast YOLO는 더 적은 Convolution Layer(Convolution Layer 24개 -> 9개)와 더 적은 filter를 사용하였음. - YOLO와 Fast YOLO는 네트워크 크기를 제외하고 학습, 테스트 파라미터는 동일함.
 

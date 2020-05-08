@@ -12,6 +12,7 @@
 9. Assemble_CNN
 10. Learning in the Frequency Domain
 11. U-Net
+12. YOLO(You Only Look Once)
 
 
 ##### - model code

@@ -45,4 +45,13 @@ Titan X GPU에서 배치 없이 45fps(frame per second), 빠른 버전 150fps보
 
 Sliding window와 region proposal 기반의 기술과 다르게, YOLO은 학습과 테스트시에 전체 이미지를 보기 때문에, 명백하게 그들의 외관과 같은 클래스에 대한 문맥상의 정보를 encodes한다.
 
+YOLO는 Fast R-CNN과 비교해서, 절반 이하의 배경 오류를 발생 시킴.
+
+3. 객체의 일반적인 표현을 학습함.
+
+자연 이미지와 예술 이미지 학습하였을 때, YOLO는 DPM과 R-CNN보다 높은 성능을 얻을 수 있었음.
+또한 매우 일반적이여서 새로운 도메인이나 입력에 대해서도 실패할 가능성이 적음.
+
+### Unified Detection
+
 

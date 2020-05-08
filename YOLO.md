@@ -107,6 +107,6 @@ detection에는 종종 세밀한 시각 정보가 필요하기 때문에 네트�
 이미지의 너비와 폭을 기준으로 bounding box 너비와 높이를 0과 1 사이에 맞게 정규화 함.
 그리고 bounding box의 좌표 (x, y)는 특정 grid cell 위치의 offsets값을 사용하여 0과 1 사이에 오게 함.
 
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81420951-aef51380-918b-11ea-86c7-6308d1776f6a.png" width="75%"></p>
 
 마지막 Layer에 선형 활성화 함수를 사용하고, 다른 모든 Layer는 낮게 조정된 선형 활성화 함수를 사용함.

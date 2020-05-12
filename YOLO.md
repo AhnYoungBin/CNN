@@ -116,7 +116,7 @@ detection에는 종종 세밀한 시각 정보가 필요하기 때문에 네트�
 따라서 그러한 cells의 '신뢰' 점수를 0으로 향하게 하며, 가끔 객체를 포함하는 cells의 gradient를 못쓰게 만듬. - 이것은 모델의 불안정성을 유발하여, 학습이 초기에 분산하게 함.
 
 이것을 해결하고자 bounding box 좌표 예측의 loss를 증가시키고, 객체를 포함하지 않는 boxes에 대한 예측 신뢰도로부터의 loss를 줄여야 함.
-그래서 다음과 같은 lambda함수를 사용(<img width="175" alt="스크린샷 2020-05-12 13 39 58" src="https://user-images.githubusercontent.com/45933225/81639147-1514bb80-9456-11ea-88f8-a8a3665a0caa.png">)
+그래서 다음과 같은 lambda함수를 사용<img width="175" alt="스크린샷 2020-05-12 13 39 58" src="https://user-images.githubusercontent.com/45933225/81639147-1514bb80-9456-11ea-88f8-a8a3665a0caa.png">.
 
 
 SSE는 또한 큰 박스거나 작은 박스의 오류에 대해 동등하게 가중치를 줌. 여기서 error metric은 큰 박스에서의 작은 편차가 작은 박스에서 작은 편차보다 덜 중요하다는 것을 반영해야 함.
@@ -128,4 +128,20 @@ YOLO는 grid cell당 여러 bounding boxes를 예측함. 학습 진행중에는 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81639638-76895a00-9457-11ea-89ca-a677f88248bd.png" width="50%"></p>
 
 학습 시에는 다음의 multi-part 비용 함수를 최적화 함.
+
+Loss function이 객체가 grid cell안에 있을 때, 오직 분류 에러에만 패널티를 줌. - 조건부 클래스 확률
+또한 predictor가 ground truth box에 대해 책임이 있을 때, bounding box error에 패널티를 줌. - grid cell에서 predictordml IOU가 가장 높을 경우
+
+- network training
+
+        train, validation dataset - VOC 2007, 2012
+        epochs 135
+        batch 64, momentum 0.9, decay 0.0005
+        learning rate 0.001 -> 0.01 천천히 상승. -  높은 lr사용 시 gradients 발산.
+        0 ~ 30 epochs 0.0001, 30 ~ 75 epochs 0.001, 75 ~ 135 epochs 0.01
+        overfitting dropout 0.5, data augmentation 임의적 스케일링, 원본 이미지 크기의 최대 20%정도 사용, 임의적으로 이미지의 exposure과 saturation을 조정(HSV 색 공간의 1.5배율).
+        
+        
+       
+        
 

@@ -179,3 +179,32 @@ YOLO의 통합된 구조는 DPM보다 빠르고, 더 정확하도록 만듬.
 
 그래도 YOLO는 R-CNN과 약간의 유사성을 공유함.
 
+각 grid cell은 잠재적 bounding boxes를 제안하고, convolutional 특성을 이용해서 boxes를 점수 매김. 하지만, YOLO는 gride cell proposals에 공간적 제약을 가함으로써 다중 탐지를 완화시키며 R-CNN은 Selective Search가 이미지당 2,000개의 boxes를 제안하는데 비해, YOLO는 이미지당 98개만을 제안함. 그리고 개별적인 요소들을 단일의 공동 최적화 모델로 결합함.
+
+#### Other Fast Detectors
+Fast, Fast R-CNN은 연산을 공유하고 Selective Search 대신에 NN을 이용하여 regions를 제안하도록하여 R-CNN의 속도를 높이는데 초점을 맞춤.
+
+Fast R-CNN, Faster R-CNN 이 두 가지 R-CNN의 모두 속도와 정확성에 대해 향상했지만, real-time 성능에는 아직 모자름.
+
+YOLO는 커다란 detection 파이프라인의 개별 구성 요소를 최적화하려고 하는 대신 파이프라인을 없애고 설계상 신속하게 함. 그리고 다양한 물체를 동시에 감지하는 법을 배우는 '범용 검출기'라고 함.
+
+#### Deep MultiBox
+단일 object detection을 신뢰도 예측을 단일 클래스 예측으로 대체함으로 가능하게 함. 하지만, MultiBox는 보편적인 object detectio을 하지 못하고, 여전히 큰 파이프라인의 일부분에 불과하므로 추가적인 이미지 패치 분류가 필요함.
+
+Deep MultiBox도 YOLO처럼 bounding box를 예측하기 위해 Convolutional Network를 사용함.
+그에 반해, YOLO는 완전한 탐지 시스템을 갖춤.
+
+#### OverFeat
+CNN을 이용하여 localization을 하고 localizer를 적응시켜 탐지를 하도록 함.
+
+localization을 위한 최적화이며 탐지로는 아니다. DPM처럼, 예측할 때에 localizer은 지역 정보만을 봄. 따라서 OverFeat은 전체적인 맥락에서 추론하지 못하고, 일관된 detection을 만들기 위해 상당한 후처리가 필요함.
+
+#### MultiGrasp
+하나의 객체를 보유하고 있는 이미지의 경우 파악 가능한 단일 영역만 예측하면 됨.
+
+크기, 위치, 객체의 경계, 클래스를 예측하지 않고 지역만을 찾음으로써 이미지 내의 다양한 클래스의 다양한 객체에 대해 bounding boxes와 클래스 확률을 예측하는 YOLO와 차이점을 갖음.
+
+### Experiments
+PASCAL VOC 2007에 대해 비교함.
+
+#### Comparison to Other Real-Time Systems

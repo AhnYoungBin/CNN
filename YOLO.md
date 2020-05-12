@@ -120,9 +120,13 @@ detection에는 종종 세밀한 시각 정보가 필요하기 때문에 네트�
 
 
 SSE는 또한 큰 박스거나 작은 박스의 오류에 대해 동등하게 가중치를 줌. 여기서 error metric은 큰 박스에서의 작은 편차가 작은 박스에서 작은 편차보다 덜 중요하다는 것을 반영해야 함.
+
 이를 부분적으로 다루기 위해 bounding box의 너비와 높이의 제곱근을 예측함.
+
 YOLO는 grid cell당 여러 bounding boxes를 예측함. 학습 진행중에는 각 객체에 대해 bounding box predictor를 원함.
+
 따라서 하나의 predictor에 객체를 예측하는 것을 중요시 함. - 예측이 ground truth와 높은 IOU를 가지는 것에 기반
+
 그래서 bounding box  predictors간에 전문화로 이어짐으로써 각 predictor는 특정 크기, 종횡비, 또는 객체의 클래스를 잘 예측하여 전체적인 recall(재현율)을 개선시킴.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81639638-76895a00-9457-11ea-89ca-a677f88248bd.png" width="50%"></p>
@@ -130,6 +134,7 @@ YOLO는 grid cell당 여러 bounding boxes를 예측함. 학습 진행중에는 
 학습 시에는 다음의 multi-part 비용 함수를 최적화 함.
 
 Loss function이 객체가 grid cell안에 있을 때, 오직 분류 에러에만 패널티를 줌. - 조건부 클래스 확률
+
 또한 predictor가 ground truth box에 대해 책임이 있을 때, bounding box error에 패널티를 줌. - grid cell에서 predictordml IOU가 가장 높을 경우
 
 - network training
@@ -143,12 +148,34 @@ Loss function이 객체가 grid cell안에 있을 때, 오직 분류 에러에�
         
 #### Inference
 PASCAL VOC 이미지당 98개의 bounding boxes와 각 박스당 클래스 확률을 예측함.
+
 grid design은 bounding box predictions 내의 공간적 다양성을 구현함. - 어떤 물체가 어떤 grid cell에 속하는지 명확하고 네트워크는 각 물체에 대해 하나의 box만을 예측함. 하지만, 커다란 객체나 여러 cells의 경계에 가까운 객체는 여러 cells에 의해 잘 localize 될 수 있음.
 NMS(Network Management System) mAP를 2 ~ 3% 향상시킴.
 
 #### Limitation of YOLO
 
+    1. grid cell이 하나의 클래스만 예측하므로 작은 object가 주변에 있으면 제대로 예측하기 힘듬.
+    2. 학습 데이터로부터 bounding box의 형태를 학습하므로, 새로운 형태의 bounding box의 경우 예측하기 어려움.
+    3. Localization에 대한 부정확함.
+    
+### Comparison to Other Detection Systems
+Detection 파이프라인은 일반적으로 입력 이미지들로부터 특정 셋을 추출하는데서 시작하여 분류기나 localizers 특정 공간에서 객체를 인식하는데 사용함. 이 분류기나 localizers는 전체 이미지의 regions 하위 세트에 대해 sliding window를 실행함.
 
-       
-        
+#### Deformable parts models
+sliding window 접근 방식을 사용하여 object detection을 함.
+
+DPM은 분리된 파이프라인을 사용해서 정적인 특성을 추출하고, regions를 분류하고, 높은 점수를 가진 regions에 대해 bounding boxes를 예측 함. 하지만, YOLO는 이 종류가 다른 부분들을 단일의 CNN으로 대체한다.
+
+YOLO의 통합된 구조는 DPM보다 빠르고, 더 정확하도록 만듬.
+
+#### R-CNN
+그 변형들은 이미지내의 객체를 찾기 위해 sliding windows 대신에 region proposals를 사용함.
+
+- 복잡한 파이프라인
+
+        Selective Search는 잠재적 bounding boxes를 생성 -> conv network로 특성 추출 -> SVM으로 boxes를 점수화 -> 선형 모델 bounding boxes를 조정 -> NMS로 중복된 detections를 제거
+
+따라서 각 단계는 정교하게 독립적으로 조정되어야 하고, 결과 시스템은 테스트 시에 이미지당 40초가 넘게 걸릴 정도로 매우 느림.
+
+그래도 YOLO는 R-CNN과 약간의 유사성을 공유함.
 

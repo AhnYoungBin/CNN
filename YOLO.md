@@ -208,3 +208,11 @@ localization을 위한 최적화이며 탐지로는 아니다. DPM처럼, 예측
 PASCAL VOC 2007에 대해 비교함.
 
 #### Comparison to Other Real-Time Systems
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81649674-a4789980-946b-11ea-801e-5e646dcb9dcb.png" width="50%"></p>
+
+Fast YOLO는 가장 빠르고 YOLO는 Fast YOLO보다 mAP가 더 높게 기록되어짐.
+
+#### Comparison to Other Real-Time Systems
+
+

@@ -125,6 +125,7 @@ YOLO는 grid cell당 여러 bounding boxes를 예측함. 학습 진행중에는 
 따라서 하나의 predictor에 객체를 예측하는 것을 중요시 함. - 예측이 ground truth와 높은 IOU를 가지는 것에 기반
 그래서 bounding box  predictors간에 전문화로 이어짐으로써 각 predictor는 특정 크기, 종횡비, 또는 객체의 클래스를 잘 예측하여 전체적인 recall(재현율)을 개선시킴.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81639638-76895a00-9457-11ea-89ca-a677f88248bd.png" width="50%"></p>
 
 학습 시에는 다음의 multi-part 비용 함수를 최적화 함.
 

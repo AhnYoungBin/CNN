@@ -213,7 +213,15 @@ PASCAL VOC 2007에 대해 비교함.
 
 Fast YOLO는 가장 빠르고 YOLO는 Fast YOLO보다 mAP가 더 높게 기록되어짐.
 
-#### Comparison to Other Real-Time Systems
+#### VOC 2007 Error Analysis
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81650328-b3138080-946c-11ea-8c3b-c9693651c687.png" width="50%"></p>
 
+Fast R-CNN은 localization 오류는 작지만 배경 오류 비중은 큼.
+
+### Real-Time Detection In The Wild
+Web cam에 연결하여 YOLO의 real-time 성능을 측정함.
+
+### Conclusion
+기존의 분류기 접근방식과 다르게 YOLO는 탐지 성능에 직접 대응하는 비용 함수에 바로 학습하고, 전체 모델을 공동으로 훈련함.
+따라서 이미지를 단 한 번 보고, 단 한 번의 통합된 파이프라인을 거쳐서 객체를 인식하는 방법이라고 말할 수 있음.

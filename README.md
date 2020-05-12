@@ -1,6 +1,7 @@
 ## CNN(Convolutional Neural Network)
 
 ##### - paper(model, attention etc...)
+###### (VggNet, ResNet, DenseNet, EfficientNet).md 시작 부분 kaggle cat-vs-dog dataset에 대해 여러 실험 결과 링크 설정.
 1. VggNet
 2. ResNet
 3. DenseNet
@@ -13,7 +14,6 @@
 10. Learning in the Frequency Domain
 11. U-Net
 12. YOLO(You Only Look Once)
-
 
 ##### - model code
 1. VggNet

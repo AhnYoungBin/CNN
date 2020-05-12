@@ -141,7 +141,14 @@ Loss function이 객체가 grid cell안에 있을 때, 오직 분류 에러에�
         0 ~ 30 epochs 0.0001, 30 ~ 75 epochs 0.001, 75 ~ 135 epochs 0.01
         overfitting dropout 0.5, data augmentation 임의적 스케일링, 원본 이미지 크기의 최대 20%정도 사용, 임의적으로 이미지의 exposure과 saturation을 조정(HSV 색 공간의 1.5배율).
         
-        
+#### Inference
+PASCAL VOC 이미지당 98개의 bounding boxes와 각 박스당 클래스 확률을 예측함.
+grid design은 bounding box predictions 내의 공간적 다양성을 구현함. - 어떤 물체가 어떤 grid cell에 속하는지 명확하고 네트워크는 각 물체에 대해 하나의 box만을 예측함. 하지만, 커다란 객체나 여러 cells의 경계에 가까운 객체는 여러 cells에 의해 잘 localize 될 수 있음.
+NMS(Network Management System) mAP를 2 ~ 3% 향상시킴.
+
+#### Limitation of YOLO
+
+
        
         
 

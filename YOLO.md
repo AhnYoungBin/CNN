@@ -215,4 +215,5 @@ Fast YOLO는 가장 빠르고 YOLO는 Fast YOLO보다 mAP가 더 높게 기록�
 
 #### Comparison to Other Real-Time Systems
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81650328-b3138080-946c-11ea-8c3b-c9693651c687.png" width="50%"></p>
 

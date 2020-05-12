@@ -119,4 +119,12 @@ detection에는 종종 세밀한 시각 정보가 필요하기 때문에 네트�
 그래서 다음과 같은 lambda함수를 사용(<img width="175" alt="스크린샷 2020-05-12 13 39 58" src="https://user-images.githubusercontent.com/45933225/81639147-1514bb80-9456-11ea-88f8-a8a3665a0caa.png">)
 
 
-SSE는 
+SSE는 또한 큰 박스거나 작은 박스의 오류에 대해 동등하게 가중치를 줌. 여기서 error metric은 큰 박스에서의 작은 편차가 작은 박스에서 작은 편차보다 덜 중요하다는 것을 반영해야 함.
+이를 부분적으로 다루기 위해 bounding box의 너비와 높이의 제곱근을 예측함.
+YOLO는 grid cell당 여러 bounding boxes를 예측함. 학습 진행중에는 각 객체에 대해 bounding box predictor를 원함.
+따라서 하나의 predictor에 객체를 예측하는 것을 중요시 함. - 예측이 ground truth와 높은 IOU를 가지는 것에 기반
+그래서 bounding box  predictors간에 전문화로 이어짐으로써 각 predictor는 특정 크기, 종횡비, 또는 객체의 클래스를 잘 예측하여 전체적인 recall(재현율)을 개선시킴.
+
+
+학습 시에는 다음의 multi-part 비용 함수를 최적화 함.
+

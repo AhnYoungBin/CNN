@@ -116,3 +116,7 @@ detection에는 종종 세밀한 시각 정보가 필요하기 때문에 네트�
 따라서 그러한 cells의 '신뢰' 점수를 0으로 향하게 하며, 가끔 객체를 포함하는 cells의 gradient를 못쓰게 만듬. - 이것은 모델의 불안정성을 유발하여, 학습이 초기에 분산하게 함.
 
 이것을 해결하고자 bounding box 좌표 예측의 loss를 증가시키고, 객체를 포함하지 않는 boxes에 대한 예측 신뢰도로부터의 loss를 줄여야 함.
+그래서 다음과 같은 lambda함수를 사용(<img width="175" alt="스크린샷 2020-05-12 13 39 58" src="https://user-images.githubusercontent.com/45933225/81639147-1514bb80-9456-11ea-88f8-a8a3665a0caa.png">)
+
+
+SSE는 

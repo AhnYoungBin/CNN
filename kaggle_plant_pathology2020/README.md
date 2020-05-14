@@ -18,7 +18,6 @@
 
     데이터 포맷 : jpg, jpeg
     총 3642장, Train : 1821장 Test : 1821장(Test data label 없음).
-    - Train data 각 class 8:2 비율로 나누어서 1차 모델 학습 실험.
     해상도 : 2048 * 1365
     class : combinations(조합), healthy(건강), rust(녹병), scab(붉은곰팡이병)
     
@@ -27,4 +26,9 @@
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81252299-8fad9780-9060-11ea-8c17-99b1abd089ef.png" width="75%"></p>
 
-=> label 1을 모두 합하면 학습 총 데이터 수가 1821장이 나옴.
+=> combinations 516개, healthy 91개, rust 622개, scab 592개 총 Train data 1821개 확인하였음.
+
+데이터 분류
+
+    Train data 각 class 8:2 비율로 나누어서 1차 모델 학습 실험.
+    

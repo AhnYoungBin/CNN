@@ -16,6 +16,7 @@
 
 #### 데이터 정보
 
+<p align="center">Plant Pathology Class</p>
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82079740-4fb07980-971e-11ea-9c9e-c5e74ac4709e.png" width="75%"></p>
 
     데이터 포맷 : jpg, jpeg

@@ -39,7 +39,7 @@
     2. 교차 검증(Cross Validation) KFold 적용.    -   모델이 데이터를 판단하기 위한 데이터 수가 적은 경우 검증 성능의 신뢰도가 떨어지는 것을 해결하고자 함(반대로 정확도 향상을 위한것으로도 말할 수 있음)
     
 #### 데이터 보완
-데이터의 수가 부족하여 데이터를 보완하느 방법으로 이미지의 레이블을 변경하지 않고 픽셀 변화 시키는 CNN의 과적합 방지와 성능 향상을 위한 Data Augmentation의 albumentations Moudle을 사용하였음.
+데이터의 수가 부족하여 데이터를 보완하느 방법으로 이미지의 레이블을 변경하지 않고 픽셀 변화시키는 CNN의 과적합 방지와 성능 향상을 위한 Data Augmentation의 albumentations Moudle을 사용하였음.
 
 다음과 같이 데이터에 적용함.
 
@@ -71,6 +71,10 @@
       - step(train, validation, test) : 80, 20, 1
       - label : one-hot encoding    -   using Categorical entropy
       - optimizer : Adam(learning rate : 0.01)  -   validation loss에 맞게 laerning rate 조정하였음.
+      - Augment
+        Train data : Resize, RandomCrop, Resize, Flip, ShiftScaleRotate, HorizontalFlip
+        Validation data : Resize
+        Test data : Resize
 
 - VggNet
 

@@ -6,6 +6,7 @@
 
 #### 목표 
 사과 잎의 사진이 주어지면 건강 상태를 정확하게 평가할 수 있을까?
+
 => 이 대회는 건강에 좋은 잎, 사과 녹에 감염된 잎, 사과 녹병이 있는 잎 및 둘 이상의 질병을 가진 잎을 구별하는데 의미를 둠.
 
     1. 많은 질병을 정확하게 구별하고, 한 잎에서 하나 이상의 질병을 정확하게 구별.
@@ -23,7 +24,7 @@
     
     - Train data graph
 
-    <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81252299-8fad9780-9060-11ea-8c17-99b1abd089ef.png" width="75%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81252299-8fad9780-9060-11ea-8c17-99b1abd089ef.png" width="75%"></p>
 
     => combinations 516개, healthy 91개, rust 622개, scab 592개 총 Train data 1821개 확인.
 

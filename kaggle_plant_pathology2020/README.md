@@ -54,7 +54,7 @@
 
     - 1. 데이터에 적절한 모델 선정(VggNet, ResNet, DenseNet, EfficientNet).
     - 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화(Model(v1, v2 etc..) ,Hyper parmeter(Image Resolution, optimizer, learning rate etc..))
-    - 3. 정확도 향상을 위한 기술 적용(K-Fold, Ensemble).
+    - 3. 정확도 향상을 위한 기술 적용(K-Fold, Ensemble, Attention).
 
 ##### 1. 데이터에 적절한 모델 선정
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
@@ -62,8 +62,6 @@
 모델은 다음과 같이 사용함.
 
     - VggNet, ResNet, DenseNet, EfficientNet
-
-- VggNet
 
 하이어파라미터 초기화
 
@@ -74,16 +72,25 @@
       - label : one-hot encoding    -   using Categorical entropy
       - optimizer : Adam(learning rate : 0.01)  -   validation loss에 맞게 laerning rate 조정하였음.
 
+- VggNet
+
 kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
 
-Train data를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.  
+Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.  
 
 Confusion Matrix 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82085133-7b842d00-9727-11ea-9f40-c18a3fddccaf.png" width="50%"></p>
 
-multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었음.   -   일단 데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함 그리고 복합적인 질병을 다른 단일 병들과 구분 짓기 어려울것이라고 생각이 듬. 
+multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었음.   -   일단 데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함 그리고 복합적인 질병을 다른 단일 병들과 구분 짓기 어려울것이라고 생각이 듬.
 
-그래서 확인하고자 Grad CAM을 이용하여 모델 컨볼루션이 어디 특징을 바라보는지 확인하였음.
+
+- ResNet
+
+kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
+
+Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
+
+Confusion Matrix 
 
 

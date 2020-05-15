@@ -76,4 +76,9 @@
 
 kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
 
+Train data를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함.  
+
+Confusion Matrix 
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82085133-7b842d00-9727-11ea-9f40-c18a3fddccaf.png" width="75%"></p>
 

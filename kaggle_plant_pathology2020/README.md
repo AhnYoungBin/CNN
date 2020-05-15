@@ -1,5 +1,5 @@
 ## kaggle_plant_pathology2020
-- kaggle에서 data 제공 받음.
+- 이 대회는 Computer Vision and Pattern Recognition Conference(CVPR 2020)에서 Fine-Grained Visual Categorization FGVC7 워크숍 일부로써 kaggle Web Site를 통하여 데이터를 제공 받음. 
 
 #### 문제
 => 농작물에 영향을 미치는 많은 질병의 오진은 화학 물질의 오용으로 이어질 수 있으며, 내성 병원균 균주의 출현, 투입 비용 증가, 심각한 경제적 손실 및 환경 영향으로 더 많은 발생이 이어질 수 있다. 따라서 컴퓨터 비전 기반 모델로 감염된 조직의 나이, 유전적 변이 및 나무 내의 빛 상태로 인한 증상의 큰 변화 등을 알고자 함.
@@ -19,7 +19,7 @@
     데이터 포맷 : jpg, jpeg
     총 3642장, Train : 1821장 Test : 1821장(Test data label 없음).
     해상도 : 2048 * 1365
-    class : combinations(조합), healthy(건강), rust(녹병), scab(붉은곰팡이병)
+    class : healthy(건강), multiple_diseases(복합 질병),rust(녹병), scab(붉은곰팡이병)
     
     
 학습(Train) 데이터 그래프
@@ -32,3 +32,10 @@
 
     Train data 각 class 8:2 비율로 나누어서 1차 모델 학습 실험.
     
+#### 실험 소개 및 수행 내역
+문제 해결 방법으로 Computer Vision(CV)의 분야에서 사용하는 Convolution Neural Network(CNN)을 이용하여 컴퓨터가 영상(이미지 및 비디오) 디지털 이미지의 특징을 학습하여 특정 패턴을 사용한 이미지를 분류하고자 함.
+
+다음과 같이 절차를 밟아서 수행함.
+
+    - 1. 모델 선정
+

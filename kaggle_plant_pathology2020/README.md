@@ -48,4 +48,9 @@
 #### 1. 데이터에 적절한 모델 선정
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였음.
 
+모델은 다음과 같이 사용함.
+
+    - VggNet, ResNet, DenseNet, EfficientNet
+
+- VggNet
 

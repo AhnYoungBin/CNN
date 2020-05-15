@@ -104,7 +104,10 @@ multi diseases, healthy, scab, rust 순서대로 잘못 판단하고 있었으�
 
 kaggle 제출 결과 94.6 Accuracy 얻을 수 있었음.
 
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
+Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.1600, loss : 0.94393 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82090450-93ac7a00-9730-11ea-9958-392bf93c8b76.png" width="50%"></p>
+
+multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으며 다른 모델들보다 좋은 성능을 얻을 수 있었음.
 
 

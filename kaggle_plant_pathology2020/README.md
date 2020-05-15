@@ -41,4 +41,7 @@
     - 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화(Model(v1, v2 etc..) ,Hyper parmeter(Image Resolution, optimizer, learning rate etc..))
     - 3. 정확도 향상을 위한 기술 적용(K-Fold, Ensemble).
 
+#### 1. 데이터에 적절한 모델 선정
+대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였음.
+
 

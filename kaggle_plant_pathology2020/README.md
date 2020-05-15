@@ -68,8 +68,12 @@
 하이어파라미터 초기화
 
       - image size(height, width, channel) : 342, 512, 3
+      - epoch : 150
       - batch size(train, validation, test) : 8, 8, 1
       - step(train, validation, test) : 80, 20, 1
       - label : one-hot encoding    -   using Categorical entropy
       - optimizer : Adam(learning rate : 0.01)  -   validation loss에 맞게 laerning rate 조정하였음.
-      
+
+kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
+
+

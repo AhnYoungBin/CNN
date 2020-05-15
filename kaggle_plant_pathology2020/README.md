@@ -16,17 +16,19 @@
 
 #### 데이터 정보
 
+
+
     데이터 포맷 : jpg, jpeg
     총 3642장, Train : 1821장 Test : 1821장(Test data label 없음).
     해상도 : 2048 * 1365
     class : healthy(건강), multiple_diseases(복합 질병),rust(녹병), scab(붉은곰팡이병)
     
     
-    - Train data graph
+- Train data graph
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81252299-8fad9780-9060-11ea-8c17-99b1abd089ef.png" width="75%"></p>
 
-    => combinations 516개, healthy 91개, rust 622개, scab 592개 총 Train data 1821개 확인.
+=> combinations 516개, healthy 91개, rust 622개, scab 592개 총 Train data 1821개 확인.
 
 #### 데이터 분류
 

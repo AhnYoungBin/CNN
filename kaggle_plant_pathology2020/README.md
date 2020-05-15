@@ -82,8 +82,7 @@ Confusion Matrix
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82085133-7b842d00-9727-11ea-9f40-c18a3fddccaf.png" width="50%"></p>
 
-multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었음.   -   일단 데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함 그리고 복합적인 질병을 다른 단일 병들과 구분 짓기 어려울것이라고 생각이 듬.
-
+multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으며 일단 데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함 그리고 복합적인 질병을 다른 단일 병들과 구분 짓기 어려울것이라고 생각이 듬.
 
 - ResNet
 
@@ -91,6 +90,17 @@ kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
 
-Confusion Matrix 
+Confusion Matrix
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82089570-d0777180-972e-11ea-901d-45d71243c07e.png" width="50%"></p>
+
+multi diseases, healthy, scab, rust 순서대로 잘못 판단하고 있었으며 multi diseases 위와 같은 이유로 똑같이 분류를 잘 못할거라고 생각하였으며 healthy는 주로 scab으로 많은 양의 데이터를 분류하고 있음을 확인할 수 있었다.
+
+- DenseNet
+
+
+
+모델 학습이 원할하게 진행되지 않아서 
+
 
 

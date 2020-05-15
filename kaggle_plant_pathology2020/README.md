@@ -110,4 +110,6 @@ Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.16
 
 multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으며 다른 모델들보다 좋은 성능을 얻을 수 있었음.
 
+그래서 전체적으로 학습한 그래프는 다음과 같음.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82092635-a1fc9500-9734-11ea-9786-4802e392e329.png" width="100%"></p>

@@ -37,5 +37,8 @@
 
 다음과 같이 절차를 밟아서 수행함.
 
-    - 1. 모델 선정
+    - 1. 데이터에 적절한 모델 선정(VggNet, ResNet, DenseNet, EfficientNet).
+    - 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화(Model(v1, v2 etc..) ,Hyper parmeter(Image Resolution, optimizer, learning rate etc..))
+    - 3. 정확도 향상을 위한 기술 적용(K-Fold, Ensemble).
+
 

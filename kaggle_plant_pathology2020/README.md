@@ -57,7 +57,6 @@
     - 3. 정확도 향상을 위한 기술 적용(K-Fold, Ensemble, Attention).
 
 ##### 1. 데이터에 적절한 모델 선정
-###### 하위 디렉터리 select model에 실험내용 있음.
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
 
 모델은 다음과 같이 사용함.
@@ -106,7 +105,7 @@ multi diseases, healthy, scab, rust 순서대로 잘못 판단하고 있었으�
 위의 하이퍼파라미터 같은 조건으로 실행한 결과 모델 학습이 원할하게 진행되지 않아서 따로 기록을 하지 않았음.
 
 - EfficientNet
-
+###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
 kaggle 제출 결과 94.6 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.1600, loss : 0.94393 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.

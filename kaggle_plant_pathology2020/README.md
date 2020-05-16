@@ -89,7 +89,7 @@ Confusion Matrix
 multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으며 일단 데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함 그리고 복합적인 질병을 다른 단일 병들과 구분 짓기 어려울것이라고 생각이 듬.
 
 - ResNet
-
+###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
 kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.

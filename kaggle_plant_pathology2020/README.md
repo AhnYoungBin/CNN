@@ -112,12 +112,12 @@ Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.16
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82090450-93ac7a00-9730-11ea-9958-392bf93c8b76.png" width="35%"></p>
 
-multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으며 다른 모델들보다 좋은 성능을 얻을 수 있었음.
+multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으며 VggNet모델과 비슷한 성능을 가지고 있음.
 
 그래서 전체적으로 학습한 그래프를 비교하고자 다음 아래와 같이 모아둠.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="50%"></p>
 
-바로 위에서도 말했듯이 모든 면에서 EfficientNet이 좋은 성능을 얻을 수 있다는 것을 한눈에 확인할 수 있었음.
+VggNet, EfficientNet이 이 데이터에 적합하다고 생각이 들었으며, 고민 끝에 EfficientNet의 Resolution, Width, Depth의 3가지 요소에 더 유리한 면이 있다고 생각이 들어 정하게 되었음.
 
 ##### 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화

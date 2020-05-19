@@ -116,7 +116,7 @@ multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으�
 
 전체적으로 모델들을 학습한 결과 그래프를 비교하고자 Train, Validation 데이터의 Accuracy, loss를 하나씩 그래프로 그려서 비교하였음.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="50%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
 VggNet, EfficientNet이 이 데이터에 적합하다고 생각이 들었으며, 고민 끝에 EfficientNet의 Resolution, Width, Depth의 3가지 요소에 더 유리한 면이 있다고 생각이 들어 정하게 되었음.
 

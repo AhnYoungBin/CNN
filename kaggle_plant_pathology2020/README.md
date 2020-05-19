@@ -1,5 +1,5 @@
 ## kaggle_plant_pathology2020
-- Google에서 제공해주는 Colab gpu를 사용하여 다음과 같이 실험을 진행하였음.
+- Google에서 제공해주는 Colab gpu 환경에서 다음과 같이 실험을 진행하였음.
 
 - 이 대회는 Computer Vision and Pattern Recognition Conference(CVPR 2020)에서 Fine-Grained Visual Categorization FGVC7 워크숍 일부로써 kaggle Web Site를 통하여 데이터를 제공 받음.
 

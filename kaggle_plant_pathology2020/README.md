@@ -114,7 +114,7 @@ Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94
 
 multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으며 VggNet모델과 비슷한 성능을 가지고 있음.
 
-그래서 전체적으로 학습한 그래프를 비교하고자 다음 아래와 같이 모아둠.
+전체적으로 모델들을 학습한 결과 그래프를 비교하고자 Train, Validation 데이터의 Accuracy, loss를 하나씩 그래프로 그려서 비교하였음.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="50%"></p>
 

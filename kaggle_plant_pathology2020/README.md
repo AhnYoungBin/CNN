@@ -53,8 +53,9 @@
 다음과 같이 절차를 밟아서 수행함.
 
     - 1. 데이터에 적절한 모델 선정(VggNet, ResNet, DenseNet, EfficientNet).
-    - 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화(Model(v1, v2 etc..) ,Hyper parmeter(Image Resolution, optimizer, learning rate etc..))
-    - 3. 정확도 향상을 위한 기술 적용(K-Fold, Ensemble, Attention).
+    - 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화(Model(v1, v2 etc..)
+    - 3. 데이터 보완 하여 과적합 방지 위한 교차 검증 적용(K-Fold) 
+    - 4. 하이퍼파라미터 최적화(Image Resolution, optimizer, learning rate etc..))
 
 ##### 1. 데이터에 적절한 모델 선정
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
@@ -118,6 +119,6 @@ multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있었으�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
-VggNet, EfficientNet이 이 데이터에 적합하다고 생각이 들었으며, 고민 끝에 EfficientNet의 Resolution, Width, Depth의 3가지 요소에 더 유리한 면이 있다고 생각하여 정하게 되었음.
+VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 잘 수렴하여서 적합하다고 판단하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 생각하여 선정하게 되었다.
 
 ##### 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화

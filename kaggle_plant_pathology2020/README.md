@@ -83,7 +83,7 @@
 
 150epoch 학습 후 kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
 
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.  
+Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
 Confusion Matrix 
 
@@ -95,7 +95,7 @@ Confusion Matrix
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
 150epoch 학습 후kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
 
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
+Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
 Confusion Matrix
 
@@ -113,7 +113,7 @@ Confusion Matrix
 
 150epoch 학습 후 kaggle 제출 결과 94.6 Accuracy 얻을 수 있었음.
 
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94393, loss : 0.1600 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
+Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94393, loss : 0.1600 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82090450-93ac7a00-9730-11ea-9958-392bf93c8b76.png" width="35%"></p>
 
@@ -123,7 +123,7 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
-VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 모델 후보로 적합하다고 판단하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 판단하였으며 multi_diseases 클래스에 대한 부분을 다른 모델 보다 더 옳은 예측하여 선정하게 되었다.
+VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 판단하여  multi_diseases 클래스에 대한 부분을 다른 모델 보다 더 옳은 예측하여 선정하게 되었다.
 
 ##### 2. 데이터에 적합한 레이어층 찾기
 EfficientNet paper에서 제공하는 b0 ~ b7의 순서대로 학습하여 비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.

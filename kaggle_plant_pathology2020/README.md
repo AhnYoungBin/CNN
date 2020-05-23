@@ -79,7 +79,8 @@
 
 - VggNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
-kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
+100epoch 학습 후 kaggle 제출 결과 93.6 Accuracy 얻을 수 있었음.
+150epoch 학습 후 kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.  
 
@@ -92,7 +93,7 @@ multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있으며 �
 
 - ResNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
-kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
+150epoch 학습 후kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
 
@@ -108,7 +109,8 @@ multi diseases, healthy, scab, rust 순서대로 잘못 예측하고 있으며 �
 
 - EfficientNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
-kaggle 제출 결과 94.6 Accuracy 얻을 수 있었음.
+100epoch 학습 후 kaggle 제출 결과 94.8 Accuracy 얻을 수 있었음.
+150epoch 학습 후 kaggle 제출 결과 94.6 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94393, loss : 0.1600 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.
 
@@ -123,4 +125,5 @@ multi diseases, scab, healthy, rust 순서대로 잘못 예측하고 있으며 V
 
 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 잘 수렴하여서 적합하다고 판단하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 생각하여 선정하게 되었다.
 
-##### 2. 데이터에 적절한 모델 버전 및 하이퍼파라미터 최적화
+##### 2. 데이터에 적합한 레이어층 찾기
+EfficientNet paper에서 제공하는 b0 ~ b7의 순서대로 학습하여 비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.

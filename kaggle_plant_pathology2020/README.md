@@ -80,6 +80,7 @@
 - VggNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
 100epoch 학습 후 kaggle 제출 결과 93.6 Accuracy 얻을 수 있었음.
+
 150epoch 학습 후 kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.  
@@ -110,6 +111,7 @@ multi diseases, healthy, scab, rust 순서대로 잘못 예측하고 있으며 �
 - EfficientNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
 100epoch 학습 후 kaggle 제출 결과 94.8 Accuracy 얻을 수 있었음.
+
 150epoch 학습 후 kaggle 제출 결과 94.6 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94393, loss : 0.1600 확인함과 동시에 어떤 클래스를 분류를 잘 못하는지 확인하고자 Confusion Matrix를 이용하였음.

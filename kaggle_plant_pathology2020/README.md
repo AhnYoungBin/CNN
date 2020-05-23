@@ -50,7 +50,7 @@
 #### 실험 소개 및 수행 내역
 문제 해결 방법으로 Computer Vision(CV)의 분야에서 사용하는 Convolution Neural Network(CNN)을 이용하여 컴퓨터가 영상(이미지 및 비디오) 디지털 이미지의 특징을 학습하여 특정 패턴을 사용한 이미지를 분류하고자 함.
 
-다음과 같이 절차를 밟아서 수행함.
+다음과 아래의 순서대로 실험을 수행함.
 
     - 1. 데이터에 적합한 모델 고르기(VggNet, ResNet, DenseNet, EfficientNet).
     - 2. 데이터에 적합한 레이어층 찾기 (Model(v1, v2 etc..)

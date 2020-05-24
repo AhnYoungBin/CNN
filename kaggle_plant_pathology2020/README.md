@@ -80,9 +80,6 @@
 
 - VggNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
-100epoch 학습 후 kaggle 제출 결과 93.6 Accuracy 얻을 수 있었음.
-
-150epoch 학습 후 kaggle 제출 결과 93.7 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
@@ -92,9 +89,10 @@ Confusion Matrix
 
 데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함. 그리고 multi diseases, scab, rust 이 3가지에 대해서 예측을 제대로 못하고 있음도 확인할 수 있음.
 
+100, 150 epoch 학습 후 kaggle 제출 결과 93.6, 93.7 Accuracy 얻을 수 있었음.
+
 - ResNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
-150epoch 학습 후kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
@@ -104,21 +102,22 @@ Confusion Matrix
 
 여기서도 마찬가지로 multi diseases 클래스에 대한 부분을 예측을 제대로 못하고 있으며 healthy클래스도 주로 scab으로 많은 양의 데이터를 분류하고 있음을 확인이 가능함. 모델이 전반적으로 예측 정확도가 낮음.
 
+150epoch 학습 후kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
+
 - DenseNet
 
 위의 하이퍼파라미터 같은 조건으로 실행한 결과 모델 학습이 원할하게 진행되지 않아서 따로 기록을 하지 않았음.
 
 - EfficientNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
-100epoch 학습 후 kaggle 제출 결과 94.8 Accuracy 얻을 수 있었음.
-
-150epoch 학습 후 kaggle 제출 결과 94.6 Accuracy 얻을 수 있었음.
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94393, loss : 0.1600 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82090450-93ac7a00-9730-11ea-9958-392bf93c8b76.png" width="35%"></p>
 
 VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델보다 데이터가 적은 multi diseases 클래스에 대해서 더 높은 예측을 하고 있음도 동시에 확인 할 수 있음.
+
+100, 150 epoch 학습 후 kaggle 제출 결과 94.8, 94.6 Accuracy 얻을 수 있었음.
 
 전반적으로 multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있으며 다음 아래와 같이 모델들을 학습한 결과를 그래프를 통해서 확인하여 Train, Validation 데이터의 Accuracy, loss를 비교하고자 같은 플롯에 두고 확인하였음.
 

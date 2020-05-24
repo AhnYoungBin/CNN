@@ -58,7 +58,7 @@
     - 3. 데이터 보완 및 과적합 방지 위한 교차 검증 적용(K-Fold)과 정확도 향상을 위한 하이퍼파라미터 최적화(Image Resolution, optimizer, learning rate etc..))
 
 
-### 1. 데이터에 적절한 모델 선정
+### 1. 데이터에 적절한 모델 선정(./select_model 확인 가능)
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
 
 모델은 다음과 같이 사용함.
@@ -80,7 +80,7 @@
         
 위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
-##### - VggNet        https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
+##### - VggNet     
 
 History 
 
@@ -101,7 +101,6 @@ Confusion Matrix
 100, 150 epoch 학습 후 kaggle 제출 결과 93.6, 93.7 Accuracy 얻을 수 있었음.
 
 ##### - ResNet
- https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
  
 History
 
@@ -125,7 +124,7 @@ Confusion Matrix
 
 위의 하이퍼파라미터 같은 조건으로 실행한 결과 모델 학습이 원할하게 진행되지 않아서 따로 기록을 하지 않았음.
 
-##### - EfficientNet https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
+##### - EfficientNet
 
 History
 
@@ -150,7 +149,7 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 판단하였으며 또한 데이터 수가 적은      multi_diseases 클래스에 대한 부분을 다른 모델 보다 더 옳은 예측하여 선정하게 되었다.
 
 
-### 2. 데이터에 적합한 레이어층 찾기
+### 2. 데이터에 적합한 레이어층 찾기(./find_model)
 EfficientNet paper에서 제공하는 b1 ~ b7의 순서대로 학습  비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.
 
 하이퍼파라미터 초기화

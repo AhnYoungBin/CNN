@@ -158,31 +158,16 @@ EfficientNet paper에서 제공하는 b1 ~ b7의 순서대로 학습  비교하�
         
 colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값을 주었으며 나머지는 위에서 제시하는 조건을 동일하게 설정하여 학습하였음.         
 
-- efficientnet_b1, b2, b3
-batch size(train, validation, test) - b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
+History
+
+    efficientnet_b1, b2, b3
+    batch size(train, validation, test) - b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82758700-13b69c00-9e23-11ea-8c2b-ed95f2ded99c.png" width="100%"></p>
 
-Confusion Matrix
+각 레이어층 별로 검증 데이터의 Maximum Accuracy, Minimum Loss 아래와 같이 확인 할 수 있음.
 
-<img width="387" alt="스크린샷 2020-05-25 00 05 39" src="https://user-images.githubusercontent.com/45933225/82757443-79068f00-9e1b-11ea-89e4-d5836714532e.png">
-
-100epoch 학습 후 kaggle 제출 결과 91.0 Accuracy 얻을 수 있었음.
-
-
-Confusion Matrix
-
-<img width="387" alt="스크린샷 2020-05-25 00 06 21" src="https://user-images.githubusercontent.com/45933225/82757457-9176a980-9e1b-11ea-9590-3a8145a0eda9.png">
-
-100epoch 학습 후 kaggle 제출 결과 94.9 Accuracy 얻을 수 있었음.
-
-
-
-Confusion Matrix
-
-<img width="387" alt="스크린샷 2020-05-25 00 06 56" src="https://user-images.githubusercontent.com/45933225/82757476-a6533d00-9e1b-11ea-9501-d7bedff26c8d.png">
-
-100epoch 학습 후 kaggle 제출 결과 94.2 Accuracy 얻을 수 있었음.
+b1 : 0.9625, 0.1044,    b2 : 0.9550, 0.1225,    b3 : 0.9718, 0.0868
 
 - efficientnet_b4 ~ b7
 학습 중 모델 최적화 값의 방향을 찾지 못하여 중간에 학습을 중단함. 찾지 못한다고 생각하는 것은 원본 이미지보다 급격한 해상도 감소로 모델이 바라보는 특징을 못 찾는 것으로 예상함.

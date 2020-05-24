@@ -162,16 +162,39 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 - efficientnet_b1
 batch size(train, validation, test) : 24, 24, 1
 
+History
+
+<img width="497" alt="스크린샷 2020-05-25 00 01 55" src="https://user-images.githubusercontent.com/45933225/82757360-f2ea4880-9e1a-11ea-9320-f9f35e8fbddd.png">
+
+Confusion Matrix
+
+<img width="387" alt="스크린샷 2020-05-25 00 05 39" src="https://user-images.githubusercontent.com/45933225/82757443-79068f00-9e1b-11ea-89e4-d5836714532e.png">
+
 100epoch 학습 후 kaggle 제출 결과 91.0 Accuracy 얻을 수 있었음.
 
 - efficientnet_b2
 batch size(train, validation, test) : 20, 20, 1
+
+History
+
+<img width="497" alt="스크린샷 2020-05-25 00 02 49" src="https://user-images.githubusercontent.com/45933225/82757383-12817100-9e1b-11ea-8a6e-9cbb13a6f815.png">
+
+Confusion Matrix
+
+<img width="387" alt="스크린샷 2020-05-25 00 06 21" src="https://user-images.githubusercontent.com/45933225/82757457-9176a980-9e1b-11ea-9590-3a8145a0eda9.png">
 
 100epoch 학습 후 kaggle 제출 결과 94.9 Accuracy 얻을 수 있었음.
 
 - efficientnet_b3
 batch size(train, validation, test) : 16, 16, 1
 
+History
+
+<img width="497" alt="스크린샷 2020-05-25 00 04 47" src="https://user-images.githubusercontent.com/45933225/82757428-5a07fd00-9e1b-11ea-9eae-c40245c87616.png">
+
+Confusion Matrix
+
+<img width="387" alt="스크린샷 2020-05-25 00 06 56" src="https://user-images.githubusercontent.com/45933225/82757476-a6533d00-9e1b-11ea-9501-d7bedff26c8d.png">
 100epoch 학습 후 kaggle 제출 결과 94.2 Accuracy 얻을 수 있었음.
 
 - efficientnet_b4 ~ b7

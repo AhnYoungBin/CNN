@@ -54,8 +54,7 @@
 
     - 1. 데이터에 적합한 모델 고르기(VggNet, ResNet, DenseNet, EfficientNet).
     - 2. 데이터에 적합한 레이어층 찾기 (Model(v1, v2 etc..)
-    - 3. 데이터 보완 및 과적합 방지 위한 교차 검증 적용(K-Fold) 
-    - 4. 정확도 향상을 위한 하이퍼파라미터 최적화(Image Resolution, optimizer, learning rate etc..))
+    - 3. 데이터 보완 및 과적합 방지 위한 교차 검증 적용(K-Fold)과 정확도 향상을 위한 하이퍼파라미터 최적화(Image Resolution, optimizer, learning rate etc..))
 
 ##### 1. 데이터에 적절한 모델 선정
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
@@ -76,6 +75,8 @@
         Train data : Resize, RandomCrop, Resize, Flip, ShiftScaleRotate, HorizontalFlip
         Validation data : Resize
         Test data : Resize
+        
+위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
 - VggNet
 ###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
@@ -126,4 +127,36 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 판단하여  multi_diseases 클래스에 대한 부분을 다른 모델 보다 더 옳은 예측하여 선정하게 되었다.
 
 ##### 2. 데이터에 적합한 레이어층 찾기
-EfficientNet paper에서 제공하는 b0 ~ b7의 순서대로 학습하여 비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.
+EfficientNet paper에서 제공하는 b1 ~ b7의 순서대로 학습  비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.
+
+하이퍼파라미터 초기화
+
+      - image size(height, width, channel) : 342, 512, 3
+      - epoch : 100
+      - step(train, validation, test) : 80, 20, 1
+      - label : one-hot encoding    -   using Categorical entropy
+      - optimizer : Adam(learning rate : 0.01)  -   validation loss에 맞게 laerning rate 조정하였음.
+      - Augment
+        Train data : Resize, RandomCrop, Resize, Flip, ShiftScaleRotate, HorizontalFlip
+        Validation data : Resize
+        Test data : Resize
+        
+colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값을 주었으며 나머지는 위에서 제시하는 조건을 동일하게 설정하여 학습하였음.         
+
+- efficientnet_b1
+batch size(train, validation, test) : 24, 24, 1
+
+100epoch 학습 후 kaggle 제출 결과 91.0 Accuracy 얻을 수 있었음.
+
+- efficientnet_b2
+batch size(train, validation, test) : 20, 20, 1
+
+100epoch 학습 후 kaggle 제출 결과 94.9 Accuracy 얻을 수 있었음.
+
+- efficientnet_b3
+batch size(train, validation, test) : 16, 16, 1
+
+100epoch 학습 후 kaggle 제출 결과 94.2 Accuracy 얻을 수 있었음.
+
+- efficientnet_b4 ~ b7
+학습 중 모델 최적화 값의 방향을 찾지 못하여 중간에 학습을 중단함. 찾지 못한다고 생각하는 것은 원본 이미지보다 급격한 해상도 감소로 모델이 바라보는 특징을 못 찾는 것으로 예상함.

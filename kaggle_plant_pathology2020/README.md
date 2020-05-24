@@ -164,8 +164,6 @@ EfficientNet paper에서 제공하는 b1 ~ b7의 순서대로 학습  비교하�
         
 colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값을 주었으며 나머지는 위에서 제시하는 조건을 동일하게 설정하여 학습하였음.         
 
-History
-
 ##### efficientnet_b1, b2, b3
     batch size(train, validation, test) - b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
 

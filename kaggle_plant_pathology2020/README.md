@@ -16,7 +16,7 @@
     3. 깊이 인식 - 각도, 빛, 그늘, 잎의 생리적 연령에 대응.
     4. 학습 중 관련 기능 검색하기 위한 식별, 주석, 수량화 및 컴퓨터 비전 안내에 전문적인 지식을 통합.
 
-#### 데이터 정보
+### 데이터 정보
 
 <p align="center">Plant Pathology Class</p>
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82079740-4fb07980-971e-11ea-9c9e-c5e74ac4709e.png" width="100%"></p>
@@ -47,7 +47,7 @@
     Validation data : Resize
     Test data : Resize
     
-#### 실험 소개 및 수행 내역
+### 실험 소개 및 수행 내역
 문제 해결 방법으로 Computer Vision(CV)의 분야에서 사용하는 Convolution Neural Network(CNN)을 이용하여 컴퓨터가 영상(이미지 및 비디오) 디지털 이미지의 특징을 학습하여 특정 패턴을 사용한 이미지를 분류하고자 함.
 
 다음과 아래의 순서대로 실험을 수행함.
@@ -56,7 +56,7 @@
     - 2. 데이터에 적합한 레이어층 찾기 (Model(v1, v2 etc..)
     - 3. 데이터 보완 및 과적합 방지 위한 교차 검증 적용(K-Fold)과 정확도 향상을 위한 하이퍼파라미터 최적화(Image Resolution, optimizer, learning rate etc..))
 
-#### 1. 데이터에 적절한 모델 선정
+### 1. 데이터에 적절한 모델 선정
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
 
 모델은 다음과 같이 사용함.
@@ -78,7 +78,7 @@
         
 위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
-- VggNet        https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
+##### - VggNet        https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
 
 History 
 
@@ -98,7 +98,7 @@ Confusion Matrix
 
 100, 150 epoch 학습 후 kaggle 제출 결과 93.6, 93.7 Accuracy 얻을 수 있었음.
 
-- ResNet
+##### - ResNet
  https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
  
 History
@@ -119,11 +119,11 @@ Confusion Matrix
 
 150epoch 학습 후kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
 
-- DenseNet
+##### - DenseNet
 
 위의 하이퍼파라미터 같은 조건으로 실행한 결과 모델 학습이 원할하게 진행되지 않아서 따로 기록을 하지 않았음.
 
-- EfficientNet https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
+##### - EfficientNet https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
 
 History
 
@@ -147,7 +147,7 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 
 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 판단하였으며 또한 데이터 수가 적은      multi_diseases 클래스에 대한 부분을 다른 모델 보다 더 옳은 예측하여 선정하게 되었다.
 
-#### 2. 데이터에 적합한 레이어층 찾기
+### 2. 데이터에 적합한 레이어층 찾기
 EfficientNet paper에서 제공하는 b1 ~ b7의 순서대로 학습  비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.
 
 하이퍼파라미터 초기화
@@ -166,7 +166,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 History
 
-    efficientnet_b1, b2, b3
+##### efficientnet_b1, b2, b3
     batch size(train, validation, test) - b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82758700-13b69c00-9e23-11ea-8c2b-ed95f2ded99c.png" width="100%"></p>
@@ -175,6 +175,6 @@ History
 
     b1 : 0.9625, 0.1044,    b2 : 0.9550, 0.1225,    b3 : 0.9718, 0.0868
 
-efficientnet_b4 ~ b7
+##### efficientnet_b4 ~ b7
 
-학습 중 모델 최적화 값의 방향을 찾지 못하여 중간에 학습을 중단함. 찾지 못한다고 생각하는 것은 원본 이미지보다 급격한 해상도 감소로 모델이 바라보는 특징을 못 찾는 것으로 예상함.
+학습 중 모델 최적화 값의 방향을 찾지 못하여 중간에 학습을 중단함. 찾지 못한다고 생각하는 것은 원본 이미지보다 급격한 해상도 감소로 모델이 바라보는 특징을 못 찾는 것으로 예상함. 그래서 다음 실험 순서에서는 각 레이어층에 맞춰서 이미지 해상도 크기를 조절할 필요가 있다고 생각함.

@@ -84,9 +84,11 @@ History
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82756782-3b076c00-9e17-11ea-9e7c-204770646c51.png" width="50%"></p>
 
+검증 데이터 기준으로 Maximum Accuracy, Minimum Loss 0.9750, 0.1019 나온 것을 확인할 수 있었음.
+
 Test Evaluation
 
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
+Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.9750, loss : 0.1130 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
 Confusion Matrix 
 
@@ -102,6 +104,8 @@ Confusion Matrix
 History
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82756813-730eaf00-9e17-11ea-80fc-0e99b734b0d5.png" width="50%"></p>
+
+검증 데이터 기준으로 Maximum Accuracy, Minimum Loss 0.7562, 0.5031 나온 것을 확인할 수 있었음.
  
 Test Evaluation
 
@@ -124,6 +128,8 @@ Confusion Matrix
 History
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82756839-99344f00-9e17-11ea-8481-51291a264920.png" width="50%"></p>
+
+검증 데이터 기준으로 Maximum Accuracy, Minimum Loss 0.9750, 0.1019 나온 것을 확인할 수 있었음.
 
 Test Evaluation
 

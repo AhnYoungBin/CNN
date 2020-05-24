@@ -78,8 +78,7 @@
         
 위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
-- VggNet
-###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
+- VggNet        https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/vggnet16_tuning.ipynb
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.95442, loss : 0.14095 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
@@ -92,7 +91,7 @@ Confusion Matrix
 100, 150 epoch 학습 후 kaggle 제출 결과 93.6, 93.7 Accuracy 얻을 수 있었음.
 
 - ResNet
-###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
+ https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/resnet50_tuning.ipynb
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 
@@ -109,7 +108,7 @@ Confusion Matrix
 위의 하이퍼파라미터 같은 조건으로 실행한 결과 모델 학습이 원할하게 진행되지 않아서 따로 기록을 하지 않았음.
 
 - EfficientNet
-###### https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
+ https://github.com/JeongGyuJun/CNN/blob/master/kaggle_plant_pathology2020/select_model/efficientnet_b0_tuning.ipynb
 
 Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94393, loss : 0.1600 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
 

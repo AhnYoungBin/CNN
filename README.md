@@ -23,10 +23,10 @@
 4. [EfficientNet](https://github.com/JeongGyuJun/CNN/blob/master/model_code/EFFICIENTNET_B0_7.ipynb)
 5. [MobileNet](https://github.com/JeongGyuJun/CNN/blob/master/model_code/MobileNet_V1.ipynb)
 
-#### - classification training
-1. binary_model_tuning
-2. multiclass_model_tuning
-3. cross_validation_multiclass_model_tuning
+#### - [classification training](https://github.com/JeongGyuJun/CNN/tree/master/classification_training)
+1. [binary_model_tuning](https://github.com/JeongGyuJun/CNN/blob/master/classification_training/binary_model_tuning.ipynb)
+2. [multiclass_model_tuning](https://github.com/JeongGyuJun/CNN/blob/master/classification_training/multiclass_model_tuning.ipynb)
+3. [cross_validation_multiclass_model_tuning](https://github.com/JeongGyuJun/CNN/blob/master/classification_training/cross_validation_multiclass_model_tuning.ipynb)
 
 #### - Artificial Intelligence_Machine Learning_Deep Learning
 READMEMD(소개 및 실험 내용 정리)

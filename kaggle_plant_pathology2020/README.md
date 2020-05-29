@@ -48,6 +48,8 @@
     Validation data : Resize
     Test data : Resize
     
+추가로 정확도 향상과 과적합 방지를 하고자 교차 검증(KFold)를 적용하여 데이터 보완을 시도하였음.   
+    
 ### 실험 소개 및 수행 내역
 문제 해결 방법으로 Computer Vision(CV)의 분야에서 사용하는 Convolution Neural Network(CNN)을 이용하여 컴퓨터가 영상(이미지 및 비디오) 디지털 이미지의 특징을 학습하여 특정 패턴을 사용한 이미지를 분류하고자 함.
 

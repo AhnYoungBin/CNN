@@ -73,35 +73,26 @@ ResNet은 2015년 ILSVRC 대회에서 우승한 모델로써 신경망의 구조
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/74638228-dbae1600-51ae-11ea-8f6d-ba4e685cf445.png" width="75%"></p>
 
-101 Layer 구조에서는 다음과 같이 진행하였다.
+- 50, 101 Layer
 
 Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 550, Image size 224 x 224 추가적으로 Data Augmentation을 줬으며. 
 (train, validation)step은 80, 20으로 설정하였다.
 
-결과적으로 Accuracy 92.70%, Loss 0.1951가 나왔으며, 550epoch 이상 돌렸을 경우 Over fitting이 발생하는 것 같았다. 
+학습 결과 101 Layer 경우 Accuracy 92.70%, Loss 0.1951가 나왔으며, 50 Layer Accuracy 93.80%, Loss 0.1692가 나오는 것을 볼 수 있었으며 확연한 차이는 없지만 이 데이터에서는 50 Layer가 더 적합하다고 볼 수 있었으며 레이어층이 무조건 깊다고 좋은 학습 결과를 받을 수 있는 것은 아니었다.
 
-50 Layer 구조에서는 다음과 같이 진행하였다.
-
-Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 550, Image size 224 x 224 추가적으로 Data Augmentation을 줬으며. 
-(train, validation)step은 80, 20으로 설정하였다.
-
-결과적으로 Accuracy 93.80%, Loss 0.1692가 나왔으며, 550epoch 이상 돌렸을 경우 Over fitting이 발생하는 것 같았다.
-
-똑같은 조건으로 두개의 Layer를 비교하였을 때, 이 데이터에는 50 Layer가 더 적합하였다.
-
-### 101-layer vs 50-layer
-
-#### - feature map(conv_2d layer)
+#### - feature map(Conv_2D Layer)
 다음은 입력층 부터 출력층까지 Convolution Layer층의 feature map을 보여준다.
 
-#### 101-layer
+##### 50-layer
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75012532-82532900-54c5-11ea-93c4-2ca3511520c0.png" width="75%"></p>
+
+##### 101-layer
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/74638370-1ca62a80-51af-11ea-9a4c-d18b593d081a.png" width="75%"></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/74638389-2465cf00-51af-11ea-8884-f7839e414b94.png" width="75%"></p>
 
-#### 50-layer
-
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75012532-82532900-54c5-11ea-93c4-2ca3511520c0.png" width="75%"></p>
+비교적 짧은 50 Layer에서도 충분히 이미지에 특징을 찾아가는 것을 확인이 가능하다.
 
 #### 3. DenseNet(Pooling - Max, Avg)
 

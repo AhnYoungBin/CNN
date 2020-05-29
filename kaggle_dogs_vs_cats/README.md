@@ -96,4 +96,51 @@ Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 550, Image 
 
 #### 3. DenseNet(Pooling - Max, Avg)
 
+DenseNEt은 각 Layer와 후속 Layer 사이에 각각 하나씩 직접 L(L+1) 연결을 가지고 있다. 각 Layer는 모든 이전 Layer의 feature map을 입력으로 사용한다. 이 구성은 소멸 단계 문제를 완하하고, 전파를 강화하며, 재사용에 용이하며, 매개변수 수를 크게 감소시킨다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75467606-44776880-59cf-11ea-987c-26462f352d1a.png" width="75%"></p>
+
+이전 ResNet에서도 유사한 방법이 사용되었다.
+하지만 ResNet은 feature map을 추가하는 방식인 반면 DenseNet은 각각의 feature map을 연결하기 위한 구성을 지니고 있다.
+
+- Growth Rate
+
+각 feature map이 연결되어 있기 때문에 feature map의 채널 수가 많으면 채널을 각 채널별로 계속 연결할 수 있어 더 많은 채널로 이어질 수 있다. 그래서 DenseNet에서는 각 계층의 feature map에 매우 적은 수의 채널을 사용하는데, 이를 각 계층의 피쳐 맵에 대한 채널 수(k)라고 한다. 이러한 방식으로 다음 밑에서 Transition Layer을 소개하고자 한다.
+
+- Bottleneck Layer
+
+DenseNet은 ResNet과는 다른 Bottleneck Layer 구조를 가지고 있다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75468567-c0be7b80-59d0-11ea-93c9-ad5869a5bae8.png" width="75%"></p>
+
+3 x 3 Convolution, 1 x 1 Convolution을 볼 수 있다. 여기서 입력 feature map의 채널 수만큼 만드는 것이 아니라, growth_rate만큼 feature map을 만들어 계산 비용을 줄일 수 있다. 이는 효율적으로 매개변수를 줄일 수 있다.
+
+- Transition Layer
+
+단순하게 말하면, feature map의 수를 줄이는 기능이다.
+
+- Composite function
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75469140-d54f4380-59d1-11ea-8317-273f6dcacf39.png" width="75%"></p>
+
+다음은 pre-activation 구조로 BatchNormalization - ReLU function - Convolution Sequence를 사용함.
+
+- avg pooling vs max pooling
+
+이번 실험은 Max, Average Pooling을 비교할 것이다.
+
+Pooling은 CNN에서 매우 중요한 역할을 한다. Subsampling을 사용하여 위치나 이동에 강한 특성을 가진 feature map의 크기를 줄일 수 있다.
+
+Average Pooling 방법은 많은 ReLU를 활성 함수로 사용한다. 이로 인해 0이 많이 발생하며, 평균 작동에 의한 강한 자극이 감소한다. 또한 강한 자극과 약한 자극의 평균을 취하면 상쇄되는 상황이 발생할 수 있다.
+
+반면에 Max Pooling 방법은 학습 데이터에 지나치게 적합할 수 있다.
+
+Stochastic Pooling도 추가적으로 있는 것을 알아 두자.
+
+DenseNet 121 Layer을 사용하였으며 Pooling에 대해서 비교하고자 하였다.
+
+250epoch 학습하였을 경우, Avg Pooling은 Accuracy 86.87%, Loss 0.28962, Max Pooling은 Accuracy 90.85%, Loss 0.22649가 나왔다.
+
+같은 에폭을 학습한 결과 Max Pooling은 학습 데이터에 더 빠르게 적합하는 것을 볼 수 있으며 Average Pooling 강한 부분과 약한 부분의 평균을 취하여 상쇄되는 상황이 발생하여 Max Pooling보다 못미치는 것을 볼 수 있었다.
+
 #### 4. EfficientNet(Optimizer - SGD, Adam)

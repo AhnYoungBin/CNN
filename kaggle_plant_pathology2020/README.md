@@ -53,12 +53,14 @@
 
 다음과 아래의 순서대로 실험을 수행함.
 
-    - 1. 데이터에 적합한 모델 고르기(VggNet, ResNet, DenseNet, EfficientNet).
+    - 1. 데이터에 적합한 모델 찾기(VggNet, ResNet, DenseNet, EfficientNet).
     - 2. 데이터에 적합한 레이어층 찾기 (Model(v1, v2 etc..)
-    - 3. 데이터 보완 및 과적합 방지 위한 교차 검증 적용(K-Fold)과 정확도 향상을 위한 하이퍼파라미터 최적화(Image Resolution, optimizer, learning rate etc..))
+    - 3. 기존 데이터 분류와 데이터 보완 및 과적합 방지를 위한 교차 검증 적용(K-Fold)의 비교
+    - 4. Filter 가중치 부여 Attention의 기법 적용(Default, Squeeze and Excitation, Convolutional Block Attention Module)
+    - 5. Optimizers 선정(SGD, RMSProp, Adam)
+    - 6. 하이퍼파라미터 최적화(Batch Size, Image Size etc..)
 
-
-### 1. 데이터에 적절한 모델 선정
+### 1. 데이터에 적절한 모델 
 ###### ./select_model 실행 코드 확인 가능
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
 
@@ -147,12 +149,14 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
-VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각하였으며 EfficientNet의 Resolution, Width, Depth의 3가지 요소의 확장과 Attetnion Squeeze-and-Excitation을 이용하여 더 높은 성능을 기대할 수 있다고 판단하였으며 또한 데이터 수가 적은      multi_diseases 클래스에 대한 부분을 다른 모델 보다 더 옳은 예측하여 선정하게 되었다.
+일단 전반적인 히스토리를 보면 기존 논문에서 제시하는 모델의 성능만큼 효율적인 학습 결과를 얻을 수 없었음. 그래서 논문에서 제시하는 모델들이 모든 데이터에 맞는 것이 아니라는 것을 알았음.
+
+그래서 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각했으며 EfficientNet의 Resolution, Width, Depth의 3가지면에서 다양함을 시도할 수 있다고 생각하여 모델을 결정하게 되었음.
 
 
 ### 2. 데이터에 적합한 레이어층 찾기
 ###### ./find_layer 실행 코드 확인 가능.
-EfficientNet paper에서 제공하는 b1 ~ b7의 순서대로 학습  비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.
+EfficientNet paper에서 제공하는 b0 ~ b7의 순서대로 학습  비교하여 데이터셋에 적합한 레이어층을 찾고자 하였음.
 
 하이퍼파라미터 초기화
 
@@ -168,7 +172,7 @@ EfficientNet paper에서 제공하는 b1 ~ b7의 순서대로 학습  비교하�
         
 colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값을 주었으며 나머지는 위에서 제시하는 조건을 동일하게 설정하여 학습하였음.         
 
-##### efficientnet_b1, b2, b3
+##### efficientnet_b0, b1, b2, b3
     batch size(train, validation, test) - b0 : (30, 30, 1), b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83259303-c35c8700-a1f2-11ea-9194-01080e099d3a.png" width="100%"></p>
@@ -181,14 +185,13 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
     b0 : 95.651,    b1 : 91.0,    b2 : 94.9,    b3 : 94.2 Accuracy
 
-    
-
 ##### efficientnet_b4 ~ b7
 
 학습 중 모델 최적화 값의 방향을 찾지 못하여 중간에 학습을 중단함. 찾지 못한다고 생각하는 것은 점점 레이어층이 깊어짐에 따라 Vanishing gradient problem가 발생과 원본 이미지의 해상도 크기 감소로 고유의 픽셀 정보가 끝까지 전달을 못하여 모델이 특징 인식을 하지 못하는 것으로 예상함. 
 
-그래서 다음 실험 순서에서는 배치 사이즈와 이미지 크기 둘 중 하나를 선택하여 진행할 필요가 있을 것 같다.
+=> 기존 환경을 고려하여 배치 사이즈와 이미지 사이즈에서 폭 넓게 조정할 수 있고 결과적으로 제일 높게 나온 b0 레이어층을 선택하기로 함.
+
+### 3. 기존 데이터 분류와 데이터 보완 및 과적합 방지를 위한 교차 검증 적용(K-Fold)의 비교
 
 
-### 3. 데이터 보완 및 과적합 방지 위한 교차 검증 적용과 정확도 향상을 위한 하이퍼파라미터 최적화
 

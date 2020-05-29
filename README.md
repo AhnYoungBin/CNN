@@ -17,11 +17,11 @@
 12. [YOLO(You Only Look Once)](https://github.com/JeongGyuJun/CNN/blob/master/YOLO.md)
 
 ##### - [model code](https://github.com/JeongGyuJun/CNN/tree/master/model_code)
-1. VggNet
-2. ResNet
-3. DenseNet
-4. EfficientNet
-5. MobileNet
+1. [VggNet](https://github.com/JeongGyuJun/CNN/blob/master/model_code/VggNet.ipynb)
+2. [ResNet](https://github.com/JeongGyuJun/CNN/blob/master/model_code/ResNet.ipynb)
+3. [DenseNet](https://github.com/JeongGyuJun/CNN/blob/master/model_code/DenseNet.ipynb)
+4. [EfficientNet](https://github.com/JeongGyuJun/CNN/blob/master/model_code/EFFICIENTNET_B0_7.ipynb)
+5. [MobileNet](https://github.com/JeongGyuJun/CNN/blob/master/model_code/MobileNet_V1.ipynb)
 
 #### - classification training
 1. binary_model_tuning

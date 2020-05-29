@@ -38,6 +38,32 @@
 
 #### 1. VggNet(Accuracy - Featrue Map) 
 
+VggNet은 2014년 ILSVRC에서 2위를 차지했지만 훨씬 단순한 구조로 이해와 변형이 용이하다는 장점이 있다.
+
+특징으로는 VGGNet은 작은 필터 크기의 컨볼루션 연산이 있으며, 단점으로는 많은 파라미터가 존재한다는 것을 알 수 있다.
+파라미터가 많은 것은 Gradient Vanishing, Over Fitting 등의 문제가 발생할 가능성이 높다는 것을 의미한다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/74590059-48f66580-504e-11ea-9952-0828a186eb60.png" width="75%"></p>
+
+VggNet 16Layer의 기본 구성을 위 그림에서 확인할 수 있다. 실험에서 차이점으로는 각 블록에 Kernel_initializeer = 'he_normal'을 추가하였으며 Vanishing/Exploding을 완하하기 위해 Convolution과 Max Polling 사이에 Batch Normalization을 추가 하였다. 그리고 출력층에 대해서 Multi Class가 아니여서 softmax가 아닌 binary class에 적합한 sigmoid함수를 사용하였다.
+
+모델 컴파일의 경우 최적화 방법은 SGD(learning rate = 0.001, momentum = 0.9)함수를 사용했으며 손실 함수는 binary_crossentropy로 설정하였다. 그리고 하이퍼 파라미터는 (train, validation)batch_size 20, image_size 224 x 224, epoch 250, (train, validation)step 80, 20으로 설정하였다.
+
+실험 결과로는 Accuracy 95.05%, Loss 0.1351이 나오는 것을 확인 하였다.
+
+- feature map
+
+##### accuracy 95.05%, loss 13.51% feature map
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/74591625-d345c600-505c-11ea-8f0f-56a6d300223e.png" width="75%"></p>
+
+##### accuracy 49.45%, loss 69.32% feature map
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/74591647-038d6480-505d-11ea-96e9-5193de6d5b6f.png" width="75%"></p>
+
+높은 정확도와 낮은 정확도의 특징 맵을 비교하였다.
+정확히 육안으로 보이지는 않지만 대략적인 판단으로는 높은 정확도는 이미지의 엣지를 잘 찾아가는 것 같고, 정확도가 낮은 것은 잘 찾지 못하거나 안보이는 것이 더 많은 것을 확인할 수 있었다.
+
 #### 2. ResNet(Layer - 50, 101 Layer)
 
 #### 3. DenseNet(Pooling - Max, Avg)

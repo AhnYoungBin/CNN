@@ -28,7 +28,7 @@
 2. [multiclass_model_tuning](https://github.com/JeongGyuJun/CNN/blob/master/classification_training/multiclass_model_tuning.ipynb)
 3. [cross_validation_multiclass_model_tuning](https://github.com/JeongGyuJun/CNN/blob/master/classification_training/cross_validation_multiclass_model_tuning.ipynb)
 
-#### - kaggle Dogs vs Cats
+#### - [kaggle Dogs vs Cats](https://github.com/JeongGyuJun/CNN/tree/master/kaggle_dogs_vs_cats)
 1. [VggNet(Accuracy - Feature Map 비교)](https://github.com/JeongGyuJun/classification_vgg16net)
 2. [ResNet(Layer - 50, 101 비교)](https://github.com/JeongGyuJun/classfication_resnet)
 3. [DenseNet(Pooling - Max, Avg 비교)](https://github.com/JeongGyuJun/classification_densenet)

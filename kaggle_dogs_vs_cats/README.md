@@ -122,9 +122,4 @@ Adam
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/81701018-66e43280-94a4-11ea-9b51-aeee87bb9dfb.png" width="50%"></p>
 
-
-
-
-
-
-SGD옵티마이저를 보면 아예 
+SGD옵티마이저를 보면 아예 못찾는 경우도 있으며 아님 조금 넓게 바라보는 것을 확인이 가능한 것을 볼 수 있으며 Adam옵티마이저는 확실히 특징을 중점으로 보는 좁게 바라보는 것을 확인할 수 있었음.

@@ -38,7 +38,7 @@
     - 3. DenseNet(Pooling - Max, Avg)
     - 4. EfficientNet(Optimizer - SGD, Adam)
 
-#### 1. VggNet(Accuracy - Featrue Map)
+#### 1. [VggNet(Accuracy - Featrue Map)](https://github.com/JeongGyuJun/classification_vggnet)
 
 - Accuracy
 
@@ -60,7 +60,7 @@ VggNet 16Layer의 기본 구성을 위 그림에서 확인할 수 있다. 실험
 
 높은 정확도는 이미지의 특징을 찾아서 점점 특정 부분에 찾아가며 뚜렷하지만 낮은 정확도를 기록한 것을 보면 전체적으로 스무딩한 이미지를 볼 수 있으며 가끔 어떤 층에서는 특징을 못찾은 것도 볼 수 있었다.
 
-#### 2. ResNet(Layer - 50, 101 Layer)
+#### 2. [ResNet(Layer - 50, 101 Layer)](https://github.com/JeongGyuJun/classification_resnet)
 
 - 50, 101 Layer
 
@@ -83,7 +83,7 @@ Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 550, Image 
 
 비교적 짧은 50 Layer에서도 충분히 이미지에 특징을 찾아가는 것을 확인이 가능하다.
 
-#### 3. DenseNet(Pooling - Max, Avg)
+#### 3. [DenseNet(Pooling - Max, Avg)](https://github.com/JeongGyuJun/classification_densenet)
 
 - avg pooling vs max pooling
 
@@ -103,7 +103,7 @@ DenseNet 121 Layer을 사용하였으며 Pooling에 대해서 비교하고자 �
 
 같은 에폭을 학습한 결과 Max Pooling은 학습 데이터에 더 빠르게 적합하는 것을 볼 수 있으며 Average Pooling 강한 부분과 약한 부분의 평균을 취하여 상쇄되는 상황이 발생하여 Max Pooling보다 못미치는 것을 볼 수 있었다.
 
-#### 4. EfficientNet(Optimizer - SGD, Adam)
+#### 4. [EfficientNet(Optimizer - SGD, Adam)](https://github.com/JeongGyuJun/classification_efficientnet/blob/master/README.md)
 
 optimizer(SGD, Adam)구조에서 다음과 같이 진행하였다.  - learning rate : 0.001 로 계속 돌림(비교가 목적이었음).
 

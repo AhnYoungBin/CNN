@@ -2,7 +2,7 @@
 
 ##### - paper(model, attention etc...)
 ###### (VggNet, ResNet, DenseNet, EfficientNet).md 시작 부분 kaggle cat-vs-dog dataset에 대해 여러 실험 결과 링크 설정.
-1. VggNet
+1. [VggNet](https://github.com/JeongGyuJun/CNN/blob/master/VGG16.md)
 2. ResNet
 3. DenseNet
 4. EfficientNet

@@ -45,7 +45,7 @@ VggNet은 2014년 ILSVRC에서 2위를 차지했지만 훨씬 단순한 구조�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/74590059-48f66580-504e-11ea-9952-0828a186eb60.png" width="75%"></p>
 
-VggNet 16Layer의 기본 구성을 위 그림에서 확인할 수 있다. 실험에서 차이점으로는 각 블록에 Kernel_initializeer = 'he_normal'을 추가하였으며 Vanishing/Exploding을 완하하기 위해 Convolution과 Max Polling 사이에 Batch Normalization을 추가 하였다. 그리고 출력층에 대해서 Multi Class가 아니여서 softmax가 아닌 binary class에 적합한 sigmoid함수를 사용하였다.
+VggNet 16Layer의 기본 구성을 위 그림에서 확인할 수 있다. 실험에서 차이점으로는 각 블록에 Kernel_initializeer = 'he_normal'을 추가하였으며Vanishing/Exploding을 완하하기 위해 Convolution과 Max Polling 사이에 Batch Normalization을 추가 하였다. 그리고 출력층에 대해서 Multi Class가 아니여서 softmax가 아닌 binary class에 적합한 sigmoid함수를 사용하였다.
 
 모델 컴파일의 경우 최적화 방법은 SGD(learning rate = 0.001, momentum = 0.9)함수를 사용했으며 손실 함수는 binary_crossentropy로 설정하였다. 그리고 하이퍼 파라미터는 (train, validation)batch_size 20, image_size 224 x 224, epoch 250, (train, validation)step 80, 20으로 설정하였다.
 
@@ -61,8 +61,7 @@ VggNet 16Layer의 기본 구성을 위 그림에서 확인할 수 있다. 실험
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/74591647-038d6480-505d-11ea-96e9-5193de6d5b6f.png" width="75%"></p>
 
-높은 정확도와 낮은 정확도의 특징 맵을 비교하였다.
-정확히 육안으로 보이지는 않지만 대략적인 판단으로는 높은 정확도는 이미지의 엣지를 잘 찾아가는 것 같고, 정확도가 낮은 것은 잘 찾지 못하거나 안보이는 것이 더 많은 것을 확인할 수 있었다.
+높은 정확도는 이미지의 특징을 찾아서 점점 특정 부분에 찾아가며 뚜렷하지만 낮은 정확도를 기록한 것을 보면 전체적으로 스무딩한 이미지를 볼 수 있으며 가끔 어떤 층에서는 특징을 못찾은 것도 볼 수 있었다.
 
 #### 2. ResNet(Layer - 50, 101 Layer)
 

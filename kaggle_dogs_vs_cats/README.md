@@ -104,3 +104,27 @@ DenseNet 121 Layer을 사용하였으며 Pooling에 대해서 비교하고자 �
 같은 에폭을 학습한 결과 Max Pooling은 학습 데이터에 더 빠르게 적합하는 것을 볼 수 있으며 Average Pooling 강한 부분과 약한 부분의 평균을 취하여 상쇄되는 상황이 발생하여 Max Pooling보다 못미치는 것을 볼 수 있었다.
 
 #### 4. EfficientNet(Optimizer - SGD, Adam)
+
+optimizer(SGD, Adam)구조에서 다음과 같이 진행하였다.  - learning rate : 0.001 로 계속 돌림(비교가 목적이었음).
+
+Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 300, Image size 224 x 224 추가적으로 Data Augmentation을 줬으며. 
+(train, validation)step은 80, 20으로 설정하였다.
+
+위와 같이 optimizer를 제외한 나머지 설정을 똑같이 하였을 때, SGD의 결과는 accuracy 94.65%, loss 0.1321가 나왔으며 Adam은 accuracy 95.90%, loss 0.1053이 나왔다. 근소하지만 그래도 Adam이 최적값에 더 빠르게 수렴하면서 더 높은 성능을 얻을 수 있었다.
+
+Grad CAM을 확인하면 특징 추출하는 부분에서는 확연한 차이가 있었다.
+
+SGD
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81701360-db1ed600-94a4-11ea-9915-0ed6bc760365.png" width="50%"></p>
+
+Adam
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/81701018-66e43280-94a4-11ea-9b51-aeee87bb9dfb.png" width="50%"></p>
+
+
+
+
+
+
+SGD옵티마이저를 보면 아예 

@@ -31,7 +31,6 @@
 #### - Artificial Intelligence_Machine Learning_Deep Learning
 READMEMD(소개 및 실험 내용 정리)
 
-1.select_model
-
-#### - kaggle_plant pathology 2020
-
+#### - [kaggle_plant pathology 2020](https://github.com/JeongGyuJun/CNN/tree/master/kaggle_plant_pathology2020)
+1. [Select_Model](https://github.com/JeongGyuJun/CNN/tree/master/kaggle_plant_pathology2020/select_model)
+2. [Find_Layer](https://github.com/JeongGyuJun/CNN/tree/master/kaggle_plant_pathology2020/find_layer)

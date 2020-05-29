@@ -16,7 +16,7 @@
 11. [U-Net](https://github.com/JeongGyuJun/CNN/blob/master/U_Net.md)
 12. [YOLO(You Only Look Once)](https://github.com/JeongGyuJun/CNN/blob/master/YOLO.md)
 
-##### - model code
+##### - [model code](https://github.com/JeongGyuJun/CNN/tree/master/model_code)
 1. VggNet
 2. ResNet
 3. DenseNet

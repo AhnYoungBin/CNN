@@ -26,6 +26,7 @@
 #### - classification training
 1. binary_model_tuning
 2. multiclass_model_tuning
+3. cross_validation_multiclass_model_tuning
 
 #### - Artificial Intelligence_Machine Learning_Deep Learning
 READMEMD(소개 및 실험 내용 정리)

@@ -65,6 +65,44 @@ VggNet 16Layer의 기본 구성을 위 그림에서 확인할 수 있다. 실험
 
 #### 2. ResNet(Layer - 50, 101 Layer)
 
+ResNet은 2015년 ILSVRC 대회에서 우승한 모델로써 신경망의 구조가 깊어짐에 따라 정확도가 저하되는 문제를 해결하기 위한 방법으로「잔류 학습」을 도입하였다. 간단히 말해, 기존 네트워크를 H(x)(x는 레이어의 입력) F(x) = H(x) - x 라고 하면 네트워크 F(x) + x가 대략 H(x)로 학습되도록 하는 것이다. 즉, 레이어의 입력과 출력 간의 차이를 학습 하고 저하되는 문제를 해결할 수 있었다. 이것은 왼쪽 아래에 있는 그림을 보면 확인할 수 있다. 오른쪽은 그림은 50개 이상 Layer에서 Bottleneck을 이용하는 구조로 건너 뛰는 것을 볼 수 있다. 이는 층이 깊어질수록 연산량이 늘어남에 따라 제안된 방법으로 채널 수가 1 x 1 Conv로 줄어드 다음 3 x 3 Conv를 거쳐 1 x 1 Conv를 다시 통과하여 채널 수를 다시 복구하는 것을 볼 수 있다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/74638207-cdf89080-51ae-11ea-93fc-4f4646158be5.png" width="75%"></p>
+
+다음 아래 그림은 ResNet 논문에서 제안한 5개의 구조다. 다만 실험에서는 101Layer, 50Layer을 사용하였다. 
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/74638228-dbae1600-51ae-11ea-8f6d-ba4e685cf445.png" width="75%"></p>
+
+101 Layer 구조에서는 다음과 같이 진행하였다.
+
+Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 550, Image size 224 x 224 추가적으로 Data Augmentation을 줬으며. 
+(train, validation)step은 80, 20으로 설정하였다.
+
+결과적으로 Accuracy 92.70%, Loss 0.1951가 나왔으며, 550epoch 이상 돌렸을 경우 Over fitting이 발생하는 것 같았다. 
+
+50 Layer 구조에서는 다음과 같이 진행하였다.
+
+Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 550, Image size 224 x 224 추가적으로 Data Augmentation을 줬으며. 
+(train, validation)step은 80, 20으로 설정하였다.
+
+결과적으로 Accuracy 93.80%, Loss 0.1692가 나왔으며, 550epoch 이상 돌렸을 경우 Over fitting이 발생하는 것 같았다.
+
+똑같은 조건으로 두개의 Layer를 비교하였을 때, 이 데이터에는 50 Layer가 더 적합하였다.
+
+### 101-layer vs 50-layer
+
+#### - feature map(conv_2d layer)
+다음은 입력층 부터 출력층까지 Convolution Layer층의 feature map을 보여준다.
+
+#### 101-layer
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/74638370-1ca62a80-51af-11ea-9a4c-d18b593d081a.png" width="75%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/74638389-2465cf00-51af-11ea-8884-f7839e414b94.png" width="75%"></p>
+
+#### 50-layer
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/75012532-82532900-54c5-11ea-93c4-2ca3511520c0.png" width="75%"></p>
+
 #### 3. DenseNet(Pooling - Max, Avg)
 
 #### 4. EfficientNet(Optimizer - SGD, Adam)

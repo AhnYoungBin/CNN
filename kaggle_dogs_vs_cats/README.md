@@ -5,7 +5,8 @@
 
 ### 데이터 정보
 
-<img width="290" alt="스크린샷 2020-05-30 02 36 04" src="https://user-images.githubusercontent.com/45933225/83288445-51019c00-a21e-11ea-8556-b35142464dc6.png">
+<p align="center">Dogs-vs-Cats Class</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83288445-51019c00-a21e-11ea-8556-b35142464dc6.png" width="100%"></p>
 
     데이터 포맷 : jpg, jpeg
     총 25,000장, Train : 17,000장, Validation : 4,000장, Test : 4,000장
@@ -14,8 +15,7 @@
 
 다음 아래와 같이 전체적인 데이터를 한 눈에 확인할 수 있음.
 
-<img width="724" alt="스크린샷 2020-05-30 02 36 28" src="https://user-images.githubusercontent.com/45933225/83288474-5f4fb800-a21e-11ea-8219-ad1218bcd73b.png">
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83288474-5f4fb800-a21e-11ea-8219-ad1218bcd73b.png" width="100%"></p>
 
 #### 데이터 보완
 데이터 레이블을 변경하지 않고 픽셀 변화시키는 CNN의 성능 향상을 위하여 Tensorflow에서 제공해주는 Data Augmentation을 사용함.

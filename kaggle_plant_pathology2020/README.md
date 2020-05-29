@@ -171,7 +171,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 ##### efficientnet_b1, b2, b3
     batch size(train, validation, test) - b0 : (30, 30, 1), b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82758700-13b69c00-9e23-11ea-8c2b-ed95f2ded99c.png" width="100%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83259303-c35c8700-a1f2-11ea-9194-01080e099d3a.png" width="100%"></p>
 
 각 레이어층 별로 학습 history를 확인한 결과 검증 데이터 Maximum Accuracy, Minimum Loss 아래와 같이 확인 할 수 있음.
 

@@ -28,9 +28,15 @@
 2. [multiclass_model_tuning](https://github.com/JeongGyuJun/CNN/blob/master/classification_training/multiclass_model_tuning.ipynb)
 3. [cross_validation_multiclass_model_tuning](https://github.com/JeongGyuJun/CNN/blob/master/classification_training/cross_validation_multiclass_model_tuning.ipynb)
 
-#### - Artificial Intelligence_Machine Learning_Deep Learning
-READMEMD(소개 및 실험 내용 정리)
+#### - kaggle Dogs vs Cats
+1. [VggNet(Accuracy - Feature Map 비교)](https://github.com/JeongGyuJun/classification_vgg16net)
+2. [ResNet(Layer - 50, 101 비교)](https://github.com/JeongGyuJun/classfication_resnet)
+3. [DenseNet(Pooling - Max, Avg 비교)](https://github.com/JeongGyuJun/classification_densenet)
+4. [EfficientNet(Optimizer - SGD, Adam 비교)](https://github.com/JeongGyuJun/classification_efficientnet) 
 
 #### - [kaggle_plant pathology 2020](https://github.com/JeongGyuJun/CNN/tree/master/kaggle_plant_pathology2020)
 1. [Select_Model](https://github.com/JeongGyuJun/CNN/tree/master/kaggle_plant_pathology2020/select_model)
 2. [Find_Layer](https://github.com/JeongGyuJun/CNN/tree/master/kaggle_plant_pathology2020/find_layer)
+
+#### - Artificial Intelligence_Machine Learning_Deep Learning
+READMEMD(소개 및 실험 내용 정리)

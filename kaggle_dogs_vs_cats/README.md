@@ -87,8 +87,6 @@ Hyper parameter 초기화는 (train, validation)batch_size 20, epoch 550, Image 
 
 - avg pooling vs max pooling
 
-이번 실험은 Max, Average Pooling을 비교할 것이다.
-
 Pooling은 CNN에서 매우 중요한 역할을 한다. Subsampling을 사용하여 위치나 이동에 강한 특성을 가진 feature map의 크기를 줄일 수 있다.
 
 Average Pooling 방법은 많은 ReLU를 활성 함수로 사용한다. 이로 인해 0이 많이 발생하며, 평균 작동에 의한 강한 자극이 감소한다. 또한 강한 자극과 약한 자극의 평균을 취하면 상쇄되는 상황이 발생할 수 있다.

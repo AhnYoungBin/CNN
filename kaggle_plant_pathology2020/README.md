@@ -85,40 +85,19 @@
         
 위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
-##### - VggNet     
+##### Model Confusion Matrix
+-Train + Validation data를 이용하여 임시 테스트 함.
 
-Confusion Matrix 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83384955-43693380-a423-11ea-88b5-dd9cc0df0086.png" width="35%"></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82085133-7b842d00-9727-11ea-9f40-c18a3fddccaf.png" width="35%"></p>
+각 모델마다 전체적으로 데이터 수가 적은 multiple_diseases 클래스의 예측률이 현저히 떨어지는 것을 확인할 수 있었음. 그 외 클래스들은 예측률에 있어서 큰 차이가 없었음.
 
-데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함. 그리고 multi diseases, scab, rust 이 3가지에 대해서 예측을 제대로 못하고 있음도 확인할 수 있음.
-
-##### - ResNet
- 
-Confusion Matrix
-
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82089570-d0777180-972e-11ea-901d-45d71243c07e.png" width="35%"></p>
-
-여기서도 마찬가지로 multi diseases 클래스에 대한 부분을 예측을 제대로 못하고 있으며 healthy클래스도 주로 scab으로 많은 양의 데이터를 분류하고 있음을 확인이 가능함. 모델이 전반적으로 예측 정확도가 낮음.
-
-##### - DenseNet
-
-위의 하이퍼파라미터 같은 조건으로 실행한 결과 모델 학습이 원할하게 진행되지 않아서 따로 기록을 하지 않았음.
-
-##### - EfficientNet
-
-Confusion Matrix
-
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82090450-93ac7a00-9730-11ea-9958-392bf93c8b76.png" width="35%"></p>
-
-VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델보다 데이터가 적은 multi diseases 클래스에 대해서 더 높은 예측을 하고 있음도 동시에 확인 할 수 있음.
-
-전반적으로 각 클래스의 데이터 수가 작은 순서대로(multi diseases, scab, healthy, rust) 순서대로 잘못 판단하고 있으며 다음 아래와 같이 모델들을 학습한 결과를 그래프를 통해서 확인하여 Train, Validation 데이터의 Accuracy, loss를 비교하고자 같은 플롯에 두고 확인하였음.
+##### Model Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
 <table border="1">
-	<a>각 모델의 결과는 다음과 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습 Test 결과).</a>
+	<a>각 모델의 결과는 다음과 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).</a>
 	<th>Model</th>
 	<th>Vlidation Max Accuracy</th>
 	<th>Validation Min Loss</th>
@@ -161,7 +140,7 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
     
 일단 전반적인 히스토리를 보면 기존 논문에서 제시하는 모델의 성능만큼 효율적인 학습 결과를 얻을 수 없었음. 그래서 논문에서 제시하는 모델들이 모든 데이터에 맞는 것이 아니라는 것을 알았음.
 
-그래서 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각했으며 EfficientNet의 Resolution, Width, Depth의 3가지면에서 다양함을 시도할 수 있다고 생각하여 모델을 결정하게 되었음.
+그래서 결과적으로 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각했으며 EfficientNet의 Resolution, Width, Depth의 3가지면에서 다양함을 시도할 수 있다고 생각하여 모델을 결정하게 되었음.
 
 
 ### 2. 데이터에 적합한 레이어층 찾기

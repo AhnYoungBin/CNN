@@ -58,7 +58,7 @@
     - 1. 데이터에 적합한 모델 찾기(VggNet, ResNet, DenseNet, EfficientNet).
     - 2. 데이터에 적합한 레이어층 찾기 (Model(v1, v2 etc..)
     - 3. 기존 데이터 분류와 데이터 보완 및 과적합 방지를 위한 교차 검증 적용(K-Fold)의 비교
-    - 4. Filter 가중치 부여 Attention의 기법 적용(Default, Squeeze and Excitation, Convolutional Block Attention Module)
+    - 4. Filter 가중치 부여 Attention의 기법 적용(Default(None), Squeeze and Excitation, Convolutional Block Attention Module)
     - 5. Optimizers 선정(SGD, RMSProp, Adam)
     - 6. 하이퍼파라미터 최적화(Batch Size, Image Size etc..)
 
@@ -275,5 +275,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 검증 데이터를 학습 데이터에 추가하여 사용함으로써 Validation Accuracy, Loss의 고유의 목적을 잃어버림.
     
 결과 : 기존 학습에 제공하는 전체 데이터 수가 적어서 학습에 미비하다고 생각이 되며 결과적으로 원하는 성능(정확도 향상과 과적합 방지)에 대한 부분의을 얻지 못해서 일반적인 학습법에 비해 시간 소요가 크다라는 단점을 가지고 있어 기존 데이터 방식을 유지해서 진행하고자 함.  
+
+### 4. Filter 가중치 부여 Attention의 기법 적용
 
 

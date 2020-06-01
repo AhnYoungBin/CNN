@@ -73,11 +73,11 @@
 하이어파라미터 초기화
 
       - image size(height, width, channel) : 342, 512, 3
-      - epoch : 150
+      - epoch : 100, 150
       - batch size(train, validation, test) : 8, 8, 1
       - step(train, validation, test) : 80, 20, 1
       - label : one-hot encoding    -   using Categorical entropy
-      - optimizer : Adam(learning rate : 0.01)  -   validation loss에 맞게 laerning rate 조정하였음.
+      - optimizer : Adam(learning rate : 0.001)  -   validation loss에 맞게 laerning rate 조정하였음.
       - Augment
         Train data : Resize, RandomCrop, Resize, Flip, ShiftScaleRotate, HorizontalFlip
         Validation data : Resize
@@ -154,7 +154,7 @@ EfficientNet paper에서 제공하는 b0 ~ b7의 순서대로 학습  비교하�
       - epoch : 100
       - step(train, validation, test) : 80, 20, 1
       - label : one-hot encoding    -   using Categorical entropy
-      - optimizer : Adam(learning rate : 0.01)  -   validation loss에 맞게 laerning rate 조정하였음.
+      - optimizer : Adam(learning rate : 0.001)  -   validation loss에 맞게 laerning rate 조정하였음.
       - Augment
         Train data : Resize, RandomCrop, Resize, Flip, ShiftScaleRotate, HorizontalFlip
         Validation data : Resize
@@ -228,7 +228,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
       - epoch : 100
       - step(train, validation, test) : 80, 20, 1
       - label : one-hot encoding    -   using Categorical entropy
-      - optimizer : Adam(learning rate : 0.01)  -   validation loss에 맞게 laerning rate 조정하였음.
+      - optimizer : Adam(learning rate : 0.001)  -   validation loss에 맞게 laerning rate 조정하였음.
       - Augment
         Train data : Resize, RandomCrop, Resize, Flip, ShiftScaleRotate, HorizontalFlip
         Validation data : Resize
@@ -271,5 +271,9 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 	    <td>0.9392</td>
 	</tr>    
     </table>
+
+Validation 
+    
+기존 학습에 제공하는 전체 데이터 수가 적어서 학습에 미비하다고 생각이 되며 결과적으로 원하는 성능(정확도 향상과 과적합 방지)에 대한 부분의을 얻지 못해서 일반적인 학습법에 비해 시간 소요가 크다라는 단점을 가지고 있어 기존 데이터 방식을 유지해서 진행하고자 함.  
 
 

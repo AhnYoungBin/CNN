@@ -151,6 +151,29 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
+- Validation Data Max Accuracy, Min Loss
+
+<table border="1">
+	<th>Max Accuracy</th>
+	<th>Min Loss</th>
+	<tr>
+	    <td>0.9750</td>
+	    <td>0.1019</td>
+	</tr>
+	<tr>
+	    <td>0.7562</td>
+	    <td>0.5031</td>
+	</tr>    
+    <tr>
+	    <td> X </td>
+	    <td> X </td>
+	</tr>
+    <tr>
+	    <td>0.94393</td>
+	    <td>0.1600</td>
+	</tr>
+    </table>
+
 일단 전반적인 히스토리를 보면 기존 논문에서 제시하는 모델의 성능만큼 효율적인 학습 결과를 얻을 수 없었음. 그래서 논문에서 제시하는 모델들이 모든 데이터에 맞는 것이 아니라는 것을 알았음.
 
 그래서 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각했으며 EfficientNet의 Resolution, Width, Depth의 3가지면에서 다양함을 시도할 수 있다고 생각하여 모델을 결정하게 되었음.

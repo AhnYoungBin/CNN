@@ -160,20 +160,56 @@ EfficientNet paper에서 제공하는 b0 ~ b7의 순서대로 학습  비교하�
         Validation data : Resize
         Test data : Resize
         
-colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값을 주었으며 나머지는 위에서 제시하는 조건을 동일하게 설정하여 학습하였음.         
+colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값을 주었으며 나머지는 위에서 제시하는 조건을 동일하게 설정하여 학습하였음.
 
-##### efficientnet_b0, b1, b2, b3
+#### EfficientNet b0 ~ b7 그래프.
+
+##### efficientnet b0 ~ b3
     batch size(train, validation, test) - b0 : (30, 30, 1), b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83259303-c35c8700-a1f2-11ea-9194-01080e099d3a.png" width="100%"></p>
 
-각 레이어층 별로 학습 history를 확인한 결과 검증 데이터 Maximum Accuracy, Minimum Loss 아래와 같이 확인 할 수 있음.
-
-    b0 : 0.9616, 0.1048    b1 : 0.9625, 0.1044,    b2 : 0.9550, 0.1225,    b3 : 0.9718, 0.0868
-    
-각 100epoch 학습 후 kaggle의 제출 결과 다음 Accuracy 아래와 같이 나왔음.
-
-    b0 : 95.651,    b1 : 91.0,    b2 : 94.9,    b3 : 94.2 Accuracy
+<table border="1">
+	<a>&nbsp;각 레이어의 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
+	<th>Layer</th>
+	<th>Vlidation Max Accuracy</th>
+	<th>Validation Min Loss</th>
+	<th>Test Accuracy</th>
+	<th>Test Loss</th>
+	<th>Kaggle Accuracy(100 epoch)</th>
+	<tr>
+	    <td> b0 </td>
+	    <td>0.9616</td>
+	    <td>0.1048</td>
+   	    <td>0.9752</td>
+  	    <td>0.0688</td>
+	    <td>0.95651</td>
+	</tr>
+	<tr>
+            <td> b1 </td>
+	    <td>0.9625</td>
+	    <td>0.1044</td>
+   	    <td>0.9621</td>
+  	    <td>0.1010</td>
+	    <td>0.9100</td>
+	</tr>    
+    <tr>
+	    <td> b2 </td>
+	    <td>0.9550</td>
+	    <td>0.1225</td>
+	    <td>0.9654</td>
+  	    <td>0.1038</td>
+	    <td>0.9490</td>
+	</tr>
+    <tr>
+	    <td> b3 </td>
+	    <td>0.9718</td>
+	    <td>0.0868</td>
+	    <td>0.9670</td>
+  	    <td>0.0853</td>
+	    <td>0.9420</td>
+	</tr>
+    </table>
 
 ##### efficientnet_b4 ~ b7
 

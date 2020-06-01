@@ -98,7 +98,7 @@ Train + Validation data를 이용하여 임시 테스트 함.
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
 <table border="1">
-	<a>&nbsp;각 모델의 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
+	<a>&nbsp;각 모델의 결과 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
 	<th>Model</th>
 	<th>Vlidation Max Accuracy</th>
 	<th>Validation Min Loss</th>
@@ -220,7 +220,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 그래서 결과적으로 기존 환경을 고려하여 배치 사이즈와 이미지 사이즈에서 폭 넓게 조정할 수 있고 결과적으로 제일 높게 나온 b0 레이어층을 선택하기로 함.
 
 ### 3. 기존 데이터 분류와 데이터 보완 및 과적합 방지를 위한 교차 검증 적용(K-Fold)의 비교
-꼭 정해진 기준은 아니지만 일반적으로 많이 알려져 있는 학습 데이터를 학습, 검증 데이터로 분리하는 적절한 비율로 8 : 2를 나눴으며 기존 데이터 분류에 해당함. 그리고 정확도 향상과 데이터 과적합 방지를 위하여 데이터 수를 보완하고자 많이 사용되고 있는 교차 검증의 KFold 방식을 테스트 하고자 함.
+꼭 정해진 기준은 아니지만 일반적으로 많이 알려져 있는 학습 데이터를 학습, 검증 데이터로 분류하는 적절한 비율로 8 : 2를 나눴으며 기존 데이터 분류에 해당함. 그리고 정확도 향상과 데이터 과적합 방지를 위하여 데이터 수를 보완하고자 많이 사용되고 있는 교차 검증의 KFold 방식을 테스트 하고자 함.
 
 ##### Model Confusion Matrix
 
@@ -230,6 +230,30 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83424534-7d5c2900-a467-11ea-9832-88d495c6443a.png" width="60%"></p>
 
-
+<table border="1">
+	<a>&nbsp;데이터 분류 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
+	<th>Data Classification</th>
+	<th>Vlidation Max Accuracy</th>
+	<th>Validation Min Loss</th>
+	<th>Test Accuracy</th>
+	<th>Test Loss</th>
+	<th>Kaggle Accuracy(100 epoch)</th>
+	<tr>
+	    <td> Basic </td>
+	    <td>0.9616</td>
+	    <td>0.1048</td>
+   	    <td>0.9752</td>
+  	    <td>0.0688</td>
+	    <td>0.9565</td>
+	</tr>
+	<tr>
+            <td> Cross Validation </td>
+	    <td>1.0000</td>
+	    <td>0.0231</td>
+   	    <td>0.9604</td>
+  	    <td>0.1109</td>
+	    <td>0.9392</td>
+	</tr>    
+    </table>
 
 

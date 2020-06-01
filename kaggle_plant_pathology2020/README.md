@@ -113,7 +113,7 @@ Confusion Matrix
 
 VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델보다 데이터가 적은 multi diseases 클래스에 대해서 더 높은 예측을 하고 있음도 동시에 확인 할 수 있음.
 
-전반적으로 multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있으며 다음 아래와 같이 모델들을 학습한 결과를 그래프를 통해서 확인하여 Train, Validation 데이터의 Accuracy, loss를 비교하고자 같은 플롯에 두고 확인하였음.
+전반적으로 각 클래스의 데이터 수가 작은 순서대로(multi diseases, scab, healthy, rust) 순서대로 잘못 판단하고 있으며 다음 아래와 같이 모델들을 학습한 결과를 그래프를 통해서 확인하여 Train, Validation 데이터의 Accuracy, loss를 비교하고자 같은 플롯에 두고 확인하였음.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
@@ -150,7 +150,7 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 	    <td> X </td>
 	</tr>
     <tr>
-	    <td>EfficientNet(b0)</td>
+	    <td>EfficientNet(Layer b0)</td>
 	    <td>0.9750</td>
 	    <td>0.1019</td>
 	    <td>0.94393</td>

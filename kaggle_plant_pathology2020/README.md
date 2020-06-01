@@ -88,7 +88,7 @@
 ##### Model Confusion Matrix
 -Train + Validation data를 이용하여 임시 테스트 함.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83384955-43693380-a423-11ea-88b5-dd9cc0df0086.png" width="35%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83384955-43693380-a423-11ea-88b5-dd9cc0df0086.png" width="60%"></p>
 
 각 모델마다 전체적으로 데이터 수가 적은 multiple_diseases 클래스의 예측률이 현저히 떨어지는 것을 확인할 수 있었음. 그 외 클래스들은 예측률에 있어서 큰 차이가 없었음.
 
@@ -97,7 +97,7 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
 <table border="1">
-	<a>각 모델의 결과는 다음과 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).</a>
+	<a>&nbsp;각 모델의 결과는 다음과 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
 	<th>Model</th>
 	<th>Vlidation Max Accuracy</th>
 	<th>Validation Min Loss</th>

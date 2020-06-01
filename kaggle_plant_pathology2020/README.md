@@ -281,3 +281,53 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 ##### Confusion Matrix
 
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
+
+<table border="1">
+	<a>&nbsp;각 레이어의 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
+	<th>Attention</th>
+	<th>Train Max Accuracy</th>
+	<th>Train Min Loss</th>
+	<th>Vlidation Max Accuracy</th>
+	<th>Validation Min Loss</th>
+	<th>Test Accuracy</th>
+	<th>Test Loss</th>
+	<th>Kaggle Accuracy(100 epoch)</th>
+	<tr>
+	    <td>Default(None)</td>
+	    <td>0.0.9779</td>
+	    <td>0.0649</td>
+	    <td>0.9616</td>
+	    <td>0.1048</td>
+   	    <td>0.9752</td>
+  	    <td>0.0688</td>
+	    <td>0.9565</td>
+	</tr>
+	<tr>
+            <td>Squeeze-and-Excitation Block</td>
+	    <td>0.9962</td>
+	    <td>0.0177</td>
+	    <td>0.9850</td>
+	    <td>0.0520</td>
+   	    <td>0.9906</td>
+  	    <td>0.0288</td>
+	    <td>0.9539</td>
+	</tr>    
+    <tr>
+	    <td>Convolutional Block Attention Module</td>
+	    <td>0.9962</td>
+	    <td>0.0177</td>
+	    <td>0.9750</td>
+	    <td>0.0653</td>
+	    <td>0.9895</td>
+  	    <td>0.0296</td>
+	    <td>0.9628</td>
+	</tr>
+    <tr>
+	    <td> b3 </td>
+	    <td>0.9718</td>
+	    <td>0.0868</td>
+	    <td>0.9670</td>
+  	    <td>0.0853</td>
+	    <td>0.9420</td>
+	</tr>
+    </table>

@@ -87,7 +87,7 @@
 위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
 ##### Model Confusion Matrix
--Train + Validation data를 이용하여 임시 테스트 함.
+Train + Validation data를 이용하여 임시 테스트 함.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83384955-43693380-a423-11ea-88b5-dd9cc0df0086.png" width="60%"></p>
 

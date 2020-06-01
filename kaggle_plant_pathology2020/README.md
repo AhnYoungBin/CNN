@@ -86,14 +86,14 @@
         
 위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
-##### Model Confusion Matrix
+##### Confusion Matrix
 Train + Validation data를 이용하여 임시 테스트 함.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83384955-43693380-a423-11ea-88b5-dd9cc0df0086.png" width="60%"></p>
 
 각 모델마다 전체적으로 데이터 수가 적은 multiple_diseases 클래스의 예측률이 현저히 떨어지는 것을 확인할 수 있었음. 그 외 클래스들은 예측률에 있어서 큰 차이가 없었음.
 
-##### Model Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
+##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
@@ -237,11 +237,11 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 	
 	batch size(train, validation, test) - Baisc Data : (30, 30, 1), Cross Validation Data : (30, 5, 1)
 	
-##### Model Confusion Matrix
+##### Confusion Matrix
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83427175-48ea6c00-a46b-11ea-8698-db4cfa2fd1e7.png" width="60%"></p>
 
-##### Model Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
+##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83424534-7d5c2900-a467-11ea-9832-88d495c6443a.png" width="60%"></p>
 
@@ -278,4 +278,6 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 ### 4. Filter 가중치 부여 Attention의 기법 적용
 
+##### Confusion Matrix
 
+##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.

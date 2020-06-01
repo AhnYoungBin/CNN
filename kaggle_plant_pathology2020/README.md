@@ -25,7 +25,7 @@
     데이터 포맷 : jpg, jpeg
     총 3642장, Train : 1821장 Test : 1821장(Test data label 없음).
     해상도 : 2048 * 1365 * 3
-    class : healthy(건강), multiple_diseases(복합 질병),rust(녹병), scab(붉은곰팡이병)
+    class : healthy(건강), multiple_diseases(복합 질병), rust(녹병), scab(붉은곰팡이병)
     
     
 - Train data graph

@@ -239,11 +239,11 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 	
 ##### Confusion Matrix
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83427175-48ea6c00-a46b-11ea-8698-db4cfa2fd1e7.png" width="60%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83427175-48ea6c00-a46b-11ea-8698-db4cfa2fd1e7.png" width="50%"></p>
 
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83424534-7d5c2900-a467-11ea-9832-88d495c6443a.png" width="60%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83424534-7d5c2900-a467-11ea-9832-88d495c6443a.png" width="100%"></p>
 
 <table border="1">
 	<a>&nbsp;데이터 분류 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
@@ -280,7 +280,12 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 ##### Confusion Matrix
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83465169-0302c780-a4ae-11ea-8782-00c69d603153.png" width="60%"></p>
+
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83465191-19108800-a4ae-11ea-9c23-7bbbe43e8775.png.png" width="60%"></p>
+
 
 <table border="1">
 	<a>&nbsp;각 레이어의 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>

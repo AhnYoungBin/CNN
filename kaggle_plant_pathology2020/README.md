@@ -93,8 +93,6 @@ Confusion Matrix
 
 데이터의 수가 너무 적은 multi diseases을 판단하기 어려울 것이라고 예상함. 그리고 multi diseases, scab, rust 이 3가지에 대해서 예측을 제대로 못하고 있음도 확인할 수 있음.
 
-100, 150 epoch 학습 후 kaggle 제출 결과 93.6, 93.7 Accuracy 얻을 수 있었음.
-
 ##### - ResNet
  
 Confusion Matrix
@@ -102,8 +100,6 @@ Confusion Matrix
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82089570-d0777180-972e-11ea-901d-45d71243c07e.png" width="35%"></p>
 
 여기서도 마찬가지로 multi diseases 클래스에 대한 부분을 예측을 제대로 못하고 있으며 healthy클래스도 주로 scab으로 많은 양의 데이터를 분류하고 있음을 확인이 가능함. 모델이 전반적으로 예측 정확도가 낮음.
-
-150epoch 학습 후kaggle 제출 결과 56.3 Accuracy 얻을 수 있었음.
 
 ##### - DenseNet
 

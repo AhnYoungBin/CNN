@@ -222,6 +222,14 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 ### 3. 기존 데이터 분류와 데이터 보완 및 과적합 방지를 위한 교차 검증 적용(K-Fold)의 비교
 꼭 정해진 기준은 아니지만 일반적으로 많이 알려져 있는 학습 데이터를 학습, 검증 데이터로 분리하는 적절한 비율로 8 : 2를 나눴으며 기존 데이터 분류에 해당함. 그리고 정확도 향상과 데이터 과적합 방지를 위하여 데이터 수를 보완하고자 많이 사용되고 있는 교차 검증의 KFold 방식을 테스트 하고자 함.
 
+##### Model Confusion Matrix
+
+
+
+##### Model Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83424534-7d5c2900-a467-11ea-9832-88d495c6443a.png" width="60%"></p>
+
 
 
 

@@ -280,7 +280,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 ##### Confusion Matrix
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83465169-0302c780-a4ae-11ea-8782-00c69d603153.png" width="80%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83465169-0302c780-a4ae-11ea-8782-00c69d603153.png" width="90%"></p>
 
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
@@ -326,13 +326,5 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 	    <td>0.9895</td>
   	    <td>0.0296</td>
 	    <td>0.9628</td>
-	</tr>
-    <tr>
-	    <td> b3 </td>
-	    <td>0.9718</td>
-	    <td>0.0868</td>
-	    <td>0.9670</td>
-  	    <td>0.0853</td>
-	    <td>0.9420</td>
 	</tr>
     </table>

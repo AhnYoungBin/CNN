@@ -82,6 +82,7 @@
         Train data : Resize, RandomCrop, Resize, Flip, ShiftScaleRotate, HorizontalFlip
         Validation data : Resize
         Test data : Resize
+      - Dropout : x
         
 위에서 제시하는 조건을 동일하게 하여 각 아래 모델들을 학습하였음.
 
@@ -97,7 +98,7 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
 
 <table border="1">
-	<a>&nbsp;각 모델의 결과는 다음과 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
+	<a>&nbsp;각 모델의 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
 	<th>Model</th>
 	<th>Vlidation Max Accuracy</th>
 	<th>Validation Min Loss</th>

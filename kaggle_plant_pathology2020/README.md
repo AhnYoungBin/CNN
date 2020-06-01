@@ -62,7 +62,7 @@
     - 5. Optimizers 선정(SGD, RMSProp, Adam)
     - 6. 하이퍼파라미터 최적화(Batch Size, Image Size etc..)
 
-### 1. 데이터에 적절한 모델 
+### 1. 데이터에 적합한 모델 
 ###### ./select_model 실행 코드 확인 가능
 대표적으로 Convolution Neural Network에서 사용하는 모델을 선택하여 실험하였으며 모델을 제외한 나머지 조건들을 동일하게 설정하여 비교하고자 하였음.
 

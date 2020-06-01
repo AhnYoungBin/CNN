@@ -224,6 +224,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 ##### Model Confusion Matrix
 
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83427175-48ea6c00-a46b-11ea-8698-db4cfa2fd1e7.png" width="60%"></p>
 
 
 ##### Model Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.

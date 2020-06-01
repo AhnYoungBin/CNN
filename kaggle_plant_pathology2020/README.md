@@ -87,16 +87,6 @@
 
 ##### - VggNet     
 
-History 
-
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82756782-3b076c00-9e17-11ea-9e7c-204770646c51.png" width="50%"></p>
-
-검증 데이터 기준으로 Maximum Accuracy, Minimum Loss 0.9750, 0.1019 나온 것을 확인할 수 있었음.
-
-Test Evaluation
-
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.9750, loss : 0.1130 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
-
 Confusion Matrix 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82085133-7b842d00-9727-11ea-9f40-c18a3fddccaf.png" width="35%"></p>
@@ -107,16 +97,6 @@ Confusion Matrix
 
 ##### - ResNet
  
-History
-
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82756813-730eaf00-9e17-11ea-80fc-0e99b734b0d5.png" width="50%"></p>
-
-검증 데이터 기준으로 Maximum Accuracy, Minimum Loss 0.7562, 0.5031 나온 것을 확인할 수 있었음.
- 
-Test Evaluation
-
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.67326, loss : 0.61089 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
-
 Confusion Matrix
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82089570-d0777180-972e-11ea-901d-45d71243c07e.png" width="35%"></p>
@@ -131,21 +111,11 @@ Confusion Matrix
 
 ##### - EfficientNet
 
-History
-
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82756839-99344f00-9e17-11ea-8481-51291a264920.png" width="50%"></p>
-
-검증 데이터 기준으로 Maximum Accuracy, Minimum Loss 0.9750, 0.1019 나온 것을 확인할 수 있었음.
-
-Test Evaluation
-
-Train, Validation data 전체를 이용하여 학습 Test 결과 accuracy : 0.94393, loss : 0.1600 확인함과 동시에 학습 결과 클래스 분류에 대해서 확인하였음.
+Confusion Matrix
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/82090450-93ac7a00-9730-11ea-9958-392bf93c8b76.png" width="35%"></p>
 
 VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델보다 데이터가 적은 multi diseases 클래스에 대해서 더 높은 예측을 하고 있음도 동시에 확인 할 수 있음.
-
-100, 150 epoch 학습 후 kaggle 제출 결과 94.8, 94.6 Accuracy 얻을 수 있었음.
 
 전반적으로 multi diseases, scab, healthy, rust 순서대로 잘못 판단하고 있으며 다음 아래와 같이 모델들을 학습한 결과를 그래프를 통해서 확인하여 Train, Validation 데이터의 Accuracy, loss를 비교하고자 같은 플롯에 두고 확인하였음.
 
@@ -192,6 +162,7 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 	    <td>0.9480, 0.9460</td>
 	</tr>
     </table>
+    
 일단 전반적인 히스토리를 보면 기존 논문에서 제시하는 모델의 성능만큼 효율적인 학습 결과를 얻을 수 없었음. 그래서 논문에서 제시하는 모델들이 모든 데이터에 맞는 것이 아니라는 것을 알았음.
 
 그래서 VggNet, EfficientNet 두 모델이 데이터셋에 최적의 가중치에 빠르고 정확하게 수렴하여서 데이터에 맞는 모델 후보로 생각했으며 EfficientNet의 Resolution, Width, Depth의 3가지면에서 다양함을 시도할 수 있다고 생각하여 모델을 결정하게 되었음.

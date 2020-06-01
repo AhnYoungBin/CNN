@@ -154,7 +154,7 @@ VggNet모델과 비슷한 성능을 가지고 있음. 그렇지만 VggNet모델�
 - Validation Data Max Accuracy, Min Loss
 
 <table border="1">
-	<title>Validation Data Max Accuracy, Min Loss</title>
+	<h1>Validation Data Max Accuracy, Min Loss</h1>
 	<th>Model</th>
 	<th>Max Accuracy</th>
 	<th>Min Loss</th>

@@ -292,6 +292,8 @@ KFold : K개의 fold를 만들어서 진행하는 교차검증 방식 중 하나
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83465169-0302c780-a4ae-11ea-8782-00c69d603153.png" width="90%"></p>
 
+Attention 사용 유무에 따라 확연한 차이가 있었음. 특히, multi diseases클래스에 대한 부분의 예측율이 이전보다 확실하게 올라간 것을 확인할 수 있었음.  
+
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/45933225/83476937-eb870700-a4cc-11ea-9d9e-0d7f6a0e0c7b.png" width="100%"></p>
@@ -337,3 +339,9 @@ KFold : K개의 fold를 만들어서 진행하는 교차검증 방식 중 하나
 	    <td>0.9628</td>
 	</tr>
     </table>
+
+Train, Validation Accuracy 높은 값을 받을 수 있었으며 Test 결과도 이전보다 확연한 높은 성능을 받을 수 있었음.
+단, kaggle 제출 결과가 임시 테스트 결과를 따라가기에는 부족하다는 것을 볼 수 있음.
+
+결과 : Attention 사용유무에 따라 학습 데이터 내에서 확연한 차이가 있었으며, 제출 결과 Convolutional Block Attention Module에서 이전보다 높은 정확도를 받음으로써 Attention기법을 사용하고자 함.
+

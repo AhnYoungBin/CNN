@@ -284,8 +284,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83465191-19108800-a4ae-11ea-9c23-7bbbe43e8775.png" width="100%"></p>
-
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83476937-eb870700-a4cc-11ea-9d9e-0d7f6a0e0c7b.png" width="100%"></p>
 
 <table border="1">
 	<a>&nbsp;각 레이어의 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>

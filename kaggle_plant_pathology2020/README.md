@@ -311,7 +311,7 @@ Attention 사용 유무에 따라 확연한 차이가 있었음. 특히, multi d
 	<th>Kaggle Accuracy(100 epoch)</th>
 	<tr>
 	    <td>Default(None)</td>
-	    <td>0.0.9779</td>
+	    <td>0.9779</td>
 	    <td>0.0649</td>
 	    <td>0.9616</td>
 	    <td>0.1048</td>

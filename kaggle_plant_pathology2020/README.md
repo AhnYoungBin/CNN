@@ -95,7 +95,7 @@ Train + Validation data를 이용하여 임시 테스트 함.
 
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/82093860-e38e3f80-9736-11ea-99a8-41147d15090b.png" width="60%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83476644-2e94aa80-a4cc-11ea-9a51-430e88715053.png" width="60%"></p>
 
 <table border="1">
 	<a>&nbsp;각 모델의 결과 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
@@ -167,7 +167,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 ##### efficientnet b0 ~ b3
     batch size(train, validation, test) - b0 : (30, 30, 1), b1 : (24, 24, 1), b2 : (20, 20, 1), b3 : (16, 16, 1)
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83259303-c35c8700-a1f2-11ea-9194-01080e099d3a.png" width="100%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83476503-e6758800-a4cb-11ea-9e0d-73a932a8389e.png" width="100%"></p>
 
 <table border="1">
 	<a>&nbsp;각 레이어의 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
@@ -243,7 +243,7 @@ colab환경에 만족하여 batch size는 각 레이어층에 맞게 최대값�
 
 ##### Train, Validation 데이터의 각 Accuracy, loss를 비교한 그래프.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83424534-7d5c2900-a467-11ea-9832-88d495c6443a.png" width="60%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/45933225/83476740-74517300-a4cc-11ea-8cac-16be83df2cc9.png" width="60%"></p>
 
 <table border="1">
 	<a>&nbsp;데이터 분류 결과는 다음 아래와 같이 확인할 수 있음(Train, Validation data 전체데이터를 이용하여 학습한 임시 Test 결과).&nbsp;</a>
